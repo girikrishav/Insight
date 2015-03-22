@@ -91,6 +91,7 @@ ActiveAdmin.register AssociateHistory, as: "Associate History" do
       end
     end
     column :active
+    column :comments
     column '', :id do |t|
       link_to t('actions.view'), admin_associate_history_path(id: t.id, associate_id: params[:associate_id])
     end

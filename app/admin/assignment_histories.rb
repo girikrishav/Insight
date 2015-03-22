@@ -88,6 +88,7 @@ ActiveAdmin.register AssignmentHistory, as: "Assignment History" do
         number_with_precision element.hours_per_day, precision: 2, delimiter: ','
       end
     end
+    column :comments
     column '', :id do |t|
       link_to t('actions.view'), admin_assignment_history_path(id: t.id, assignment_id: params[:assignment_id])
     end
