@@ -30,6 +30,7 @@ en:
     project_dates_violation: "Start and End dates must be within project start '%{project_start_date}' and end '%{project_end_date}' dates."
     allocated_hours_violation: "'%{allocation_details}' exceeds 24 hours on '%{allocation_date}'."
     clocked_hours_violation: "'%{timesheet_details}' exceeds 24 hours on '%{clocking_date}'."
+    timesheet_assignment_violation: "Timesheet date cannot be outside of assignment dates."
   active_admin:
     application_title: "Insight"
     dashboard: "Home"

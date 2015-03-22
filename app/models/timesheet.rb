@@ -41,6 +41,12 @@ class Timesheet < ActiveRecord::Base
     self.assignment.name_for_timesheet_entry(self.id)
   end
 
+  def timesheet_assignment_check
+    if self.as_on < self.assignment.start_date or self.as_on > self.assignment.end_date
+      errors.add(:as_on, I18n.t('errors.timesheet_assignment_violation'))
+    end
+  end
+
   validates :assignment, presence: :true
   validates :as_on, presence: :true
   validates :hours, presence: :true
@@ -50,6 +56,7 @@ class Timesheet < ActiveRecord::Base
 
   validate :hours_check
   validate :clocked_hours_check
+  validate :timesheet_assignment_check
 
   after_create :sync_timesheet_allocation
   after_update :sync_timesheet_allocation
