@@ -1,0 +1,74 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  formtastic:
+    actions:
+      create: "Create"
+      update: "Update"
+  messages:
+    confirmation: "Are you sure?"
+    unauthorized: "Unauthorized page access to '%{url}'."
+    reciprocals_done: "Reciprocal exchange rates added successfully."
+    users_activated: "Selected users have been activated."
+    users_deactivated: "Selected users have been deactivated."
+    user_not_active: "User '%{email}' is not active."
+    no_changes: "No changes effected."
+    pipelines_converted: "'%{success_count}' of '%{selected_count}' selected Pipelines converted into new Projects."
+  errors:
+    hours_check: "Hours per day must be greater than 0 and less than 24."
+    number_required_check: "Number required should be greater than 0."
+    from_to_currency_same: "From and To currencies cannot be the same."
+    doj_dol_error: "'Date of joining' cannot be beyond 'Date of leaving'."
+    manager_error: "Associate cannot be one\'s own manager."
+    one_user_violation: "User already assigned to associate with name '%{name}' and id_no '%{id_no}'."
+    start_after_end_date: "'Start date' cannot be after 'End date'."
+    end_before_start_date: "'End date' cannot be before 'Start date'."
+    pipeline_project_bu_check: "Cannot change business unit of pipeline when projects exist for it."
+    project_pipeline_bu_check: "Business units of Project '%{project_bu}' and Pipeline '%{pipeline_bu}' should match."
+    pipeline_already_assigned: "Pipeline '%{pipeline_id}' already assigned to Project '%{project_id}', hence cannot be converted into a new Project."
+    project_dates_violation: "Start and End dates must be within project start '%{project_start_date}' and end '%{project_end_date}' dates."
+    allocated_hours_violation: "'%{allocation_details}' exceeds 24 hours on '%{allocation_date}'."
+    clocked_hours_violation: "'%{timesheet_details}' exceeds 24 hours on '%{clocking_date}'."
+  active_admin:
+    application_title: "Insight"
+    dashboard: "Home"
+    batch_actions:
+      labels:
+        convert_to_project: "Convert into Project"
+  menus:
+    timesheets: "Timesheets"
+  button_labels:
+    new_user: "New User"
+    cancel: "Cancel"
+    new_client: "New Client"
+    convert: "Convert"
+  actions:
+    view: "View"
+  labels:
+    pipeline_histories: "View pipeline history."
+    project_histories: "View project history."
+    staffing_requirements: "Manage staffing requirements."
+    project: "Project"
+    staffing_requirement_index_page: "Staffing Requirements [Project Id = %{project_title}]"
+    hover_for_details: " [...Details...]"
+    staff: "Staff"
+    hours_per_day: "Hours/Day"
+    assignment_index_page: "Assignments [Project Id = %{project_title}]"
+    assignments: "Manage assignments."
+    associate_histories: "View associate history."
+    associate_service_rates: "Manage associate service rates."
+    associate_service_rate_index_page: "Associate Service Rates [Associate Id = %{associate_title}]"
+    billing_rate: "Billing Rate"
+    cost_rate: "Cost Rate"
+    assignment_allocations: "View assignment allocations."
+    assignment_allocation_index_page: "Assignment Allocations [Associate Id = %{associate_title}]"
+    assignment_histories: "View assignment history."
+    hours: "Hours"
+    timesheet_clocking_index_page: "Timesheet Clockings [Associate Id = %{associate_title}]"
+    timesheet_clockings: "View timesheet clockings."
+    timesheet_histories: "View timesheet history."
+    timesheet_history_index_page: "Timesheet Histories [Timesheet Id = %{timesheet_title}]"
+
+
+
