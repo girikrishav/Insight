@@ -31,7 +31,10 @@ ActiveAdmin.register AssignmentHistory, as: "Assignment History" do
       end_of_association_chain.includes(:payment_due_alert)
       end_of_association_chain.includes(:project)
       end_of_association_chain.includes(:skill)
-      AssignmentHistory.where('assignment_id = ?', params[:assignment_id])
+      if !params[:assignment_id].nil?
+        session[:assignment_id] = params[:assignment_id]
+      end
+      AssignmentHistory.where('assignment_id = ?', session[:assignment_id])
     end
   end
 
