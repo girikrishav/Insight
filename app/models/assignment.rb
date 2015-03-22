@@ -66,9 +66,15 @@ class Assignment < ActiveRecord::Base
   end
 
   def name_for_timesheet_entry(timesheet_id)
-    timesheet_id.to_s + ', ' + self.associate.name + ' [' + self.start_date.to_s + ', '\
+    if !timesheet_id.nil?
+      timesheet_id.to_s + ', ' + self.associate.name + ' [' + self.start_date.to_s + ', '\
         + self.end_date.to_s + '], ' + self.project.project_name + ' [' + self.project.client.name\
         + '], ' + self.skill.name + ' [' + self.designation.name + ']'
+    else
+      self.associate.name + ' [' + self.start_date.to_s + ', '\
+        + self.end_date.to_s + '], ' + self.project.project_name + ' [' + self.project.client.name\
+        + '], ' + self.skill.name + ' [' + self.designation.name + ']'
+    end
   end
 
   def name_for_assignment

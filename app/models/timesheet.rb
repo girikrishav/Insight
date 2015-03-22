@@ -24,7 +24,7 @@ class Timesheet < ActiveRecord::Base
   def clocked_hours_check
     if (TimesheetClocking.timesheet_clocked_hours(self.assignment.associate.id, self.id, self.as_on)\
           + self.hours) > 24
-      timesheet_details = self.name
+      timesheet_details = self.name_for_timesheet
       errors.add(:hours, I18n.t('errors.clocked_hours_violation', timesheet_details: timesheet_details\
             , clocking_date: as_on))
     end
