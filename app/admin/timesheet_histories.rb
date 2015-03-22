@@ -23,7 +23,10 @@ ActiveAdmin.register TimesheetHistory, as: "Timesheet History" do
     def scoped_collection
       end_of_association_chain.includes(:associate)
       end_of_association_chain.includes(:timesheet)
-      TimesheetHistory.where('timesheet_id = ?', params[:timesheet_id])
+      if !params[:timesheet_id].nil?
+        session[:timesheet_id] = params[:timesheet_id]
+      end
+      TimesheetHistory.where('timesheet_id = ?', session[:timesheet_id])
     end
 
     def index
