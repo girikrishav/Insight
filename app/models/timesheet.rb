@@ -17,7 +17,7 @@ class Timesheet < ActiveRecord::Base
 
   def hours_check
     if self.hours <= 0 or self.hours > 24
-      errors.add(:hours, I18n.t('errors.hours_check'))
+      errors.add(:hours, I18n.t('errors.hours_violation'))
     end
   end
 

@@ -16,7 +16,7 @@ en:
     no_changes: "No changes effected."
     pipelines_converted: "'%{success_count}' of '%{selected_count}' selected Pipelines converted into new Projects."
   errors:
-    hours_check: "Hours per day must be greater than 0 and less than 24."
+    hours_violation: "Hours per day must be greater than 0 and less than 24."
     number_required_check: "Number required should be greater than 0."
     from_to_currency_same: "From and To currencies cannot be the same."
     doj_dol_error: "'Date of joining' cannot be beyond 'Date of leaving'."

@@ -8,7 +8,7 @@ class StaffingRequirement < ActiveRecord::Base
 
   def hours_check
     if self.hours_per_day <= 0 or self.hours_per_day > 24
-      errors.add(:hours_per_day, I18n.t('errors.hours_check'))
+      errors.add(:hours_per_day, I18n.t('errors.hours_violation'))
     end
   end
 

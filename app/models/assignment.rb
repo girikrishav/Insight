@@ -8,7 +8,7 @@ class Assignment < ActiveRecord::Base
 
   def hours_check
     if self.hours_per_day <= 0 or self.hours_per_day > 24
-      errors.add(:hours_per_day, I18n.t('errors.hours_check'))
+      errors.add(:hours_per_day, I18n.t('errors.hours_violation'))
     end
   end
 
@@ -30,6 +30,7 @@ class Assignment < ActiveRecord::Base
             + self.designation.name + ', Associate = ' + self.associate.name + ']'
         errors.add(:hours_per_day, I18n.t('errors.allocated_hours_violation', allocation_date: as_on\
             , allocation_details: allocation_details))
+        break
       end
     end
   end
