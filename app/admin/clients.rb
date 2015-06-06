@@ -65,7 +65,7 @@ ActiveAdmin.register Client, as: "Client" do
     column :email
     column :phone
     column :fax
-    actions
+    actions dropdown: :true
   end
 
   form do |f|

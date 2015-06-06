@@ -150,7 +150,7 @@ ActiveAdmin.register Pipeline, as: "Pipeline" do
     column 'Start', :expected_start
     column 'End', :expected_end
     column 'Type', :project_type
-    column 'In', :bu_currency, sortable: false
+    column 'Currency', :bu_currency, sortable: false
     column 'Value', :expected_value, :sortable => 'expected_value' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.expected_value, precision: 0, delimiter: ','

@@ -71,7 +71,7 @@ ActiveAdmin.register Overhead, as: "Overhead" do
         number_with_precision element.amount, :precision => 2, delimiter: ','
       end
     end
-    actions
+    actions  dropdown: :true
   end
 
   form do |f|
