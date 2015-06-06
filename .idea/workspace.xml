@@ -2,38 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="adf352fa-d643-4c4b-b9c0-def541ece40b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/Development__Insight.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Development__Insight.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Insight.iml" afterPath="$PROJECT_DIR$/.idea/Insight.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/Production__Insight.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Production__Insight.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/admin_user.rb" afterPath="$PROJECT_DIR$/app/admin/admin_user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/associate_service_rates.rb" afterPath="$PROJECT_DIR$/app/admin/associate_service_rates.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/associate_types.rb" afterPath="$PROJECT_DIR$/app/admin/associate_types.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/associates.rb" afterPath="$PROJECT_DIR$/app/admin/associates.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/business_units.rb" afterPath="$PROJECT_DIR$/app/admin/business_units.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/cost_adder_types.rb" afterPath="$PROJECT_DIR$/app/admin/cost_adder_types.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/currencies.rb" afterPath="$PROJECT_DIR$/app/admin/currencies.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/currency_rates.rb" afterPath="$PROJECT_DIR$/app/admin/currency_rates.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/departments.rb" afterPath="$PROJECT_DIR$/app/admin/departments.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/designations.rb" afterPath="$PROJECT_DIR$/app/admin/designations.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/flag_statuses.rb" afterPath="$PROJECT_DIR$/app/admin/flag_statuses.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/holidays.rb" afterPath="$PROJECT_DIR$/app/admin/holidays.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/invoice_adder_types.rb" afterPath="$PROJECT_DIR$/app/admin/invoice_adder_types.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/invoice_statuses.rb" afterPath="$PROJECT_DIR$/app/admin/invoice_statuses.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/payment_statuses.rb" afterPath="$PROJECT_DIR$/app/admin/payment_statuses.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/pipeline_statuses.rb" afterPath="$PROJECT_DIR$/app/admin/pipeline_statuses.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/pipelines.rb" afterPath="$PROJECT_DIR$/app/admin/pipelines.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/project_statuses.rb" afterPath="$PROJECT_DIR$/app/admin/project_statuses.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/project_types.rb" afterPath="$PROJECT_DIR$/app/admin/project_types.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/projects.rb" afterPath="$PROJECT_DIR$/app/admin/projects.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/roles.rb" afterPath="$PROJECT_DIR$/app/admin/roles.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/service_rates.rb" afterPath="$PROJECT_DIR$/app/admin/service_rates.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/skills.rb" afterPath="$PROJECT_DIR$/app/admin/skills.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/spec__Insight.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/spec__Insight.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/test__Insight.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/test__Insight.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/user_statuses.rb" afterPath="$PROJECT_DIR$/app/admin/user_statuses.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/vacation_reasons.rb" afterPath="$PROJECT_DIR$/app/admin/vacation_reasons.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/assignment_allocations.rb" afterPath="$PROJECT_DIR$/app/admin/assignment_allocations.rb" />
     </list>
     <ignored path="Insight.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -94,31 +63,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="associates.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/admin/associates.rb">
+      <file leaf-file-name="assignment_allocations.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/admin/assignment_allocations.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1650" max-vertical-offset="2460">
-              <caret line="125" column="27" selection-start-line="125" selection-start-column="27" selection-end-line="125" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="associate_service_rates.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/admin/associate_service_rates.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1215" max-vertical-offset="1950">
-              <caret line="102" column="27" selection-start-line="102" selection-start-column="27" selection-end-line="102" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="assignment_histories.rb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/admin/assignment_histories.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1775457" vertical-offset="1282" max-vertical-offset="1800">
-              <caret line="90" column="20" selection-start-line="90" selection-start-column="20" selection-end-line="90" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.2877698" vertical-offset="0" max-vertical-offset="1995">
+              <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -136,7 +85,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/config.ru" />
         <option value="$PROJECT_DIR$/config/application.rb" />
         <option value="$PROJECT_DIR$/public/assets/manifest-af7ba667f0eaae8d183b91e9bca245c2.json" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
@@ -187,6 +135,7 @@
         <option value="$PROJECT_DIR$/app/admin/service_rates.rb" />
         <option value="$PROJECT_DIR$/app/admin/associates.rb" />
         <option value="$PROJECT_DIR$/app/admin/associate_service_rates.rb" />
+        <option value="$PROJECT_DIR$/app/admin/assignment_allocations.rb" />
       </list>
     </option>
   </component>
@@ -518,20 +467,20 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33870968" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917318" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928804" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32844576" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3973607" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3990964" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917318" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34247714" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3973607" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32605305" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3990964" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32917318" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31513262" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -564,13 +513,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
-          <caret line="39" column="78" selection-start-line="39" selection-start-column="78" selection-end-line="39" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/application.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="36" max-vertical-offset="1275">
@@ -663,13 +605,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/admin/assignment_allocations.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3594203" vertical-offset="352" max-vertical-offset="2244">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="30" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/admin/associate_histories.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1410" max-vertical-offset="1785">
@@ -731,14 +666,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.077922076" vertical-offset="435" max-vertical-offset="2070">
           <caret line="29" column="82" selection-start-line="29" selection-start-column="82" selection-end-line="29" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/admin/assignments.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1477" max-vertical-offset="2610">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="30" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -944,8 +871,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/admin/assignment_histories.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1775457" vertical-offset="1282" max-vertical-offset="1800">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1282" max-vertical-offset="1800">
           <caret line="90" column="20" selection-start-line="90" selection-start-column="20" selection-end-line="90" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/admin/assignments.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.229765" vertical-offset="1657" max-vertical-offset="2610">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="30" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/admin/staffing_requirements.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.127907" vertical-offset="1775" max-vertical-offset="2205">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/admin/assignment_allocations.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2877698" vertical-offset="0" max-vertical-offset="1995">
+          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
           <folding />
         </state>
       </provider>

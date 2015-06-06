@@ -6,6 +6,7 @@ ActiveAdmin.register AssignmentAllocation, as: "Assignment Allocation" do
   config.sort_order = 'start_date_desc'
 
   config.clear_action_items!
+  actions  :index, :show 
 
   action_item only: [:index] do
     link_to "Cancel", admin_associates_path
