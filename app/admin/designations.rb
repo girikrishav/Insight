@@ -46,6 +46,6 @@ ActiveAdmin.register Designation, as: "Designation" do
     column :name
     column :description
     column :rank
-    actions
+    actions dropdown: :true
   end
 end

@@ -91,11 +91,11 @@ ActiveAdmin.register AdminUser, :as => "User" do
     selectable_column
     column :id
     column :email
-    column :current_sign_in_at
-    column :sign_in_count
+    column "Current Sign-In", :current_sign_in_at
+    column "Logins", :sign_in_count
     column :role
     column :active
-    actions
+    actions dropdown: :true
   end
 
   filter :email

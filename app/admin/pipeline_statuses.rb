@@ -46,6 +46,6 @@ ActiveAdmin.register  PipelineStatus, as: "Pipeline Status" do
     column :name
     column :description
     column :rank
-    actions
+    actions dropdown: :true
   end
 end

@@ -69,7 +69,7 @@ ActiveAdmin.register VacationReason, as: "Vacation Reason" do
         number_with_precision element.days_allowed, :precision => 1, delimiter: ','
       end
     end
-    actions
+    actions dropdown: :true
   end
 
   form do |f|

@@ -150,7 +150,7 @@ ActiveAdmin.register Pipeline, as: "Pipeline" do
     column 'Start', :expected_start
     column 'End', :expected_end
     column 'Type', :project_type
-    column 'Currency', :bu_currency, sortable: false
+    column 'In', :bu_currency, sortable: false
     column 'Value', :expected_value, :sortable => 'expected_value' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.expected_value, precision: 0, delimiter: ','
@@ -159,7 +159,7 @@ ActiveAdmin.register Pipeline, as: "Pipeline" do
     column 'Status', :pipeline_status do |s|
       PipelineStatus.find(s.pipeline_status_id).name
     end
-    actions
+    actions dropdown: :true
   end
 
   form do |f|

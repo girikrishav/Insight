@@ -47,6 +47,6 @@ ActiveAdmin.register Department, as: "Department" do
     column :name
     column :description
     column :rank
-    actions
+    actions dropdown: :true
   end
 end

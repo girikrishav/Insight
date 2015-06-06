@@ -43,6 +43,6 @@ ActiveAdmin.register Currency, as: "Currency" do
     column :id
     column :name
     column :description
-    actions
+    actions dropdown: :true
   end
 end

@@ -39,7 +39,7 @@ ActiveAdmin.register ProjectType, as: "Project Type" do
     column :description
     column :billed
     column :rank
-    actions
+    actions dropdown: :true
   end
 
   show do

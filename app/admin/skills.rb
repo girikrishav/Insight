@@ -46,6 +46,6 @@ ActiveAdmin.register Skill, as: "Skill" do
     column :name
     column :description
     column :rank
-    actions
+    actions dropdown: :true
   end
 end

@@ -109,7 +109,7 @@ ActiveAdmin.register CurrencyRate, as: "Currency Rate" do
         number_with_precision element.conversion_rate, :precision => 4, delimiter: ','
       end
     end
-    actions
+    actions dropdown: :true
   end
 
   scope :all_by_as_on do |currencies|

@@ -52,7 +52,7 @@ ActiveAdmin.register Holiday, as: "Holiday" do
     column :as_on
     column :name
     column :description
-    actions
+    actions dropdown: :true
   end
 
   scope :all_by_business_unit do |holidays|

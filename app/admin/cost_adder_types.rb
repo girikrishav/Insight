@@ -46,6 +46,6 @@ ActiveAdmin.register CostAdderType, as: "Cost Adder Type" do
     column :name
     column :description
     column :rank
-    actions
+    actions dropdown: :true
   end
 end

@@ -46,6 +46,6 @@ ActiveAdmin.register  InvoiceStatus, as: "Invoice Status" do
     column :name
     column :description
     column :rank
-    actions
+    actions dropdown: :true
   end
 end

@@ -46,6 +46,6 @@ ActiveAdmin.register AssociateType, as: "Associate Type" do
     column :name
     column :description
     column :rank
-    actions
+    actions dropdown: :true
   end
 end

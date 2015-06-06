@@ -53,7 +53,7 @@ ActiveAdmin.register BusinessUnit, as: "Business Unit" do
     column :currency
     column :rank
     column :comments
-    actions
+    actions dropdown: :true
   end
 
   form do |f|

@@ -84,7 +84,7 @@ ActiveAdmin.register ServiceRate, as: "Service Rate" do
         number_with_precision element.cost_rate, :precision => 2, delimiter: ','
       end
     end
-    actions
+    actions dropdown: :true
   end
 
   form do |f|

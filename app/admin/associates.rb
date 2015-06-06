@@ -123,7 +123,7 @@ ActiveAdmin.register Associate, as: "Associate" do
       end
     end
     column :active
-    actions
+    actions dropdown: :true
   end
 
   form do |f|

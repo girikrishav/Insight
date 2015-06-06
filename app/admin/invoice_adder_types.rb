@@ -63,7 +63,7 @@ ActiveAdmin.register InvoiceAdderType, as: "Invoice Adder Type" do
     column :rank
     column :applicable_date
     column "Rate Applicable (%)", :rate_applicable
-    actions
+    actions dropdown: :true
   end
 
   form do |f|

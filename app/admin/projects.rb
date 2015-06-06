@@ -131,7 +131,7 @@ ActiveAdmin.register Project, as: "Project" do
     column 'Start', :start_date
     column 'End', :end_date
     column 'Type', :project_type
-    column 'Currency', :bu_currency
+    column 'In', :bu_currency
     column 'Value', :booking_amount, :sortable => 'booking_amount' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.booking_amount, precision: 0, delimiter: ','
@@ -140,7 +140,7 @@ ActiveAdmin.register Project, as: "Project" do
     column 'Status', :project_status do |s|
       ProjectStatus.find(s.project_status_id).name
     end
-    actions
+    actions dropdown: :true
   end
 
   form do |f|

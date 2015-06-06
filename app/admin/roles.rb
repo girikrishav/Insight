@@ -44,6 +44,6 @@ ActiveAdmin.register Role do
     column :id
     column :name
     column :rank
-    actions
+    actions dropdown: :true
   end
 end
