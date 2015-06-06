@@ -95,8 +95,8 @@ ActiveAdmin.register PipelineHistory, as: "Pipeline History" do
       selectable_column
     end
     column :id
-    column :created_at
-    column :business_unit
+    column 'At', :created_at
+    column 'BU', :business_unit
     column :client
     column 'Project', :project_name
     column 'Start', :expected_start
@@ -111,7 +111,7 @@ ActiveAdmin.register PipelineHistory, as: "Pipeline History" do
     column 'Status', :pipeline_status, :sortable => 'pipeline_status.name' do |s|
       PipelineStatus.find(s.pipeline_status_id).name
     end
-    column :comments
+    # column :comments
     column '', :id do |t|
       link_to t('actions.view'), admin_pipeline_history_path(id: t.id, pipeline_id: params[:pipeline_id])
     end

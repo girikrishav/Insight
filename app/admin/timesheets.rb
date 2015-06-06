@@ -83,7 +83,7 @@ ActiveAdmin.register Timesheet, as: "Timesheet" do
       end
     end
     column :comments
-    actions
+    actions dropdown: :true
   end
 
   form do |f|

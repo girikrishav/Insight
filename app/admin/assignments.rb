@@ -121,7 +121,7 @@ ActiveAdmin.register Assignment, as: "Assignment" do
         number_with_precision element.hours_per_day, precision: 2, delimiter: ','
       end
     end
-    actions
+    actions dropdown: :true
   end
 
   form do |f|

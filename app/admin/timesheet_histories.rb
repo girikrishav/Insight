@@ -64,6 +64,7 @@ ActiveAdmin.register TimesheetHistory, as: "Timesheet History" do
   index title: proc { |p| @timesheet_title } do
     selectable_column
     column :id
+    column 'At', :created_at
     column :timesheet do |p|
       div(title: p.timesheet.name_for_timesheet) do
         t('labels.hover_for_details')
@@ -76,7 +77,7 @@ ActiveAdmin.register TimesheetHistory, as: "Timesheet History" do
         number_with_precision element.hours, precision: 2, delimiter: ','
       end
     end
-    column :comments
+    # column :comments
     column '', :id do |t|
       link_to t('actions.view'), admin_timesheet_history_path(id: t.id\
           , timesheet_id: params[:timesheet_id])

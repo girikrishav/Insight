@@ -106,7 +106,7 @@ ActiveAdmin.register ProjectHistory, as: "Project History" do
       selectable_column
     end
     column :id
-    column :created_at
+    column 'At', :created_at
     column 'BU', :business_unit, :sortable => 'business_units.name'
     column :client, :sortable => 'clients.name'
     column 'Project', :project_name
@@ -123,7 +123,7 @@ ActiveAdmin.register ProjectHistory, as: "Project History" do
     column 'Status', :project_status, :sortable => 'project_statuses.name' do |s|
       ProjectStatus.find(s.project_status_id).name
     end
-    column :comments
+    # column :comments
     column '', :id do |t|
       link_to t('actions.view'), admin_project_history_path(id: t.id, project_id: params[:project_id])
     end

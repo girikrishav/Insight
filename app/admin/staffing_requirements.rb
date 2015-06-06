@@ -107,7 +107,7 @@ ActiveAdmin.register StaffingRequirement, as: "Staffing Requirement" do
       end
     end
     column :fulfilled
-    actions
+    actions dropdown: :true
   end
 
   form do |f|
