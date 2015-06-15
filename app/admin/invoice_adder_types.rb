@@ -67,7 +67,7 @@ ActiveAdmin.register InvoiceAdderType, as: "Invoice Adder Type" do
   end
 
   form do |f|
-    f.inputs "Vacation Reason Details" do
+    f.inputs "Invoice Adder Type Details" do
       if params[:action] == "new" || params[:action] == "create"
         f.input :name
       else
