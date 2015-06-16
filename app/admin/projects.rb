@@ -109,23 +109,26 @@ ActiveAdmin.register Project, as: "Project" do
   index do
     selectable_column
     column 'Id', sortable: :id do |t|
-      div(title: t('labels.project_histories')) do
-        if ProjectHistory.where(project_id: t.id).count > 0
-          link_to t.id, admin_project_histories_path(project_id: t.id)
-        else
-          t.id
-        end
-      end
+      # div(title: t('labels.project_histories')) do
+      #   if ProjectHistory.where(project_id: t.id).count > 0
+      #     link_to t.id, admin_project_histories_path(project_id: t.id)
+      #   else
+      #     t.id
+      #   end
+      # end
+      t.id
     end
     column 'BU', :business_unit do |t|
-      div(title: t('labels.staffing_requirements')) do
-        link_to t.business_unit.name, admin_staffing_requirements_path(project_id: t.id)
-      end
+      # div(title: t('labels.staffing_requirements')) do
+      #   link_to t.business_unit.name, admin_staffing_requirements_path(project_id: t.id)
+      # end
+      t.business_unit.name
     end
     column 'Client', :client do |t|
-      div(title: t('labels.assignments')) do
-        link_to t.client.name, admin_assignments_path(project_id: t.id)
-      end
+      # div(title: t('labels.assignments')) do
+      #   link_to t.client.name, admin_assignments_path(project_id: t.id)
+      # end
+      t.client_name
     end
     column 'Project', :project_name
     column 'Start', :start_date
@@ -140,7 +143,11 @@ ActiveAdmin.register Project, as: "Project" do
     column 'Status', :project_status do |s|
       ProjectStatus.find(s.project_status_id).name
     end
-    actions dropdown: :true
+    actions dropdown: :true do |p|
+      item 'History', admin_project_histories_path(project_id: p.id)
+      item 'Staffing', admin_staffing_requirements_path(project_id: p.id)
+      item 'Assignments', admin_assignments_path(project_id: p.id)
+    end
   end
 
   form do |f|
