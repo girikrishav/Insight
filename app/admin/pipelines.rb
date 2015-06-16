@@ -135,13 +135,14 @@ ActiveAdmin.register Pipeline, as: "Pipeline" do
   index do
     selectable_column
     column 'Id', sortable: :id do |t|
-      div(title: t('labels.pipeline_histories')) do
-        if PipelineHistory.where(pipeline_id: t.id).count > 0
-          link_to t.id, admin_pipeline_histories_path(pipeline_id: t.id)
-        else
-          t.id
-        end
-      end
+      # div(title: t('labels.pipeline_histories')) do
+      #   if PipelineHistory.where(pipeline_id: t.id).count > 0
+      #     link_to t.id, admin_pipeline_histories_path(pipeline_id: t.id)
+      #   else
+      #     t.id
+      #   end
+      # end
+      t.id
     end
     column 'BU', :business_unit
     column :client
@@ -159,7 +160,9 @@ ActiveAdmin.register Pipeline, as: "Pipeline" do
     column 'Status', :pipeline_status do |s|
       PipelineStatus.find(s.pipeline_status_id).name
     end
-    actions dropdown: :true
+    actions dropdown: :true do |p|
+      item 'History', admin_pipeline_histories_path(pipeline_id: p.id)
+    end
   end
 
   form do |f|
