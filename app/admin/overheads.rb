@@ -3,7 +3,7 @@ include ActiveAdminHelper
 ActiveAdmin.register Overhead, as: "Overhead" do
   menu :if => proc { menu_accessible?(65) }, :label => "Overheads", :parent => "Operations", :priority => 20
 
-  config.sort_order = 'as_on_desc'
+  config.sort_order = 'from_date_desc'
 
   action_item only: [:show] do
     link_to "Cancel", admin_overheads_path
@@ -17,6 +17,7 @@ ActiveAdmin.register Overhead, as: "Overhead" do
     def scoped_collection
       end_of_association_chain.includes(:business_unit)
       end_of_association_chain.includes(:cost_adder_type)
+      end_of_association_chain.includes(:periodicity)
     end
 
     # To redirect create and update actions redirect to index page upon submit.
@@ -39,7 +40,9 @@ ActiveAdmin.register Overhead, as: "Overhead" do
         row :id
         row :business_unit
         row :cost_adder_type
-        row :as_on
+        row :from_date
+        row :periodicity
+        row :to_date
         row :bu_currency
         row :amount do
           number_with_precision o.amount, precision: 2, delimiter: ','
@@ -53,7 +56,9 @@ ActiveAdmin.register Overhead, as: "Overhead" do
 
   filter :business_unit
   filter :cost_adder_type
-  filter :as_on
+  filter :from_date
+  filter :periodicity
+  filter :to_date
   filter :amount
   filter :comments
   filter :created_at
@@ -64,7 +69,9 @@ ActiveAdmin.register Overhead, as: "Overhead" do
     column :id
     column :business_unit
     column :cost_adder_type
-    column :as_on
+    column :from_date
+    column :periodicity
+    column :to_date
     column "Currency", :bu_currency, sortable: false
     column "Amount", :amount, :sortable => 'amount' do |element|
       div :style => "text-align: right;" do
@@ -80,11 +87,16 @@ ActiveAdmin.register Overhead, as: "Overhead" do
         f.input :business_unit, as: :select, collection: BusinessUnit.all\
           .map { |fs| [fs.name_with_currency, fs.id] }
         f.input :cost_adder_type
-        f.input :as_on, as: :datepicker, :input_html => {:value => Date.today}
+        f.input :from_date, as: :datepicker, :input_html => {:value => Date.today}
+        f.input :periodicity, as: :select, collection: Periodicity.all\
+          .map { |fs| [fs.name, fs.id] }
+        f.input :to_date, as: :datepicker, :input_html => {:value => Date.today}
       else
         f.input :business_unit, :input_html => {:disabled => true}
         f.input :cost_adder_type, :input_html => {:disabled => true}
-        f.input :as_on, :input_html => {:disabled => true}
+        f.input :from_date, :input_html => {:disabled => true}
+        f.input :periodicity, :input_html => {:disabled => true}
+        f.input :to_date, :input_html => {:disabled => true}
       end
       if params[:action] != "new" && params[:action] != "create"
         f.input :bu_currency, :label => 'Currency', :input_html => {:disabled => true}
