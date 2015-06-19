@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="PostgreSQL - insight_development@localhost" uuid="260094d9-e411-4d49-b213-385673bd487a">
-      <secret-storage>master_key</secret-storage>
-      <user-name>postgres</user-name>
-      <schema-pattern>insight_development.pg_catalog insight_development.public</schema-pattern>
-      <default-schemas>insight_development.pg_catalog insight_development.public</default-schemas>
-    </data-source>
+    <data-source name="PostgreSQL - insight_development@localhost" uuid="260094d9-e411-4d49-b213-385673bd487a" />
   </component>
 </project>

@@ -32,6 +32,26 @@ ActiveAdmin.register Overhead, as: "Overhead" do
         redirect_to collection_url and return if resource.valid?
       end
     end
+
+    def mytest
+      from_date = params[:from_date]
+      periodicity = params[:periodicity]
+      to_date = compute_to_date(from_date, periodicity)
+      render json: '{"to_date":"' + to_date.to_s + '"}'
+    end
+
+    def compute_to_date(from_date, periodicity)
+      from_date = from_date.to_date - 1
+      if Periodicity.find(periodicity).name.upcase == "MONTHLY"
+        from_date + 1.month
+      elsif Periodicity.find(periodicity).name.upcase == "WEEKLY"
+        from_date + 1.week
+      else
+        from_date + 1
+      end
+    end
+
+    private :compute_to_date
   end
 
   show do |o|

@@ -60,4 +60,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  match 'admin/api/overheads/mytest' => 'admin/overheads#mytest', via: [:get]
 end
