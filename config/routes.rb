@@ -61,5 +61,6 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  match 'admin/api/overheads/mytest' => 'admin/overheads#mytest', via: [:get]
+  match 'admin/api/overheads/compute_from_date' => 'admin/overheads#compute_from_date', via: [:get]
+  match 'admin/api/overheads/compute_to_date' => 'admin/overheads#compute_to_date', via: [:get]
 end

@@ -33,33 +33,47 @@ ActiveAdmin.register Overhead, as: "Overhead" do
       end
     end
 
-    def mytest
-      from_date = params[:from_date]
+    def compute_from_date
+      to_date = params[:to_date].to_date + 1
       periodicity = params[:periodicity]
-      to_date = compute_to_date(from_date, periodicity)
-      render json: '{"to_date":"' + to_date.to_s + '"}'
-    end
-
-    def compute_to_date(from_date, periodicity)
-      from_date = from_date.to_date - 1
       if Periodicity.find(periodicity).name.upcase == "MONTHLY"
-        from_date + 1.month
+        to_date -= 1.month
       elsif Periodicity.find(periodicity).name.upcase == "WEEKLY"
-        from_date + 1.week
+        to_date -= 1.week
       elsif Periodicity.find(periodicity).name.upcase == "ANNUALLY"
-        from_date + 1.year
+        to_date -= 1.year
       elsif Periodicity.find(periodicity).name.upcase == "QUARTERLY"
-        from_date + 3.month
+        to_date -= 3.month
       elsif Periodicity.find(periodicity).name.upcase == "FORTNIGHTLY"
-        from_date + 2.week
+        to_date -= 2.week
       elsif Periodicity.find(periodicity).name.upcase == "SEMI-ANNUALLY"
-        from_date + 6.month
+        to_date -= 6.month
       else
-        from_date + 1
+        to_date -= 1
       end
+      render json: '{"from_date":"' + to_date.to_s + '"}'
     end
 
-    private :compute_to_date
+    def compute_to_date
+      from_date = params[:from_date].to_date - 1
+      periodicity = params[:periodicity]
+      if Periodicity.find(periodicity).name.upcase == "MONTHLY"
+        from_date += 1.month
+      elsif Periodicity.find(periodicity).name.upcase == "WEEKLY"
+        from_date += 1.week
+      elsif Periodicity.find(periodicity).name.upcase == "ANNUALLY"
+        from_date += 1.year
+      elsif Periodicity.find(periodicity).name.upcase == "QUARTERLY"
+        from_date += 3.month
+      elsif Periodicity.find(periodicity).name.upcase == "FORTNIGHTLY"
+        from_date += 2.week
+      elsif Periodicity.find(periodicity).name.upcase == "SEMI-ANNUALLY"
+        from_date += 6.month
+      else
+        from_date += 1
+      end
+      render json: '{"to_date":"' + from_date.to_s + '"}'
+    end
   end
 
   show do |o|
