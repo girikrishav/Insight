@@ -46,6 +46,14 @@ ActiveAdmin.register Overhead, as: "Overhead" do
         from_date + 1.month
       elsif Periodicity.find(periodicity).name.upcase == "WEEKLY"
         from_date + 1.week
+      elsif Periodicity.find(periodicity).name.upcase == "ANNUALLY"
+        from_date + 1.year
+      elsif Periodicity.find(periodicity).name.upcase == "QUARTERLY"
+        from_date + 3.month
+      elsif Periodicity.find(periodicity).name.upcase == "FORTNIGHTLY"
+        from_date + 2.week
+      elsif Periodicity.find(periodicity).name.upcase == "SEMI-ANNUALLY"
+        from_date + 6.month
       else
         from_date + 1
       end
