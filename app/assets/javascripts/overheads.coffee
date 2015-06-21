@@ -17,12 +17,3 @@ jQuery ->
         $('#overhead_to_date').val(data.to_date)
       error: (xhr, status, err) ->
         console.log(err)
-  $('#overhead_to_date').change ->
-    to_date = $('#overhead_to_date').val()
-    periodicity = $('#overhead_periodicity_id').val()
-    url = '/admin/api/overheads/compute_from_date?to_date=' + to_date + '&periodicity=' + periodicity
-    $.ajax  url,
-      success: (data, status, xhr) ->
-        $('#overhead_from_date').val(data.from_date)
-      error: (xhr, status, err) ->
-        console.log(err)

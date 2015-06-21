@@ -31,6 +31,8 @@ en:
     allocated_hours_violation: "'%{allocation_details}' exceeds 24 hours on '%{allocation_date}'."
     clocked_hours_violation: "'%{timesheet_details}' exceeds 24 hours on '%{clocking_date}'."
     timesheet_assignment_violation: "Timesheet date cannot be outside of assignment dates."
+    from_after_to_date: "'From date' cannot be after 'To date'."
+    to_before_from_date: "'To date' cannot be before 'From date'."
   active_admin:
     application_title: "Insight"
     dashboard: "Home"

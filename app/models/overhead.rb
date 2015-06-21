@@ -3,6 +3,15 @@ class Overhead < ActiveRecord::Base
     Currency.find(BusinessUnit.find(self.business_unit_id).currency_id).name
   end
 
+  def date_check
+    if self.from_date > self.to_date
+      errors.add(:from_date, I18n.t('errors.from_after_to_date'))
+      errors.add(:to_date, I18n.t('errors.to_before_from_date'))
+    end
+  end
+
+  validate :date_check
+
   validates :business_unit, presence: :true
   validates :cost_adder_type, presence: :true
   validates :from_date, presence: :true

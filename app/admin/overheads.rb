@@ -132,7 +132,7 @@ ActiveAdmin.register Overhead, as: "Overhead" do
         f.input :from_date, as: :datepicker, :input_html => {:value => Date.today}
         f.input :periodicity, as: :select, collection: Periodicity.all\
           .map { |fs| [fs.name, fs.id] }
-        f.input :to_date, as: :datepicker, :input_html => {:value => Date.today}
+        f.input :to_date, as: :datepicker
       else
         f.input :business_unit, :input_html => {:disabled => true}
         f.input :cost_adder_type, :input_html => {:disabled => true}
