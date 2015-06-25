@@ -148,6 +148,7 @@ ActiveAdmin.register Project, as: "Project" do
       item 'Staffing', admin_staffing_requirements_path(project_id: p.id)
       item 'Assignments', admin_assignments_path(project_id: p.id)
       item 'Delivery Milestones', admin_delivery_milestones_path(project_id: p.id)
+      item 'Invoicing Milestones', admin_invoicing_milestones_path(project_id: p.id)
     end
   end
 
