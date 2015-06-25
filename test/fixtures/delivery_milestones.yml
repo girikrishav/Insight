@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  due_date: 2015-06-25
+  last_reminder_date: 2015-06-25
+  completion_date: 2015-06-25
+  comments: MyString
+  project_id: 1
+
+two:
+  name: MyString
+  description: MyString
+  due_date: 2015-06-25
+  last_reminder_date: 2015-06-25
+  completion_date: 2015-06-25
+  comments: MyString
+  project_id: 1
