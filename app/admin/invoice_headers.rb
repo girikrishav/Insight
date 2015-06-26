@@ -1,0 +1,123 @@
+include ActiveAdminHelper
+
+ActiveAdmin.register InvoiceHeader, as: "Invoice Header" do
+  menu false
+
+  config.sort_order = 'invoice_date_desc'
+
+  action_item only: [:index] do
+    link_to "Cancel", admin_projects_path
+  end
+
+  action_item only: [:show] do
+    link_to "Cancel", admin_invoice_headers_path(project_id: params[:project_id])
+  end
+
+  controller do
+    before_filter do |c|
+      c.send(:is_user_authorized?, 50, url_for)
+    end
+
+    def scoped_collection
+      end_of_association_chain.includes(:project)
+      end_of_association_chain.includes(:invoice_status)
+      end_of_association_chain.includes(:term)
+      if !params[:project_id].nil?
+        session[:project_id] = params[:project_id]
+      end
+      InvoiceHeader.where(project_id: session[:project_id])
+    end
+
+    def index
+      if !params[:project_id].nil?
+        session[:project_id] = params[:project_id]
+      end
+      @project_title = t('labels.invoice_header_index_page'\
+          , project_title: Project.find(session[:project_id]).id)
+      index!
+    end
+
+    # To redirect create and update actions redirect to index page upon submit.
+    def create
+      super do |format|
+        redirect_to collection_url and return if resource.valid?
+      end
+    end
+
+    def update
+      super do |format|
+        redirect_to collection_url and return if resource.valid?
+      end
+    end
+  end
+
+  show do |sr|
+    panel 'Invoice Header Details' do
+      attributes_table_for ih do
+        row :id
+        row :project do |p|
+          p.project.complete_name
+        end
+        row :description
+        row :invoice_date
+        row :invoice_status
+        row :term
+        row :comments
+      end
+    end
+  end
+
+  filter :description
+  filter :invoice_date
+  filter :invoice_status, :as => :select, :collection => \
+      proc { InvoiceStatus.order('name ASC').map { |is| ["#{is.name}", is.id] } }
+  filter :term, :as => :select, :collection => \
+      proc { Term.order('name ASC').map { |t| ["#{t.name}", t.id] } }
+  filter :comments
+  filter :created_at
+  filter :updated_at
+
+  index title: proc { |p| @project_title } do
+    selectable_column
+    column :id
+    column :project do |p|
+      div(title: p.project.complete_name) do
+        t('labels.hover_for_details')
+      end
+    end
+    column :description
+    column :invoice_date
+    column :invoice_status
+    column :term
+    actions dropdown: :true
+  end
+
+  form do |f|
+    f.inputs "Invoice Header Details" do
+      f.input :project, as: :select, collection: Project.all.map { |p| [p.complete_name, p.id] }\
+          , input_html: {:disabled => true, selected: Project.find(session[:project_id]).id}
+      if params[:action] == "new" or params[:action] == "create"
+        f.input :description
+        f.input :invoice_date, as: :datepicker, input_html: {value: Date.today}
+        f.input :invoice_status, as: :select, collection: \
+           InvoiceStatus.all.map { |is| [is.name, is.id] } \
+           , selected: InvoiceStatus.find_by_name('New').id \
+           , include_blank: true
+        f.input :term, as: :select, collection: \
+           Term.all.map { |t| [t.name, t.id] } \
+           , include_blank: false
+        f.input :comments
+      else
+        f.input :description
+        f.input :invoice_date, as: :datepicker
+        f.input :invoice_status, as: :select, collection: \
+           InvoiceStatus.all.map { |is| [is.name, is.id] } \
+           , include_blank: true
+        f.input :term, as: :select, collection: \
+           Term.all.map { |t| [t.name, t.id] }
+        f.input :comments
+      end
+      f.actions
+    end
+  end
+end

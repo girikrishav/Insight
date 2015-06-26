@@ -59,6 +59,7 @@ en:
     hours_per_day: "Hours/Day"
     invoicing_milestone_index_page: "Invoicing Milestones [Project Id = %{project_title}]"
     delivery_milestone_index_page: "Delivery Milestones [Project Id = %{project_title}]"
+    invoice_header_index_page: "Invoice Headers [Project Id = %{project_title}]"
     assignment_index_page: "Assignments [Project Id = %{project_title}]"
     assignments: "Manage assignments."
     associate_histories: "View associate history."
