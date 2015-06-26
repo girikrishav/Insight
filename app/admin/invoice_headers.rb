@@ -51,7 +51,7 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice Header" do
     end
   end
 
-  show do |sr|
+  show do |ih|
     panel 'Invoice Header Details' do
       attributes_table_for ih do
         row :id
@@ -62,6 +62,7 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice Header" do
         row :invoice_date
         row :invoice_status
         row :term
+        row :due_date
         row :comments
       end
     end
@@ -89,6 +90,7 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice Header" do
     column :invoice_date
     column :invoice_status
     column :term
+    column :due_date
     actions dropdown: :true
   end
 

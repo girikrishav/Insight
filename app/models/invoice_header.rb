@@ -1,4 +1,8 @@
 class InvoiceHeader < ActiveRecord::Base
+  def due_date
+    self.invoice_date + Term.find(self.term_id).days
+  end
+
   validates :invoice_date, presence: :true
   validates :project_id, presence: :true
   validates :invoice_status_id, presence: :true
