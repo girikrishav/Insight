@@ -74,6 +74,7 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice Header" do
       proc { InvoiceStatus.order('name ASC').map { |is| ["#{is.name}", is.id] } }
   filter :term, :as => :select, :collection => \
       proc { Term.order('name ASC').map { |t| ["#{t.name}", t.id] } }
+  filter :due_date
   filter :comments
   filter :created_at
   filter :updated_at
@@ -104,7 +105,7 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice Header" do
         f.input :invoice_status, as: :select, collection: \
            InvoiceStatus.all.map { |is| [is.name, is.id] } \
            , selected: InvoiceStatus.find_by_name('New').id \
-           , include_blank: true
+           , include_blank: :false
         f.input :term, as: :select, collection: \
            Term.all.map { |t| [t.name, t.id] } \
            , include_blank: false
@@ -114,7 +115,7 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice Header" do
         f.input :invoice_date, as: :datepicker
         f.input :invoice_status, as: :select, collection: \
            InvoiceStatus.all.map { |is| [is.name, is.id] } \
-           , include_blank: true
+           , include_blank: :false
         f.input :term, as: :select, collection: \
            Term.all.map { |t| [t.name, t.id] }
         f.input :comments

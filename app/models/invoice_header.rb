@@ -1,7 +1,10 @@
 class InvoiceHeader < ActiveRecord::Base
-  def due_date
-    self.invoice_date + Term.find(self.term_id).days
+  def compute_due_date
+    self.due_date = self.invoice_date + Term.find(self.term_id).days
   end
+
+  before_create :compute_due_date
+  before_update :compute_due_date
 
   validates :invoice_date, presence: :true
   validates :project_id, presence: :true
