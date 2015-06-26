@@ -3,7 +3,7 @@ include ActiveAdminHelper
 ActiveAdmin.register Term, as: "Term" do
   menu :if => proc { menu_accessible?(50) }, :label => "Terms", :parent => "Masters", :priority => 110
 
-  config.sort_order = 'name_asc'
+  config.sort_order = 'rank_asc'
 
   action_item only: [:show] do
     link_to "Cancel", admin_terms_path
@@ -30,12 +30,13 @@ ActiveAdmin.register Term, as: "Term" do
 
   show do
     attributes_table :id, :name, :description, :days\
-        , :created_at, :updated_at, :comments
+        , :rank, :created_at, :updated_at, :comments
   end
 
   filter :name
   filter :description
   filter :days
+  filter :rank
   filter :comments
   filter :created_at
   filter :updated_at
@@ -46,6 +47,26 @@ ActiveAdmin.register Term, as: "Term" do
     column :name
     column :description
     column :days
+    column :rank
     actions dropdown: :true
+  end
+
+  form do |f|
+    f.inputs "Terms Details" do
+      if params[:action] == "new" || params[:action] == "create"
+        f.input :name
+        f.input :description
+        f.input :days
+        f.input :rank
+        f.input :comments
+      else
+        f.input :name, :input_html => {:disabled => true}
+        f.input :description
+        f.input :days, :input_html => {:disabled => true}
+        f.input :rank
+        f.input :comments
+      end
+    end
+    f.actions
   end
 end
