@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  invoice_date: 2015-06-26
+  comments: MyString
+  project_id: 1
+  invoice_status_id: 1
+  term_id: 1
+
+two:
+  description: MyString
+  invoice_date: 2015-06-26
+  comments: MyString
+  project_id: 1
+  invoice_status_id: 1
+  term_id: 1
