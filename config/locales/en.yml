@@ -25,10 +25,14 @@ en:
     no_changes: "No changes effected."
     pipelines_converted: "'%{success_count}' of '%{selected_count}' selected Pipelines converted into new Projects."
   errors:
-    invoice_line_type_all_blank: "Either description, invoicing_milestone or invoice_adder must be entered."
-    invoice_line_type_description_check: "Cannot enter invoicing_milestone or invoice_adder_type when description is given."
-    invoice_line_type_invoicing_milestone_check: "Cannot enter description or invoice_adder_type when invoicing_milestone is given."
-    invoice_line_type_invoice_adder_type_check: "Cannot enter description or invoicing_milestone when invoice_adder_type is given."
+    invoice_line_type_all_blank: "Either description or invoicing_milestone must be entered."
+    invoice_line_type_description_check: "Cannot enter invoicing_milestone when description is given."
+    invoice_line_type_invoicing_milestone_check: "Cannot enter description when invoicing_milestone is given."
+
+    invoice_adder_type_all_blank: "Either description or invoice_adder_type must be entered."
+    invoice_adder_type_description_check: "Cannot enter invoice_adder_type when description is given."
+    invoice_adder_type_invoice_adder_type_check: "Cannot enter description when invoice_adder_type is given."
+
     hours_violation: "Hours per day must be greater than 0 and less than 24."
     number_required_check: "Number required should be greater than 0."
     from_to_currency_same: "From and To currencies cannot be the same."
