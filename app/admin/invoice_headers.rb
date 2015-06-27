@@ -61,7 +61,7 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice Header" do
         row :description
         row :invoice_date
         row :invoice_status
-        row :term
+        row ('Terms') { |r| r.term}
         row :due_date
         row :comments
       end
@@ -90,7 +90,7 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice Header" do
     column :description
     column :invoice_date
     column :invoice_status
-    column :term
+    column 'Terms', :term
     column :due_date
     actions dropdown: :true
   end
@@ -106,7 +106,7 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice Header" do
            InvoiceStatus.all.map { |is| [is.name, is.id] } \
            , selected: InvoiceStatus.find_by_name('New').id \
            , include_blank: :false
-        f.input :term, as: :select, collection: \
+        f.input :term, as: :select, label: 'Terms', collection: \
            Term.all.map { |t| [t.name, t.id] } \
            , include_blank: false
         f.input :comments
@@ -116,7 +116,7 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice Header" do
         f.input :invoice_status, as: :select, collection: \
            InvoiceStatus.all.map { |is| [is.name, is.id] } \
            , include_blank: :false
-        f.input :term, as: :select, collection: \
+        f.input :term, as: :select, label: 'Terms', collection: \
            Term.all.map { |t| [t.name, t.id] }
         f.input :comments
       end
