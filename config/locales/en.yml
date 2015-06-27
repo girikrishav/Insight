@@ -6,6 +6,15 @@ en:
     actions:
       create: "Create"
       update: "Update"
+  tokens:
+    monthly: "Monthly"
+    one-time: "One-Time"
+    weekly: "Weekly"
+    annually: "Annually"
+    daily: "Daily"
+    quarterly: "Quarterly"
+    fortnightly: "Fortnightly"
+    semi-annually: "Semi-Annually"
   messages:
     confirmation: "Are you sure?"
     unauthorized: "Unauthorized page access to '%{url}'."
@@ -53,6 +62,9 @@ en:
   actions:
     view: "View"
   labels:
+    lookups: "Lookups"
+    periodocities: "Periodicities"
+    periodicity_details: "Periodicity Details"
     pipeline_histories: "View pipeline history."
     project_histories: "View project history."
     staffing_requirements: "Manage staffing requirements."

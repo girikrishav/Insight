@@ -8,21 +8,21 @@ class Periodicity < ActiveRecord::Base
   validates :rank, presence: :true
 
   def end_date(start_date)
-    if :name == 'Monthly'
+    if :name == I18n.t('tokens.monthly')
       start_date + 1.month - 1
-    elsif :name == 'One-Time'
+    elsif :name == I18n.t('tokens.one-time')
       start_date
-    elsif :name == 'Weekly'
+    elsif :name == I18n.t('tokens.weekly')
       start_date + 1.week - 1
-    elsif :name == 'Annually'
+    elsif :name == I18n.t('tokens.annually')
       start_date + 1.year - 1
-    elsif :name == 'Daily'
+    elsif :name == I18n.t('tokens.daily')
       start_date + 1.day - 1
-    elsif :name == 'Quarterly'
+    elsif :name == I18n.t('tokens.quarterly')
       start_date + 3.month - 1
-    elsif :name == 'Fortnightly'
+    elsif :name == I18n.t('tokens.fortnightly')
       start_date + 2.week - 1
-    elsif :name == 'Semi-Annually'
+    elsif :name == I18n.t('tokens.semi-annually')
       start_date + 6.month - 1
     else
       start_date
