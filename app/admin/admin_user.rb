@@ -103,6 +103,7 @@ ActiveAdmin.register AdminUser, :as => "User" do
     proc { Role.allowed(@current_user_rank).map { |r| ["#{r.name}", r.id] } }
   filter :active
 
+  # Form begins.
   form do |f|
     f.inputs "User Details" do
       if params[:action] == "new" || params[:action] == "create"
