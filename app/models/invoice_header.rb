@@ -3,6 +3,11 @@ class InvoiceHeader < ActiveRecord::Base
     self.due_date = self.invoice_date + Term.find(self.term_id).days
   end
 
+  def complete_name
+    'Invoice = ' + self.id.to_s + ' [' + self.invoice_date.to_s + \
+      '], ' + self.project.complete_name
+  end
+
   before_create :compute_due_date
   before_update :compute_due_date
 
