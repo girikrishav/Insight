@@ -52,6 +52,15 @@ ActiveAdmin.register InvoiceAdder, as: "Invoice Adder" do
         redirect_to collection_url and return if resource.valid?
       end
     end
+
+    def adder_amount
+      invoice_adder_type_id = params[:invoice_adder_type_id]
+      invoice_header_id = params[:invoice_header_id]
+      invoice_lines_amount = InvoiceLine.where(invoice_header_id: invoice_header_id).sum(:amount)
+      amount = (InvoiceAdderType.find(invoice_adder_type_id).rate_applicable * 1 / 100) *
+          invoice_lines_amount
+      render json: '{"amount":"' + amount.to_s + '"}'
+    end
   end
 
   show do |ia|
@@ -104,6 +113,7 @@ ActiveAdmin.register InvoiceAdder, as: "Invoice Adder" do
       f.input :invoice_adder_type
       f.input :amount
       f.input :comments
+      f.input :invoice_header_id, as: :hidden
       f.actions
     end
   end

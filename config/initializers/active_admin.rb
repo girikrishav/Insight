@@ -141,7 +141,7 @@
   #
   # To load a javascript file:
   #   config.register_javascript 'my_javascript.js'
-  # config.register_javascript 'assignments.js.coffee'
+  # config.register_javascript 'assignments.coffee'
 
   # == CSV options
   #

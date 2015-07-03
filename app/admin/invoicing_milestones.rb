@@ -51,8 +51,8 @@ ActiveAdmin.register InvoicingMilestone, as: "Invoicing Milestone" do
     def uninvoiced_amount
       invoicing_milestone_id = params[:invoicing_milestone_id]
       milestone_amount = InvoicingMilestone.find(invoicing_milestone_id).amount
-      invoiced_amount = InvoiceLine.where(invoicing_milestone_id: invoicing_milestone_id
-      ).sum(:amount)
+      invoiced_amount = InvoiceLine.where(invoicing_milestone_id: \
+        invoicing_milestone_id).sum(:amount)
       render json: '{"amount":"' + (milestone_amount - invoiced_amount).to_s + '"}'
     end
   end

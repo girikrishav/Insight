@@ -64,4 +64,5 @@ Rails.application.routes.draw do
   match 'admin/api/overheads/compute_from_date' => 'admin/overheads#compute_from_date', via: [:get]
   match 'admin/api/overheads/compute_to_date' => 'admin/overheads#compute_to_date', via: [:get]
   match 'admin/api/invoicing_milestones/uninvoiced_amount' => 'admin/invoicing_milestones#uninvoiced_amount', via: [:get]
+  match 'admin/api/invoice_adders/adder_amount' => 'admin/invoice_adders#adder_amount', via: [:get]
 end
