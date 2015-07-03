@@ -47,6 +47,24 @@ ActiveAdmin.register InvoicingMilestone, as: "Invoicing Milestone" do
         redirect_to collection_url and return if resource.valid?
       end
     end
+
+    def uninvoiced_amount
+      invoicing_milestone_id = params[:invoicing_milestone_id]
+      invoice_header_id = params[:invoice_header_id]
+      milestones = InvoicingMilestone.find(invoicing_milestone_id)
+      invoiced_lines = InvoiceLine.find_by_invoice_header_id(invoice_header_id)
+      if !milestones.nil?
+        milestone_amount = milestones.amount
+      else
+        milestone_amount = 0
+      end
+      if !invoiced_lines.nil?
+        invoiced_amount = invoiced_lines.sum(amount)
+      else
+        invoiced_amount = 0
+      end
+      render json: '{"amount":"' + (milestone_amount - invoiced_amount).to_s + '"}'
+    end
   end
 
   show do |sr|

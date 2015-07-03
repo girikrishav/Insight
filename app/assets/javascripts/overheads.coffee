@@ -1,5 +1,5 @@
 jQuery ->
-  $('#overhead_from_date').change ->
+    $('#overhead_from_date').change ->
     from_date = $('#overhead_from_date').val()
     periodicity = $('#overhead_periodicity_id').val()
     url = '/admin/api/overheads/compute_to_date?from_date=' + from_date + '&periodicity=' + periodicity

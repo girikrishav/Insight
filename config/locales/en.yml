@@ -81,6 +81,7 @@ en:
     delivery_milestone_index_page: "Delivery Milestones [Project Id = %{project_title}]"
     invoice_header_index_page: "Invoice Headers [Project Id = %{project_title}]"
     invoice_adder_index_page: "Invoice Adders [Invoice Header Id = %{invoice_title}]"
+    invoice_line_index_page: "Invoice Lines [Invoice Header Id = %{invoice_title}]"
     assignment_index_page: "Assignments [Project Id = %{project_title}]"
     assignments: "Manage assignments."
     associate_histories: "View associate history."
