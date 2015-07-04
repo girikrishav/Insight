@@ -72,8 +72,8 @@ ActiveAdmin.register InvoiceAdder, as: "Invoice Adder" do
         end
         row :description
         row :invoice_adder_type
-        row :amount do
-          number_with_precision p.booking_amount, precision: 0, delimiter: ','
+        row :amount do |ia|
+          number_with_precision ia.amount, precision: 0, delimiter: ','
         end
         row :comments
       end

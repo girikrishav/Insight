@@ -63,8 +63,8 @@ ActiveAdmin.register InvoiceLine, as: "Invoice Line" do
         end
         row :description
         row :invoicing_milestone
-        row :amount do
-          number_with_precision p.booking_amount, precision: 0, delimiter: ','
+        row :amount do |il|
+          number_with_precision il.amount, precision: 0, delimiter: ','
         end
         row :comments
       end

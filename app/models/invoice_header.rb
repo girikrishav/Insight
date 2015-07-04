@@ -8,6 +8,12 @@ class InvoiceHeader < ActiveRecord::Base
       '], ' + self.project.complete_name
   end
 
+  def amount
+    amount = 0
+    amount += InvoiceAdder.where(invoice_header_id: self.id).sum(:amount)
+    amount += InvoiceLine.where(invoice_header_id: self.id).sum(:amount)
+  end
+
   before_create :compute_due_date
   before_update :compute_due_date
 
