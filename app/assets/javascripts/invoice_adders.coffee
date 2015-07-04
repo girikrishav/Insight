@@ -9,7 +9,7 @@ jQuery ->
           $('#invoice_adder_amount').val(data.amount)
         error: (xhr, status, err) ->
           console.log(err)
-      $('#invoice_adder_amount').attr('disabled', true)
+      $('#invoice_adder_amount').attr('readonly', true)
     else
       $('#invoice_adder_amount').val('' )
-      $('#invoice_adder_amount').attr('disabled', false)
+      $('#invoice_adder_amount').attr('readonly', false)

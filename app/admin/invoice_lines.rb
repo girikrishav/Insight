@@ -66,6 +66,7 @@ ActiveAdmin.register InvoiceLine, as: "Invoice Line" do
         row :amount do |il|
           number_with_precision il.amount, precision: 0, delimiter: ','
         end
+        row :taxable
         row :comments
       end
     end
@@ -74,6 +75,7 @@ ActiveAdmin.register InvoiceLine, as: "Invoice Line" do
   filter :description
   filter :invoicing_milestone
   filter :amount
+  filter :taxable
   filter :comments
   filter :created_at
   filter :updated_at
@@ -93,6 +95,7 @@ ActiveAdmin.register InvoiceLine, as: "Invoice Line" do
         number_with_precision element.amount, precision: 0, delimiter: ','
       end
     end
+    column :taxable
     actions dropdown: :true
   end
 
@@ -103,6 +106,7 @@ ActiveAdmin.register InvoiceLine, as: "Invoice Line" do
       f.input :description
       f.input :invoicing_milestone
       f.input :amount
+      f.input :taxable, as: :select, include_blank: false
       f.input :comments
       f.actions
     end
