@@ -32,7 +32,6 @@ class InvoiceLine < ActiveRecord::Base
 
   validates :amount, presence: :true
   validates :invoice_header_id, presence: :true
-  validates :taxable, presence: :true
 
   validate :line_type_check
 
