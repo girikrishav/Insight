@@ -14,6 +14,22 @@ class InvoiceLine < ActiveRecord::Base
     end
   end
 
+  def recompute_adder_amount
+    taxable_invoice_line_amount = InvoiceLine.where("invoice_header_id = ? and taxable is true", \
+      self.invoice_header_id).sum(:amount)
+    for adder in InvoiceAdder.where("invoice_header_id = ?", self.invoice_header_id)
+      if adder.description.empty?
+        adder.amount = InvoiceAdderType.where("id = ?", adder.invoice_adder_type_id).first.rate_applicable \
+          * taxable_invoice_line_amount / 100
+        adder.save
+      end
+    end
+  end
+
+  after_create :recompute_adder_amount
+  after_update :recompute_adder_amount
+  after_destroy :recompute_adder_amount
+
   validates :amount, presence: :true
   validates :invoice_header_id, presence: :true
   validates :taxable, presence: :true
