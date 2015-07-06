@@ -56,9 +56,9 @@ ActiveAdmin.register InvoiceAdder, as: "Invoice Adder" do
     def adder_amount
       invoice_adder_type_id = params[:invoice_adder_type_id]
       invoice_header_id = params[:invoice_header_id]
-      invoice_lines_amount = InvoiceLine.where(invoice_header_id: invoice_header_id).sum(:amount)
-      amount = (InvoiceAdderType.find(invoice_adder_type_id).rate_applicable * 1 / 100) *
-          invoice_lines_amount
+      invoice_lines_amount = InvoiceLine.where("invoice_header_id = ? and taxable is true", invoice_header_id)\
+        .sum(:amount)
+      amount = (InvoiceAdderType.find(invoice_adder_type_id).rate_applicable * 1 / 100) * invoice_lines_amount
       render json: '{"amount":"' + amount.to_s + '"}'
     end
   end

@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="adf352fa-d643-4c4b-b9c0-def541ece40b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/invoice_adders.rb" afterPath="$PROJECT_DIR$/app/admin/invoice_adders.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/invoice_line.rb" afterPath="$PROJECT_DIR$/app/models/invoice_line.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/invoice_lines.rb" afterPath="$PROJECT_DIR$/app/admin/invoice_lines.rb" />
     </list>
     <ignored path="Insight.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,23 +58,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="invoice_lines.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="invoice_lines.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/admin/invoice_lines.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49871466" vertical-offset="781" max-vertical-offset="1845">
+            <state vertical-scroll-proportion="0.0" vertical-offset="781" max-vertical-offset="1845">
               <caret line="66" column="24" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="invoice_adders.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="invoice_adders.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/admin/invoice_adders.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="931" max-vertical-offset="1935">
-              <caret line="75" column="13" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.71542555" vertical-offset="616" max-vertical-offset="1935">
+              <caret line="60" column="90" selection-start-line="60" selection-start-column="90" selection-end-line="60" selection-end-column="90" />
               <folding>
-                <element signature="e#2764#2793#1" expanded="true" />
+                <element signature="e#2790#2819#1" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -150,8 +148,8 @@
         <option value="$PROJECT_DIR$/app/admin/invoice_headers.rb" />
         <option value="$PROJECT_DIR$/app/models/invoice_adder.rb" />
         <option value="$PROJECT_DIR$/app/models/invoice_line.rb" />
-        <option value="$PROJECT_DIR$/app/admin/invoice_adders.rb" />
         <option value="$PROJECT_DIR$/app/admin/invoice_lines.rb" />
+        <option value="$PROJECT_DIR$/app/admin/invoice_adders.rb" />
       </list>
     </option>
   </component>
@@ -996,21 +994,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/admin/invoice_adders.rb">
+    <entry file="file://$PROJECT_DIR$/app/admin/invoice_lines.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="931" max-vertical-offset="1935">
-          <caret line="75" column="13" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
-          <folding>
-            <element signature="e#2764#2793#1" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="781" max-vertical-offset="1845">
+          <caret line="66" column="24" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/admin/invoice_lines.rb">
+    <entry file="file://$PROJECT_DIR$/app/admin/invoice_adders.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49871466" vertical-offset="781" max-vertical-offset="1845">
-          <caret line="66" column="24" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="24" />
-          <folding />
+        <state vertical-scroll-proportion="0.71542555" vertical-offset="616" max-vertical-offset="1935">
+          <caret line="60" column="90" selection-start-line="60" selection-start-column="90" selection-end-line="60" selection-end-column="90" />
+          <folding>
+            <element signature="e#2790#2819#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
