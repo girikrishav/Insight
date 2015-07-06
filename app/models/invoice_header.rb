@@ -14,6 +14,10 @@ class InvoiceHeader < ActiveRecord::Base
     amount += InvoiceLine.where(invoice_header_id: self.id).sum(:amount)
   end
 
+  def bu_currency
+    Currency.find(self.project.id)
+  end
+
   before_create :compute_due_date
   before_update :compute_due_date
 

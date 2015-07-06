@@ -60,6 +60,9 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice Header" do
         end
         row :description
         row :invoice_date
+        row "In" do |ih|
+          ih.bu_currency
+        end
         row :amount do |ih|
           number_with_precision ih.amount, precision: 0, delimiter: ','
         end
@@ -92,6 +95,7 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice Header" do
     end
     column :description
     column :invoice_date
+    column 'In', :bu_currency
     column 'Amount', :amount, :sortable => 'amount' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.amount, precision: 0, delimiter: ','
