@@ -10,6 +10,10 @@ class InvoiceAdder < ActiveRecord::Base
     end
   end
 
+  def bu_currency
+    self.invoice_header.bu_currency
+  end
+
   validates :amount, presence: :true
   validates :invoice_header_id, presence: :true
 

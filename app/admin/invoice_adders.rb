@@ -72,6 +72,9 @@ ActiveAdmin.register InvoiceAdder, as: "Invoice Adder" do
         end
         row :description
         row :invoice_adder_type
+        row "In", :bu_currency do |ia|
+          ia.invoice_header.bu_currency
+        end
         row :amount do |ia|
           number_with_precision ia.amount, precision: 0, delimiter: ','
         end
@@ -97,6 +100,7 @@ ActiveAdmin.register InvoiceAdder, as: "Invoice Adder" do
     end
     column :description
     column :invoice_adder_type
+    column 'In', :bu_currency
     column 'Amount', :amount, :sortable => 'amount' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.amount, precision: 0, delimiter: ','
