@@ -54,15 +54,18 @@ ActiveAdmin.register InvoiceLine, as: "Invoice Line" do
     end
   end
 
-  show do |ia|
+  show do |il|
     panel 'Invoice Line Details' do
-      attributes_table_for ia do
+      attributes_table_for il do
         row :id
         row :invoice_header do |ih|
           ih.invoice_header.complete_name
         end
         row :description
         row :invoicing_milestone
+        row "In", :bu_currency do |il|
+          il.bu_currency
+        end
         row :amount do |il|
           number_with_precision il.amount, precision: 0, delimiter: ','
         end
@@ -90,6 +93,7 @@ ActiveAdmin.register InvoiceLine, as: "Invoice Line" do
     end
     column :description
     column :invoicing_milestone
+    column 'In', :bu_currency
     column 'Amount', :amount, :sortable => 'amount' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.amount, precision: 0, delimiter: ','

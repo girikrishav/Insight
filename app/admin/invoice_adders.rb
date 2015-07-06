@@ -73,7 +73,7 @@ ActiveAdmin.register InvoiceAdder, as: "Invoice Adder" do
         row :description
         row :invoice_adder_type
         row "In", :bu_currency do |ia|
-          ia.invoice_header.bu_currency
+          ia.bu_currency
         end
         row :amount do |ia|
           number_with_precision ia.amount, precision: 0, delimiter: ','

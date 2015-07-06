@@ -26,6 +26,10 @@ class InvoiceLine < ActiveRecord::Base
     end
   end
 
+  def bu_currency
+    self.invoice_header.bu_currency
+  end
+
   after_create :recompute_adder_amount
   after_update :recompute_adder_amount
   after_destroy :recompute_adder_amount
