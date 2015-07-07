@@ -90,9 +90,9 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice" do
     column 'Terms', :term
     column :due_date
     actions dropdown: :true do |ih|
-      item 'Invoice Adders', admin_invoice_adders_path(project_id: ih.project.id\
-        , invoice_header_id: ih.id)
       item 'Invoice Lines', admin_invoice_lines_path(project_id: ih.project.id\
+        , invoice_header_id: ih.id)
+      item 'Invoice Adders', admin_invoice_adders_path(project_id: ih.project.id\
         , invoice_header_id: ih.id)
     end
   end
