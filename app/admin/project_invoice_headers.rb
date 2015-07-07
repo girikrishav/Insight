@@ -1,6 +1,6 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register InvoiceHeader, as: "Invoice Header" do
+ActiveAdmin.register InvoiceHeader, as: "Project Invoice Header" do
   menu false
 
   config.sort_order = 'invoice_date_desc'
@@ -10,7 +10,7 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice Header" do
   end
 
   action_item only: [:show] do
-    link_to "Cancel", admin_invoice_headers_path(project_id: params[:project_id])
+    link_to "Cancel", admin_project_invoice_headers_path(project_id: params[:project_id])
   end
 
   controller do
@@ -105,9 +105,9 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice Header" do
     column 'Terms', :term
     column :due_date
     actions dropdown: :true do |ih|
-      item 'Invoice Adders', admin_invoice_adders_path(project_id: ih.project.id\
+      item 'Invoice Adders', admin_project_invoice_adders_path(project_id: ih.project.id\
         , invoice_header_id: ih.id)
-      item 'Invoice Lines', admin_invoice_lines_path(project_id: ih.project.id\
+      item 'Invoice Lines', admin_project_invoice_lines_path(project_id: ih.project.id\
         , invoice_header_id: ih.id)
     end
   end
