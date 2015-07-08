@@ -21,6 +21,8 @@ class InvoiceHeader < ActiveRecord::Base
   before_create :compute_due_date
   before_update :compute_due_date
 
+
+  validates :description, presence: :true
   validates :invoice_date, presence: :true
   validates :project_id, presence: :true
   validates :invoice_status_id, presence: :true
