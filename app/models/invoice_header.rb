@@ -19,6 +19,11 @@ class InvoiceHeader < ActiveRecord::Base
     Currency.find(self.project.id)
   end
 
+  def unpaid
+    paid_amount = PaymentLine.where('invoice_header_id = ?', self.id).sum(:amount)
+    amount - paid_amount
+  end
+
   before_create :compute_due_date
   before_update :compute_due_date
 

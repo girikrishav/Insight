@@ -49,8 +49,11 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice" do
         row :amount do |ih|
           number_with_precision ih.amount, precision: 2, delimiter: ','
         end
+        row :unpaid do |ih|
+          number_with_precision ih.unpaid, precision: 2, delimiter: ','
+        end
         row :invoice_status
-        row ('Terms') { |r| r.term}
+        # row ('Terms') { |r| r.term}
         row :due_date
         row :comments
       end
@@ -63,8 +66,8 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice" do
   filter :invoice_date
   filter :invoice_status, :as => :select, :collection => \
       proc { InvoiceStatus.order('name ASC').map { |is| ["#{is.name}", is.id] } }
-  filter :term, :as => :select, :collection => \
-      proc { Term.order('name ASC').map { |t| ["#{t.name}", t.id] } }
+  # filter :term, :as => :select, :collection => \
+  #     proc { Term.order('name ASC').map { |t| ["#{t.name}", t.id] } }
   filter :due_date
   filter :comments
   filter :created_at
@@ -86,8 +89,13 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice" do
         number_with_precision element.amount, precision: 2, delimiter: ','
       end
     end
+    column 'Unpaid', :unpaid, :sortable => 'unpaid' do |element|
+      div :style => "text-align: right;" do
+        number_with_precision element.unpaid, precision: 2, delimiter: ','
+      end
+    end
     column :invoice_status
-    column 'Terms', :term
+    # column 'Terms', :term
     column :due_date
     actions dropdown: :true do |ih|
       item 'Invoice Lines', admin_invoice_lines_path(invoice_header_id: ih.id)
