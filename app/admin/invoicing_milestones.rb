@@ -69,6 +69,9 @@ ActiveAdmin.register InvoicingMilestone, as: "Invoicing Milestone" do
         row :amount do |p|
           number_with_precision p.amount, precision: 2, delimiter: ','
         end
+        row :unbilled do |p|
+          number_with_precision p.unbilled, precision: 2, delimiter: ','
+        end
         row :due_date
         row :last_reminder_date
         row :completion_date
@@ -102,9 +105,14 @@ ActiveAdmin.register InvoicingMilestone, as: "Invoicing Milestone" do
         number_with_precision element.amount, precision: 2, delimiter: ','
       end
     end
+    column 'Unbilled', :amount, :sortable => 'unbilled' do |element|
+      div :style => "text-align: right;" do
+        number_with_precision element.unbilled, precision: 2, delimiter: ','
+      end
+    end
     column :due_date
-    column :last_reminder_date
-    column :completion_date
+    # column :last_reminder_date
+    # column :completion_date
     actions dropdown: :true
   end
 

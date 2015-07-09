@@ -1,4 +1,9 @@
 class InvoicingMilestone < ActiveRecord::Base
+  def unbilled
+    invoiced_amount = InvoiceLine.where('invoicing_milestone_id = ?', self.id).sum(:amount)
+    amount - invoiced_amount
+  end
+
   validates :name, presence: :true
   validates :amount, presence: :true
   validates :due_date, presence: :true
