@@ -53,7 +53,9 @@ ActiveAdmin.register Project, as: "Project" do
         row :project_name
         row :start_date
         row :end_date
-        row :bu_currency
+        row "In" do |p|
+          p.bu_currency
+        end
         row :booking_amount do
           number_with_precision p.booking_amount, precision: 0, delimiter: ','
         end

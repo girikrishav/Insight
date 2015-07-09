@@ -42,7 +42,9 @@ ActiveAdmin.register ServiceRate, as: "Service Rate" do
         row :skill
         row :designation
         row :as_on
-        row :bu_currency
+        row "In" do |sr|
+          sr.bu_currency
+        end
         row :billing_rate do
           number_with_precision sr.billing_rate, precision: 2, delimiter: ','
         end
@@ -73,7 +75,7 @@ ActiveAdmin.register ServiceRate, as: "Service Rate" do
     column :skill
     column :designation
     column :as_on
-    column "Currency", :bu_currency, sortable: false
+    column "In", :bu_currency, sortable: false
     column "Billing", :billing_rate, :sortable => 'billing_rate' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.billing_rate, :precision => 2, delimiter: ','

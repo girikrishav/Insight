@@ -85,7 +85,9 @@ ActiveAdmin.register Overhead, as: "Overhead" do
         row :from_date
         row :periodicity
         row :to_date
-        row :bu_currency
+        row "In" do |o|
+          o.bu_currency
+        end
         row :amount do
           number_with_precision o.amount, precision: 2, delimiter: ','
         end
@@ -114,7 +116,7 @@ ActiveAdmin.register Overhead, as: "Overhead" do
     column :from_date
     column :periodicity
     column :to_date
-    column "Currency", :bu_currency, sortable: false
+    column "In", :bu_currency, sortable: false
     column "Amount", :amount, :sortable => 'amount' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.amount, :precision => 2, delimiter: ','
