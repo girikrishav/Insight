@@ -3,9 +3,14 @@ class InvoiceHeader < ActiveRecord::Base
     self.due_date = self.invoice_date + Term.find(self.term_id).days
   end
 
+  def name
+    self.complete_name
+  end
+
   def complete_name
     'Invoice = ' + self.id.to_s + ' [' + self.invoice_date.to_s + \
-      '], ' + self.project.complete_name
+      '] [' + self.project.bu_currency + '] [' + sprintf('%.2f', self.amount) \
+      + '], ' + self.project.complete_name
   end
 
   def amount

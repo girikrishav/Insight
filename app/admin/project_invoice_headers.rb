@@ -64,7 +64,7 @@ ActiveAdmin.register InvoiceHeader, as: "Project Invoice Header" do
           ih.bu_currency
         end
         row :amount do |ih|
-          number_with_precision ih.amount, precision: 0, delimiter: ','
+          number_with_precision ih.amount, precision: 2, delimiter: ','
         end
         row :invoice_status
         row ('Terms') { |r| r.term}
@@ -98,7 +98,7 @@ ActiveAdmin.register InvoiceHeader, as: "Project Invoice Header" do
     column 'In', :bu_currency
     column 'Amount', :amount, :sortable => 'amount' do |element|
       div :style => "text-align: right;" do
-        number_with_precision element.amount, precision: 0, delimiter: ','
+        number_with_precision element.amount, precision: 2, delimiter: ','
       end
     end
     column :invoice_status

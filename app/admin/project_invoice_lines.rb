@@ -67,7 +67,7 @@ ActiveAdmin.register InvoiceLine, as: "Project Invoice Line" do
           il.bu_currency
         end
         row :amount do |il|
-          number_with_precision il.amount, precision: 0, delimiter: ','
+          number_with_precision il.amount, precision: 2, delimiter: ','
         end
         row :taxable
         row :comments
@@ -96,7 +96,7 @@ ActiveAdmin.register InvoiceLine, as: "Project Invoice Line" do
     column 'In', :bu_currency
     column 'Amount', :amount, :sortable => 'amount' do |element|
       div :style => "text-align: right;" do
-        number_with_precision element.amount, precision: 0, delimiter: ','
+        number_with_precision element.amount, precision: 2, delimiter: ','
       end
     end
     column :taxable

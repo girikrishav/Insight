@@ -73,7 +73,7 @@ ActiveAdmin.register PaymentHeader, as: "Payment" do
     end
     column :payment_status
     actions dropdown: :true do |ph|
-      item 'Payment Lines', admin_payments_path
+      item 'Payment Lines', admin_payment_lines_path(payment_header_id: ph.id)
     end
   end
 

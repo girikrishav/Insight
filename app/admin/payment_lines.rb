@@ -1,16 +1,16 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register InvoiceLine, as: "Invoice Line" do
+ActiveAdmin.register PaymentLine, as: "Payment Line" do
   menu false
 
   config.sort_order = 'id_asc'
 
   action_item only: [:index] do
-    link_to "Cancel", admin_invoices_path
+    link_to "Cancel", admin_payments_path
   end
 
   action_item only: [:show] do
-    link_to "Cancel", admin_invoice_lines_path(invoice_header_id: params[:invoice_header_id])
+    link_to "Cancel", admin_payment_lines_path(payment_header_id: params[:payment_header_id])
   end
 
   controller do
@@ -19,20 +19,20 @@ ActiveAdmin.register InvoiceLine, as: "Invoice Line" do
     end
 
     def scoped_collection
+      end_of_association_chain.includes(:payment_header)
       end_of_association_chain.includes(:invoice_header)
-      end_of_association_chain.includes(:invoicing_milestone)
-      if !params[:invoice_header_id].nil?
-        session[:invoice_header_id] = params[:invoice_header_id]
+      if !params[:payment_header_id].nil?
+        session[:payment_header_id] = params[:payment_header_id]
       end
-      InvoiceLine.where(invoice_header_id: session[:invoice_header_id])
+      PaymentLine.where(payment_header_id: session[:payment_header_id])
     end
 
     def index
-      if !params[:invoice_header_id].nil?
-        session[:invoice_header_id] = params[:invoice_header_id]
+      if !params[:payment_header_id].nil?
+        session[:payment_header_id] = params[:payment_header_id]
       end
-      @invoice_title = t('labels.invoice_line_index_page'\
-          , invoice_title: InvoiceHeader.find(session[:invoice_header_id]).id)
+      @payment_title = t('labels.payment_line_index_page'\
+          , payment_title: PaymentHeader.find(session[:payment_header_id]).id)
       index!
     end
 
@@ -50,63 +50,61 @@ ActiveAdmin.register InvoiceLine, as: "Invoice Line" do
     end
   end
 
-  show do |il|
-    panel 'Invoice Line Details' do
-      attributes_table_for il do
+  show do |pl|
+    panel 'Payment Line Details' do
+      attributes_table_for pl do
         row :id
-        row :invoice_header do |ih|
-          ih.invoice_header.complete_name
+        row :payment_header do |ph|
+          ph.payment_header.complete_name
         end
         row :description
-        row :invoicing_milestone
-        row "In", :bu_currency do |il|
-          il.bu_currency
+        row :invoice_header do |ih|
+          ih.invoice_header.complete_name
         end
         row :amount do |il|
           number_with_precision il.amount, precision: 2, delimiter: ','
         end
-        row :taxable
         row :comments
       end
     end
   end
 
   filter :description
-  filter :invoicing_milestone
+  filter :invoice_header
   filter :amount
-  filter :taxable
   filter :comments
   filter :created_at
   filter :updated_at
 
-  index title: proc { |ia| @invoice_title } do
+  index title: proc { |pl| @payment_title } do
     selectable_column
     column :id
+    column :payment_header do |ph|
+      div(title: ph.payment_header.complete_name) do
+        t('labels.hover_for_details')
+      end
+    end
+    column :description
     column :invoice_header do |ih|
       div(title: ih.invoice_header.complete_name) do
         t('labels.hover_for_details')
       end
     end
-    column :description
-    column :invoicing_milestone
-    column 'In', :bu_currency
     column 'Amount', :amount, :sortable => 'amount' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.amount, precision: 2, delimiter: ','
       end
     end
-    column :taxable
     actions dropdown: :true
   end
 
   form do |f|
-    f.inputs "Invoice Line Details" do
-      f.input :invoice_header, as: :select, collection: InvoiceHeader.all.map { |ih| [ih.complete_name, ih.id] }\
-          , input_html: {:disabled => true, selected: InvoiceHeader.find(session[:invoice_header_id]).id}
+    f.inputs "Payment Line Details" do
+      f.input :payment_header, as: :select, collection: PaymentHeader.all.map { |ph| [ph.complete_name, ph.id] }\
+          , input_html: {:disabled => true, selected: PaymentHeader.find(session[:payment_header_id]).id}
       f.input :description
-      f.input :invoicing_milestone
+      f.input :invoice_header
       f.input :amount
-      f.input :taxable, as: :select, include_blank: false
       f.input :comments
       f.actions
     end

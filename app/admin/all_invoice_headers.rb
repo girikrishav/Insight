@@ -47,7 +47,7 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice" do
           ih.bu_currency
         end
         row :amount do |ih|
-          number_with_precision ih.amount, precision: 0, delimiter: ','
+          number_with_precision ih.amount, precision: 2, delimiter: ','
         end
         row :invoice_status
         row ('Terms') { |r| r.term}
@@ -83,17 +83,15 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice" do
     column 'In', :bu_currency
     column 'Amount', :amount, :sortable => 'amount' do |element|
       div :style => "text-align: right;" do
-        number_with_precision element.amount, precision: 0, delimiter: ','
+        number_with_precision element.amount, precision: 2, delimiter: ','
       end
     end
     column :invoice_status
     column 'Terms', :term
     column :due_date
     actions dropdown: :true do |ih|
-      item 'Invoice Lines', admin_invoice_lines_path(project_id: ih.project.id\
-        , invoice_header_id: ih.id)
-      item 'Invoice Adders', admin_invoice_adders_path(project_id: ih.project.id\
-        , invoice_header_id: ih.id)
+      item 'Invoice Lines', admin_invoice_lines_path(invoice_header_id: ih.id)
+      item 'Invoice Adders', admin_invoice_adders_path(invoice_header_id: ih.id)
     end
   end
 

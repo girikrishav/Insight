@@ -1,4 +1,13 @@
 class PaymentHeader < ActiveRecord::Base
+  def name
+    self.complete_name
+  end
+
+  def complete_name
+    'Payment = ' + self.id.to_s + ' [' + self.payment_date.to_s + \
+      '] [' + self.currency.name + '] [' + sprintf('%.2f', self.amount) + ']'
+  end
+
   validates :description, presence: :true
   validates :payment_date, presence: :true
   validates :currency, presence: :true

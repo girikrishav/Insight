@@ -82,6 +82,7 @@ en:
     invoice_header_index_page: "Invoice Headers [Project Id = %{project_title}]"
     invoice_adder_index_page: "Invoice Adders [Invoice Header Id = %{invoice_title}]"
     invoice_line_index_page: "Invoice Lines [Invoice Header Id = %{invoice_title}]"
+    payment_line_index_page: "Payment Lines [Payment Header Id = %{payment_title}]"
     assignment_index_page: "Assignments [Project Id = %{project_title}]"
     assignments: "Manage assignments."
     associate_histories: "View associate history."
