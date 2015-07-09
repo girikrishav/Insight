@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150708063932) do
+ActiveRecord::Schema.define(version: 20150709035355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -347,16 +347,7 @@ ActiveRecord::Schema.define(version: 20150708063932) do
     t.date     "to_date"
   end
 
-  create_table "payment_statuses", force: true do |t|
-    t.string   "name"
-    t.string   "description"
-    t.decimal  "rank"
-    t.string   "comments"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "payments", force: true do |t|
+  create_table "payment_headers", force: true do |t|
     t.string   "description"
     t.date     "payment_date"
     t.decimal  "amount"
@@ -365,6 +356,25 @@ ActiveRecord::Schema.define(version: 20150708063932) do
     t.integer  "payment_status_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "payment_lines", force: true do |t|
+    t.string   "description"
+    t.decimal  "amount"
+    t.string   "comments"
+    t.integer  "payment_header_id"
+    t.integer  "invoice_header_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "payment_statuses", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.decimal  "rank"
+    t.string   "comments"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "periodicities", force: true do |t|
