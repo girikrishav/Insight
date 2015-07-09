@@ -39,7 +39,7 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice" do
       attributes_table_for ih do
         row :id
         row :project do |p|
-          p.project.complete_name
+          p.project.name
         end
         row :description
         row :invoice_date
@@ -58,7 +58,7 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice" do
   end
 
   filter :project, as: :select, collection: proc {Project.order('project_name ASC')\
-      .map { |p| ["#{p.complete_name}", p.id] } }
+      .map { |p| ["#{p.name}", p.id] } }
   filter :description
   filter :invoice_date
   filter :invoice_status, :as => :select, :collection => \
@@ -74,7 +74,7 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice" do
     selectable_column
     column :id
     column :project do |p|
-      div(title: p.project.complete_name) do
+      div(title: p.project.name) do
         t('labels.hover_for_details')
       end
     end
@@ -98,7 +98,7 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice" do
   form do |f|
     f.inputs "Invoice Header Details" do
       if params[:action] == "new" or params[:action] == "create"
-        f.input :project, as: :select, collection: Project.all.map { |p| [p.complete_name, p.id] }
+        f.input :project, as: :select, collection: Project.all.map { |p| [p.name, p.id] }
         f.input :description
         f.input :invoice_date, as: :datepicker, input_html: {value: Date.today}
         f.input :invoice_status, as: :select, collection: \
@@ -110,7 +110,7 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice" do
            , include_blank: false
         f.input :comments
       else
-        f.input :project, as: :select, collection: Project.all.map { |p| [p.complete_name, p.id] } \
+        f.input :project, as: :select, collection: Project.all.map { |p| [p.name, p.id] } \
           , input_html: {:disabled => true, selected: f.object.project_id}
         f.input :description
         f.input :invoice_date, as: :datepicker

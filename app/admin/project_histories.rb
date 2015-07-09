@@ -96,7 +96,7 @@ ActiveAdmin.register ProjectHistory, as: "Project History" do
   filter :delivery_manager_associate, :as => :select, :collection => \
       proc { Associate.order('name ASC').map { |au| ["#{au.name}", au.id] } }
   filter :pipeline, :as => :select, :collection => \
-      proc { Pipeline.all.map { |au| ["#{au.complete_name}", au.id] } }
+      proc { Pipeline.all.map { |au| ["#{au.name}", au.id] } }
   filter :comments
   filter :created_at
   filter :updated_at

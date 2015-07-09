@@ -54,7 +54,7 @@ ActiveAdmin.register DeliveryMilestone, as: "Delivery Milestone" do
       attributes_table_for sr do
         row :id
         row :project do |p|
-          p.project.complete_name
+          p.project.name
         end
         row :name
         row :description
@@ -79,7 +79,7 @@ ActiveAdmin.register DeliveryMilestone, as: "Delivery Milestone" do
     selectable_column
     column :id
     column :project do |p|
-      div(title: p.project.complete_name) do
+      div(title: p.project.name) do
         t('labels.hover_for_details')
       end
     end
@@ -93,7 +93,7 @@ ActiveAdmin.register DeliveryMilestone, as: "Delivery Milestone" do
 
   form do |f|
     f.inputs "Delivery Milestone Details" do
-      f.input :project, as: :select, collection: Project.all.map { |p| [p.complete_name, p.id] }\
+      f.input :project, as: :select, collection: Project.all.map { |p| [p.name, p.id] }\
           , input_html: {:disabled => true, selected: Project.find(session[:project_id]).id}
       if params[:action] == "new" or params[:action] == "create"
         f.input :name

@@ -17,7 +17,7 @@ class Project < ActiveRecord::Base
         .reorder('as_on desc').first.as_on
   end
 
-  def complete_name
+  def name
     "Project = " + self.project_name + " ["  + self.start_date.to_s + ", " + self.end_date.to_s + "]"\
         ", Client = " + self.client_name + ", BU = " + self.bu_name+ " [" + self.bu_currency + "]"\
         + ", As on = " + self.as_on.to_s

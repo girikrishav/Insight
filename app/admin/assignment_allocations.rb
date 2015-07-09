@@ -62,7 +62,7 @@ ActiveAdmin.register AssignmentAllocation, as: "Assignment Allocation" do
       attributes_table_for sr do
         row :id
         row :project do |p|
-          p.project.complete_name
+          p.project.name
         end
         row :assignment do |a|
           a.assignment.id
@@ -83,7 +83,7 @@ ActiveAdmin.register AssignmentAllocation, as: "Assignment Allocation" do
   end
 
   filter :project, :as => :select, :collection => \
-      proc { Project.all.map { |au| ["#{au.complete_name}", au.id] } }
+      proc { Project.all.map { |au| ["#{au.name}", au.id] } }
   filter :assignment, :as => :select, :collection => \
       proc { Assignment.all.map { |au| ["#{au.name_for_assignment}", au.id] } }
   filter :skill
@@ -105,7 +105,7 @@ ActiveAdmin.register AssignmentAllocation, as: "Assignment Allocation" do
       a.assignment.id
     end
     column :project do |p|
-      div(title: p.project.complete_name) do
+      div(title: p.project.name) do
         t('labels.hover_for_details')
       end
     end

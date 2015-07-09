@@ -46,7 +46,7 @@ ActiveAdmin.register AssignmentHistory, as: "Assignment History" do
           ah.assignment.id
         end
         row :project do
-          ah.project.complete_name
+          ah.project.name
         end
         row :as_on
         row :skill
@@ -74,7 +74,7 @@ ActiveAdmin.register AssignmentHistory, as: "Assignment History" do
     column :id
     column 'At', :created_at
     column :project do |p|
-      div(title: p.project.complete_name) do
+      div(title: p.project.name) do
         t('labels.hover_for_details')
       end
     end

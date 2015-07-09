@@ -60,7 +60,7 @@ ActiveAdmin.register Assignment, as: "Assignment" do
       attributes_table_for sr do
         row :id
         row :project do |p|
-          p.project.complete_name
+          p.project.name
         end
         row :as_on
         row :skill
@@ -106,7 +106,7 @@ ActiveAdmin.register Assignment, as: "Assignment" do
       end
     end
     column :project do |p|
-      div(title: p.project.complete_name) do
+      div(title: p.project.name) do
         t('labels.hover_for_details')
       end
     end
@@ -126,7 +126,7 @@ ActiveAdmin.register Assignment, as: "Assignment" do
 
   form do |f|
     f.inputs "Assignment Details" do
-      f.input :project, as: :select, collection: Project.all.map { |p| [p.complete_name, p.id] }\
+      f.input :project, as: :select, collection: Project.all.map { |p| [p.name, p.id] }\
           , input_html: {:disabled => true, selected: Project.find(session[:project_id]).id}
       if params[:action] == "new" or params[:action] == "create"
         f.input :as_on, as: :datepicker, input_html: {value: Date.today}

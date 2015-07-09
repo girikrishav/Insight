@@ -70,7 +70,7 @@ ActiveAdmin.register Project, as: "Project" do
         row :delivery_manager_associate
         if !p.pipeline.nil?
           row "Pipeline" do
-            p.pipeline.complete_name
+            p.pipeline.name
           end
         else
           row :pipeline
@@ -93,7 +93,7 @@ ActiveAdmin.register Project, as: "Project" do
   filter :project_status
   filter :business_unit
   filter :pipeline, :as => :select, :collection => \
-      proc { Pipeline.order('project_name ASC').map { |au| ["#{au.complete_name}", au.id] } }
+      proc { Pipeline.order('project_name ASC').map { |au| ["#{au.name}", au.id] } }
   filter :sales_associate, :as => :select, :collection => \
       proc { Associate.order('name ASC').map { |au| ["#{au.name}", au.id] } }
   filter :estimator_associate, :as => :select, :collection => \

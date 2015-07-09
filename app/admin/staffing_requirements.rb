@@ -57,7 +57,7 @@ ActiveAdmin.register StaffingRequirement, as: "Staffing Requirement" do
       attributes_table_for sr do
         row :id
         row :project do |p|
-          p.project.complete_name
+          p.project.name
         end
         row :skill
         row :designation
@@ -88,7 +88,7 @@ ActiveAdmin.register StaffingRequirement, as: "Staffing Requirement" do
     selectable_column
     column :id
     column :project do |p|
-      div(title: p.project.complete_name) do
+      div(title: p.project.name) do
         t('labels.hover_for_details')
       end
     end
@@ -112,7 +112,7 @@ ActiveAdmin.register StaffingRequirement, as: "Staffing Requirement" do
 
   form do |f|
     f.inputs "Staffing Requirement Details" do
-      f.input :project, as: :select, collection: Project.all.map { |p| [p.complete_name, p.id] }\
+      f.input :project, as: :select, collection: Project.all.map { |p| [p.name, p.id] }\
           , input_html: {:disabled => true, selected: Project.find(session[:project_id]).id}
       if params[:action] == "new" || params[:action] == "create"
         f.input :skill

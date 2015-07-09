@@ -99,7 +99,7 @@ class Pipeline < ActiveRecord::Base
     end
   end
 
-  def complete_name
+  def name
     "Project name = " + self.project_name + ", Client = " + self.client_name\
         + ", BU = " + self.bu_name+ " [Currency = " + self.bu_currency + "]"\
         + ", As on = " + self.as_on.to_s

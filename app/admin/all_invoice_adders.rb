@@ -64,7 +64,7 @@ ActiveAdmin.register InvoiceAdder, as: "Invoice Adder" do
       attributes_table_for ia do
         row :id
         row :invoice_header do |ih|
-          ih.invoice_header.complete_name
+          ih.invoice_header.name
         end
         row :description
         row :invoice_adder_type
@@ -90,7 +90,7 @@ ActiveAdmin.register InvoiceAdder, as: "Invoice Adder" do
     selectable_column
     column :id
     column :invoice_header do |ih|
-      div(title: ih.invoice_header.complete_name) do
+      div(title: ih.invoice_header.name) do
         t('labels.hover_for_details')
       end
     end
@@ -107,7 +107,7 @@ ActiveAdmin.register InvoiceAdder, as: "Invoice Adder" do
 
   form do |f|
     f.inputs "Invoice Adder Details" do
-      f.input :invoice_header, as: :select, collection: InvoiceHeader.all.map { |ih| [ih.complete_name, ih.id] }\
+      f.input :invoice_header, as: :select, collection: InvoiceHeader.all.map { |ih| [ih.name, ih.id] }\
           , input_html: {:disabled => true, selected: InvoiceHeader.find(session[:invoice_header_id]).id}
       f.input :description
       f.input :invoice_adder_type

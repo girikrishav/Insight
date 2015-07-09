@@ -55,11 +55,11 @@ ActiveAdmin.register PaymentLine, as: "Payment Line" do
       attributes_table_for pl do
         row :id
         row :payment_header do |ph|
-          ph.payment_header.complete_name
+          ph.payment_header.name
         end
         row :description
         row :invoice_header do |ih|
-          ih.invoice_header.complete_name
+          ih.invoice_header.name
         end
         row :amount do |il|
           number_with_precision il.amount, precision: 2, delimiter: ','
@@ -80,13 +80,13 @@ ActiveAdmin.register PaymentLine, as: "Payment Line" do
     selectable_column
     column :id
     column :payment_header do |ph|
-      div(title: ph.payment_header.complete_name) do
+      div(title: ph.payment_header.name) do
         t('labels.hover_for_details')
       end
     end
     column :description
     column :invoice_header do |ih|
-      div(title: ih.invoice_header.complete_name) do
+      div(title: ih.invoice_header.name) do
         t('labels.hover_for_details')
       end
     end
@@ -100,7 +100,7 @@ ActiveAdmin.register PaymentLine, as: "Payment Line" do
 
   form do |f|
     f.inputs "Payment Line Details" do
-      f.input :payment_header, as: :select, collection: PaymentHeader.all.map { |ph| [ph.complete_name, ph.id] }\
+      f.input :payment_header, as: :select, collection: PaymentHeader.all.map { |ph| [ph.name, ph.id] }\
           , input_html: {:disabled => true, selected: PaymentHeader.find(session[:payment_header_id]).id}
       f.input :description
       f.input :invoice_header
