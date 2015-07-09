@@ -45,6 +45,9 @@ ActiveAdmin.register PaymentHeader, as: "Payment" do
         row :amount do |ph|
           number_with_precision ph.amount, precision: 0, delimiter: ','
         end
+        row :unapplied do |ph|
+          number_with_precision ph.unapplied, precision: 0, delimiter: ','
+        end
         row :payment_status
         row :comments
       end
@@ -55,6 +58,7 @@ ActiveAdmin.register PaymentHeader, as: "Payment" do
   filter :payment_date
   filter :currency
   filter :amount
+  filter :unapplied
   filter :payment_status
   filter :comments
   filter :created_at
@@ -69,6 +73,11 @@ ActiveAdmin.register PaymentHeader, as: "Payment" do
     column 'Amount', :amount, :sortable => 'amount' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.amount, precision: 2, delimiter: ','
+      end
+    end
+    column 'Unapplied', :unapplied, :sortable => 'unapplied' do |element|
+      div :style => "text-align: right;" do
+        number_with_precision element.unapplied, precision: 2, delimiter: ','
       end
     end
     column :payment_status

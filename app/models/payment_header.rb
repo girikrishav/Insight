@@ -4,6 +4,11 @@ class PaymentHeader < ActiveRecord::Base
       '] [' + self.currency.name + '] [' + sprintf('%.2f', self.amount) + ']'
   end
 
+  def unapplied
+    line_amount = PaymentLine.where('payment_header_id = ?', self.id).sum(:amount)
+    self.amount - line_amount
+  end
+
   validates :description, presence: :true
   validates :payment_date, presence: :true
   validates :currency, presence: :true

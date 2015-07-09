@@ -2,25 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="adf352fa-d643-4c4b-b9c0-def541ece40b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/all_invoice_adders.rb" afterPath="$PROJECT_DIR$/app/admin/all_invoice_adders.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/all_invoice_headers.rb" afterPath="$PROJECT_DIR$/app/admin/all_invoice_headers.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/all_invoice_lines.rb" afterPath="$PROJECT_DIR$/app/admin/all_invoice_lines.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/assignment_allocations.rb" afterPath="$PROJECT_DIR$/app/admin/assignment_allocations.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/assignment_histories.rb" afterPath="$PROJECT_DIR$/app/admin/assignment_histories.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/assignments.rb" afterPath="$PROJECT_DIR$/app/admin/assignments.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/delivery_milestones.rb" afterPath="$PROJECT_DIR$/app/admin/delivery_milestones.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/invoice_header.rb" afterPath="$PROJECT_DIR$/app/models/invoice_header.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/invoicing_milestones.rb" afterPath="$PROJECT_DIR$/app/admin/invoicing_milestones.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/payment_header.rb" afterPath="$PROJECT_DIR$/app/models/payment_header.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/payment_lines.rb" afterPath="$PROJECT_DIR$/app/admin/payment_lines.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/pipeline.rb" afterPath="$PROJECT_DIR$/app/models/pipeline.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/project.rb" afterPath="$PROJECT_DIR$/app/models/project.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/project_histories.rb" afterPath="$PROJECT_DIR$/app/admin/project_histories.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/project_invoice_adders.rb" afterPath="$PROJECT_DIR$/app/admin/project_invoice_adders.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/project_invoice_headers.rb" afterPath="$PROJECT_DIR$/app/admin/project_invoice_headers.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/project_invoice_lines.rb" afterPath="$PROJECT_DIR$/app/admin/project_invoice_lines.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/projects.rb" afterPath="$PROJECT_DIR$/app/admin/projects.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/staffing_requirements.rb" afterPath="$PROJECT_DIR$/app/admin/staffing_requirements.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/payment_headers.rb" afterPath="$PROJECT_DIR$/app/admin/payment_headers.rb" />
     </list>
     <ignored path="Insight.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,103 +49,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="payment_lines.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/admin/payment_lines.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1322" max-vertical-offset="1755">
-              <caret line="102" column="93" selection-start-line="102" selection-start-column="93" selection-end-line="102" selection-end-column="93" />
-              <folding>
-                <element signature="e#2303#2332#1" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pipeline.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/pipeline.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1320" max-vertical-offset="2175">
-              <caret line="101" column="6" selection-start-line="101" selection-start-column="6" selection-end-line="101" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="projects.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/admin/projects.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1281" max-vertical-offset="3075">
-              <caret line="95" column="70" selection-start-line="95" selection-start-column="70" selection-end-line="95" selection-end-column="70" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="staffing_requirements.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/admin/staffing_requirements.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1551" max-vertical-offset="2205">
-              <caret line="114" column="78" selection-start-line="114" selection-start-column="78" selection-end-line="114" selection-end-column="78" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="invoice_header.rb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/models/invoice_header.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.27713627" vertical-offset="0" max-vertical-offset="615">
-              <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="project_histories.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/admin/project_histories.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1326" max-vertical-offset="2055">
-              <caret line="98" column="48" selection-start-line="98" selection-start-column="48" selection-end-line="98" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="project_invoice_adders.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/admin/project_invoice_adders.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1502" max-vertical-offset="1935">
-              <caret line="113" column="93" selection-start-line="113" selection-start-column="93" selection-end-line="113" selection-end-column="93" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="project_invoice_headers.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/admin/project_invoice_headers.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1581" max-vertical-offset="2220">
-              <caret line="116" column="78" selection-start-line="116" selection-start-column="78" selection-end-line="116" selection-end-column="78" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="project_invoice_lines.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/admin/project_invoice_lines.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1412" max-vertical-offset="1845">
-              <caret line="107" column="93" selection-start-line="107" selection-start-column="93" selection-end-line="107" selection-end-column="93" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="payment_header.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/payment_header.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
-              <caret line="1" column="10" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
+              <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="payment_headers.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/admin/payment_headers.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.4803695" vertical-offset="512" max-vertical-offset="1770">
+              <caret line="48" column="44" selection-start-line="48" selection-start-column="44" selection-end-line="48" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -217,7 +118,6 @@
         <option value="$PROJECT_DIR$/app/admin/invoice_lines.rb" />
         <option value="$PROJECT_DIR$/app/admin/invoice_adders.rb" />
         <option value="$PROJECT_DIR$/app/admin/invoices.rb" />
-        <option value="$PROJECT_DIR$/app/admin/payment_headers.rb" />
         <option value="$PROJECT_DIR$/app/models/payment_line.rb" />
         <option value="$PROJECT_DIR$/app/admin/all_invoice_adders.rb" />
         <option value="$PROJECT_DIR$/app/models/project.rb" />
@@ -228,7 +128,6 @@
         <option value="$PROJECT_DIR$/app/admin/assignments.rb" />
         <option value="$PROJECT_DIR$/app/admin/delivery_milestones.rb" />
         <option value="$PROJECT_DIR$/app/admin/invoicing_milestones.rb" />
-        <option value="$PROJECT_DIR$/app/models/payment_header.rb" />
         <option value="$PROJECT_DIR$/app/admin/payment_lines.rb" />
         <option value="$PROJECT_DIR$/app/models/pipeline.rb" />
         <option value="$PROJECT_DIR$/app/admin/project_histories.rb" />
@@ -238,6 +137,8 @@
         <option value="$PROJECT_DIR$/app/admin/projects.rb" />
         <option value="$PROJECT_DIR$/app/admin/staffing_requirements.rb" />
         <option value="$PROJECT_DIR$/app/models/invoice_header.rb" />
+        <option value="$PROJECT_DIR$/app/models/payment_header.rb" />
+        <option value="$PROJECT_DIR$/app/admin/payment_headers.rb" />
       </list>
     </option>
   </component>
@@ -717,12 +618,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="34" y="23" width="1245" height="777" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2669039" sideWeight="0.71251106" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924336" sideWeight="0.47579297" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3260234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3260234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39035088" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924336" sideWeight="0.524207" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
@@ -995,14 +896,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/admin/payment_headers.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.352185" vertical-offset="0" max-vertical-offset="1635">
-          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/payment_line.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.077120826" vertical-offset="0" max-vertical-offset="389">
@@ -1083,14 +976,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/payment_header.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
-          <caret line="1" column="10" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/admin/payment_lines.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1322" max-vertical-offset="1755">
@@ -1111,7 +996,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/admin/project_histories.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1326" max-vertical-offset="2055">
+        <state vertical-scroll-proportion="0.33256352" vertical-offset="1326" max-vertical-offset="2055">
           <caret line="98" column="48" selection-start-line="98" selection-start-column="48" selection-end-line="98" selection-end-column="48" />
           <folding />
         </state>
@@ -1119,7 +1004,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/admin/project_invoice_adders.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1502" max-vertical-offset="1935">
+        <state vertical-scroll-proportion="0.41108546" vertical-offset="1502" max-vertical-offset="1935">
           <caret line="113" column="93" selection-start-line="113" selection-start-column="93" selection-end-line="113" selection-end-column="93" />
           <folding />
         </state>
@@ -1127,7 +1012,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/admin/project_invoice_headers.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1581" max-vertical-offset="2220">
+        <state vertical-scroll-proportion="0.33256352" vertical-offset="1581" max-vertical-offset="2220">
           <caret line="116" column="78" selection-start-line="116" selection-start-column="78" selection-end-line="116" selection-end-column="78" />
           <folding />
         </state>
@@ -1135,7 +1020,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/admin/project_invoice_lines.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1412" max-vertical-offset="1845">
+        <state vertical-scroll-proportion="0.41108546" vertical-offset="1412" max-vertical-offset="1845">
           <caret line="107" column="93" selection-start-line="107" selection-start-column="93" selection-end-line="107" selection-end-column="93" />
           <folding />
         </state>
@@ -1159,8 +1044,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/invoice_header.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27713627" vertical-offset="0" max-vertical-offset="615">
-          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.6581986" vertical-offset="0" max-vertical-offset="615">
+          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/payment_header.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
+          <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/admin/payment_headers.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4803695" vertical-offset="512" max-vertical-offset="1770">
+          <caret line="48" column="44" selection-start-line="48" selection-start-column="44" selection-end-line="48" selection-end-column="44" />
           <folding />
         </state>
       </provider>
