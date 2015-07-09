@@ -4,6 +4,10 @@ class InvoicingMilestone < ActiveRecord::Base
     amount - invoiced_amount
   end
 
+  def currency
+    self.project.bu_currency
+  end
+
   validates :name, presence: :true
   validates :amount, presence: :true
   validates :due_date, presence: :true

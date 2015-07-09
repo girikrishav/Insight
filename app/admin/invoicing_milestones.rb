@@ -66,6 +66,9 @@ ActiveAdmin.register InvoicingMilestone, as: "Invoicing Milestone" do
         end
         row :name
         row :description
+        row "In" do |im|
+          im.currency
+        end
         row :amount do |p|
           number_with_precision p.amount, precision: 2, delimiter: ','
         end
@@ -100,6 +103,7 @@ ActiveAdmin.register InvoicingMilestone, as: "Invoicing Milestone" do
     end
     column :name
     column :description
+    column "In", :currency
     column 'Amount', :amount, :sortable => 'amount' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.amount, precision: 2, delimiter: ','
