@@ -94,6 +94,8 @@ en:
     amount: "Amount"
     unpaid: "Unpaid"
     project_invoice_adder: "Project Invoice Adder"
+    project_history: "Project History"
+    at: "At"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"

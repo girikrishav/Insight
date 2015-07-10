@@ -1,6 +1,6 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register ProjectHistory, as: "Project History" do
+ActiveAdmin.register ProjectHistory, as: I18n.t('active_admin.project_history') do
   menu false
 
   config.sort_order = 'created_at_desc'
@@ -8,11 +8,11 @@ ActiveAdmin.register ProjectHistory, as: "Project History" do
   config.clear_action_items!
 
   action_item only: [:index] do
-    link_to "Cancel", admin_projects_path
+    link_to I18n.t('button_labels.cancel'), admin_projects_path
   end
 
   action_item only: [:show] do
-    link_to "Cancel", admin_project_histories_path(project_id: params[:project_id])
+    link_to I18n.t('button_labels.cancel'), admin_project_histories_path(project_id: params[:project_id])
   end
 
   controller do
@@ -38,14 +38,14 @@ ActiveAdmin.register ProjectHistory, as: "Project History" do
   end
 
   show do |p|
-    panel 'Project History Details' do
+    panel I18n.t('active_admin.project_history') + ' ' + I18n.t('active_admin.detail').pluralize do
       attributes_table_for p do
         row :id
         row :as_on
         row :project_name
         row :start_date
         row :end_date
-        row "In" do |sr|
+        row I18n.t('active_admin.in') do |sr|
           p.bu_currency
         end
         row :booking_amount do
@@ -55,7 +55,7 @@ ActiveAdmin.register ProjectHistory, as: "Project History" do
         row :client
         row :project_type
         row :project_status
-        row "BU" do
+        row I18n.t('active_admin.bu') do
           p.business_unit
         end
         row :sales_associate
@@ -63,11 +63,11 @@ ActiveAdmin.register ProjectHistory, as: "Project History" do
         row :account_manager_associate
         row :delivery_manager_associate
         if !p.pipeline.nil?
-          row "Pipeline" do
-            "BU = " + p.pipeline.bu_name \
-            + ", Client = " + p.pipeline.client_name\
-            + ", Project = " + p.pipeline.project_name\
-            + ", As on = " + p.pipeline.as_on.to_s
+          row I18n.t('active_admin.pipeline') do
+            I18n.t('active_admin.bu') + " = " + p.pipeline.bu_name \
+            + ", " + I18n.t('active_admin.client') + " = " + p.pipeline.client_name\
+            + ", " + I18n.t('active_admin.project') + " = " + p.pipeline.project_name\
+            + ", " + I18n.t('active_admin.as_on') + " = " + p.pipeline.as_on.to_s
           end
         else
           row :pipeline
@@ -108,21 +108,21 @@ ActiveAdmin.register ProjectHistory, as: "Project History" do
       selectable_column
     end
     column :id
-    column 'At', :created_at
-    column 'BU', :business_unit, :sortable => 'business_units.name'
+    column I18n.t('active_admin.at'), :created_at
+    column I18n.t('active_admin.bu'), :business_unit, :sortable => 'business_units.name'
     column :client, :sortable => 'clients.name'
-    column 'Project', :project_name
+    column I18n.t('active_admin.project'), :project_name
     # column :as_on
-    column 'Start', :start_date
-    column 'End', :end_date
-    column 'Type', :project_type, :sortable => 'project_types.name'
-    column 'In', :bu_currency
-    column 'Value', :booking_amount, :sortable => 'booking_amount' do |element|
+    column I18n.t('active_admin.start'), :start_date
+    column I18n.t('active_admin.end'), :end_date
+    column I18n.t('active_admin.type'), :project_type, :sortable => 'project_types.name'
+    column I18n.t('active_admin.in'), :bu_currency
+    column I18n.t('active_admin.value'), :booking_amount, :sortable => 'booking_amount' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.booking_amount, precision: 0, delimiter: ','
       end
     end
-    column 'Status', :project_status, :sortable => 'project_statuses.name' do |s|
+    column I18n.t('active_admin.status'), :project_status, :sortable => 'project_statuses.name' do |s|
       ProjectStatus.find(s.project_status_id).name
     end
     # column :comments
