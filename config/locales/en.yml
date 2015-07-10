@@ -60,6 +60,7 @@ en:
     user_status: "Status"
     as_on: "As On"
     timesheet: "Timesheet"
+    timesheet_history: "Timesheet History"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"

@@ -7,7 +7,7 @@ ActiveAdmin.register Timesheet, as: I18n.t('active_admin.timesheet') do
   config.sort_order = 'as_on_desc'
 
   action_item only: [:show] do
-    link_to "Cancel", admin_timesheets_path
+    link_to I18n.t('button_labels.cancel'), admin_timesheets_path
   end
 
   controller do

@@ -1,6 +1,6 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register TimesheetHistory, as: "Timesheet History" do
+ActiveAdmin.register TimesheetHistory, as: I18n.t('active_admin.timesheet_history') do
   menu false
 
   config.sort_order = 'created_at_desc'
@@ -8,11 +8,11 @@ ActiveAdmin.register TimesheetHistory, as: "Timesheet History" do
   config.clear_action_items!
 
   action_item only: [:index] do
-    link_to "Cancel", admin_timesheets_path
+    link_to I18n.t('button_labels.cancel'), admin_timesheets_path
   end
 
   action_item only: [:show] do
-    link_to "Cancel", admin_timesheet_histories_path(timesheet_id: params[:timesheet_id])
+    link_to I18n.t('button_labels.cancel'), admin_timesheet_histories_path(timesheet_id: params[:timesheet_id])
   end
 
   controller do
@@ -40,7 +40,7 @@ ActiveAdmin.register TimesheetHistory, as: "Timesheet History" do
   end
 
   show do |th|
-    panel 'Timesheet History Details' do
+    panel I18n.t('active_admin.timesheet_history') do
       attributes_table_for th do
         row :id
         row :timesheet do |p|

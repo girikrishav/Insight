@@ -7,7 +7,7 @@ ActiveAdmin.register VacationReason, as: I18n.t('active_admin.vacation_reason') 
   config.sort_order = 'name_asc'
 
   action_item only: [:show] do
-    link_to "Cancel", admin_vacation_reasons_path
+    link_to I18n.t('button_labels.cancel'), admin_vacation_reasons_path
   end
 
   controller do

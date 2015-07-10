@@ -6,7 +6,7 @@ ActiveAdmin.register UserStatus, as: I18n.t('active_admin.user_status') do
   config.sort_order = 'rank_asc'
 
   action_item only: [:show] do
-    link_to "Cancel", admin_statuses_path
+    link_to I18n.t('button_labels.cancel'), admin_statuses_path
   end
 
   controller do
