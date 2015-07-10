@@ -57,6 +57,7 @@ en:
     master: "Master"
     detail: "Detail"
     days_allowed: "Days Allowed"
+    user_status: "Status"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"

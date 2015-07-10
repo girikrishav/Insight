@@ -1,7 +1,7 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register UserStatus, as: "Status" do
-  menu :if => proc { menu_accessible?(100) }, :label => "Statuses", :parent => "Security", :priority => 10
+ActiveAdmin.register UserStatus, as: I18n.t('active_admin.user_status') do
+  menu :if => proc { menu_accessible?(100) }, :label => I18n.t('active_admin.user_status').pluralize, :parent => "Security", :priority => 10
 
   config.sort_order = 'rank_asc'
 
