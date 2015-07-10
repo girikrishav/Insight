@@ -1,16 +1,16 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register PaymentLine, as: "Payment Line" do
+ActiveAdmin.register PaymentLine, as: I18n.t('active_admin.payment_line') do
   menu false
 
   config.sort_order = 'id_asc'
 
   action_item only: [:index] do
-    link_to "Cancel", admin_payments_path
+    link_to I18n.t('button_labels.cancel'), admin_payments_path
   end
 
   action_item only: [:show] do
-    link_to "Cancel", admin_payment_lines_path(payment_header_id: params[:payment_header_id])
+    link_to I18n.t('button_labels.cancel'), admin_payment_lines_path(payment_header_id: params[:payment_header_id])
   end
 
   controller do
@@ -51,7 +51,7 @@ ActiveAdmin.register PaymentLine, as: "Payment Line" do
   end
 
   show do |pl|
-    panel 'Payment Line Details' do
+    panel I18n.t('active_admin.payment_line') + ' ' + I18n.t('active_admin.detail').pluralize do
       attributes_table_for pl do
         row :id
         row :payment_header do |ph|
@@ -90,7 +90,7 @@ ActiveAdmin.register PaymentLine, as: "Payment Line" do
         t('labels.hover_for_details')
       end
     end
-    column 'Amount', :amount, :sortable => 'amount' do |element|
+    column I18n.t('active_admin.amount'), :amount, :sortable => 'amount' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.amount, precision: 2, delimiter: ','
       end
@@ -99,7 +99,7 @@ ActiveAdmin.register PaymentLine, as: "Payment Line" do
   end
 
   form do |f|
-    f.inputs "Payment Line Details" do
+    f.inputs I18n.t('active_admin.payment_line') + ' ' + I18n.t('active_admin.detail').pluralize do
       f.input :payment_header, as: :select, collection: PaymentHeader.all.map { |ph| [ph.name, ph.id] }\
           , input_html: {:disabled => true, selected: PaymentHeader.find(session[:payment_header_id]).id}
       f.input :description
