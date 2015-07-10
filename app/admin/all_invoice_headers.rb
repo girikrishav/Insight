@@ -3,7 +3,7 @@ include ActiveAdminHelper
 ActiveAdmin.register InvoiceHeader, as: "Invoice" do
   menu :if => proc { menu_accessible?(25) }, :label => "Invoices", :parent => "Operations", :priority => 70
 
-  config.sort_order = 'invoice_date_desc'
+  config.sort_order = 'invoice_date_desc_and_id_desc'
 
   action_item only: [:show] do
     link_to "Cancel", admin_invoices_path
