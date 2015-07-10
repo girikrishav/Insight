@@ -1,12 +1,13 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register  ProjectStatus, as: "Project Status" do
-  menu :if => proc { menu_accessible?(100) }, :label => "Project Statuses", :parent => "Lookups", :priority => 50
+ActiveAdmin.register  ProjectStatus, as: I18n.t('active_admin.project_status') do
+  menu :if => proc { menu_accessible?(100) }, :label => I18n.t('active_admin.project_status').pluralize\
+  , :parent => I18n.t('active_admin.lookup').pluralize, :priority => 50
 
   config.sort_order = 'rank_asc'
 
   action_item only: [:show] do
-    link_to "Cancel", admin_project_statuses_path
+    link_to I18n.t('button_labels.cancel'), admin_project_statuses_path
   end
 
   controller do

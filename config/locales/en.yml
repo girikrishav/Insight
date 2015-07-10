@@ -89,6 +89,7 @@ en:
     pipeline: "Pipeline"
     project_type: "Project Type"
     lookup: "Lookup"
+    project_status: "Project Status"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"
