@@ -1,16 +1,16 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register InvoiceHeader, as: "Project Invoice Header" do
+ActiveAdmin.register InvoiceHeader, as: "Project Invoice" do
   menu false
 
-  config.sort_order = 'invoice_date_desc'
+  config.sort_order = 'invoice_date_desc_and_id_desc'
 
   action_item only: [:index] do
     link_to "Cancel", admin_projects_path
   end
 
   action_item only: [:show] do
-    link_to "Cancel", admin_project_invoice_headers_path(project_id: params[:project_id])
+    link_to "Cancel", admin_project_invoices_path(project_id: params[:project_id])
   end
 
   controller do

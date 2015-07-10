@@ -6,7 +6,7 @@ ActiveAdmin.register InvoiceLine, as: "Project Invoice Line" do
   config.sort_order = 'id_asc'
 
   action_item only: [:index] do
-    link_to "Cancel", admin_project_invoice_headers_path
+    link_to "Cancel", admin_project_invoices_path
   end
 
   action_item only: [:show] do
