@@ -98,6 +98,7 @@ en:
     at: "At"
     pipeline_status: "Pipeline Status"
     pipeline_history: "Pipeline History"
+    periodicity: "Periodicity"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"

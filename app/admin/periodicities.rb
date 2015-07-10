@@ -1,5 +1,6 @@
 ActiveAdmin.register Periodicity do
-  menu :if => proc { menu_accessible?(50) }, :label => I18n.t('labels.periodocities'), :parent => I18n.t('labels.lookups'), :priority => 90
+  menu :if => proc { menu_accessible?(50) }, :label => I18n.t('active_admin.periodicity').pluralize\
+    , :parent => I18n.t('active_admin.lookup').pluralize, :priority => 90
 
   config.sort_order = 'rank_asc'
 
@@ -27,7 +28,7 @@ ActiveAdmin.register Periodicity do
   end
 
   show do |p|
-    panel I18n.t('labels.periodicity_details') do
+    panel I18n.t('active_admin.periodicity') + ' ' + I18n.t('active_admin.detail').pluralize do
       attributes_table_for p do
         row :id
         row :name
@@ -57,7 +58,7 @@ ActiveAdmin.register Periodicity do
   end
 
   form do |f|
-    f.inputs I18n.t('labels.periodicity_details') do
+    f.inputs I18n.t('active_admin.periodicity') + ' ' + I18n.t('active_admin.detail').pluralize do
       if params[:action] == "new" || params[:action] == "create"
         f.input :name
       else
