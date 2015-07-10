@@ -1,12 +1,13 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register  PaymentStatus, as: "Payment Status" do
-  menu :if => proc { menu_accessible?(100) }, :label => "Payment Statuses", :parent => "Lookups", :priority => 30
+ActiveAdmin.register  PaymentStatus, as: I18n.t('active_admin.payment_status') do
+  menu :if => proc { menu_accessible?(100) }, :label => I18n.t('active_admin.payment_status').pluralize\
+  , :parent => I18n.t('active_admin.lookup').pluralize, :priority => 30
 
   config.sort_order = 'rank_asc'
 
   action_item only: [:show] do
-    link_to "Cancel", admin_payment_statuses_path
+    link_to I18n.t('button_labels.cancel'), admin_payment_statuses_path
   end
 
   controller do
