@@ -58,6 +58,8 @@ en:
     detail: "Detail"
     days_allowed: "Days Allowed"
     user_status: "Status"
+    as_on: "As On"
+    timesheet: "Timesheet"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"

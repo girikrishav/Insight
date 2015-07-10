@@ -1,7 +1,8 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register Timesheet, as: "Timesheet" do
-  menu :if => proc { menu_accessible?(1) }, :label => "Timesheets", :parent => "Operations", :priority => 60
+ActiveAdmin.register Timesheet, as: I18n.t('active_admin.timesheet') do
+  menu :if => proc { menu_accessible?(1) }, :label => I18n.t('active_admin.timesheet').pluralize\
+    , :parent => "Operations", :priority => 60
 
   config.sort_order = 'as_on_desc'
 
@@ -33,7 +34,7 @@ ActiveAdmin.register Timesheet, as: "Timesheet" do
   end
 
   show do |ad|
-    panel 'Timesheet Details' do
+    panel I18n.t('active_admin.timesheet') + ' ' + I18n.t('active_admin.detail').pluralize do
       attributes_table_for ad do
         row :id
         row :assignment do |a|
@@ -72,7 +73,7 @@ ActiveAdmin.register Timesheet, as: "Timesheet" do
         t('labels.hover_for_details')
       end
     end
-    column "As On", sortable: :as_on do |t|
+    column I18n.t('active_admin.as_on'), sortable: :as_on do |t|
       div(title: t('labels.timesheet_clockings')) do
         link_to t.as_on, admin_timesheet_clockings_path(associate_id: t.assignment.associate.id, as_on: t.as_on)
       end
@@ -87,7 +88,7 @@ ActiveAdmin.register Timesheet, as: "Timesheet" do
   end
 
   form do |f|
-    f.inputs "Timesheet Details" do
+    f.inputs I18n.t('active_admin.timesheet') + ' ' + I18n.t('active_admin.detail').pluralize do
       if params[:action] == "new" or params[:action] == "create"
         f.input :assignment, as: :select, collection: Assignment.all\
           .map { |a| [a.name_for_assignment, a.id] }
