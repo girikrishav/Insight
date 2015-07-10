@@ -59,32 +59,38 @@ ActiveAdmin.register Timesheet, as: I18n.t('active_admin.timesheet') do
 
   index do
     selectable_column
-    column 'Id', sortable: :id do |t|
-      div(title: t('labels.timesheet_histories')) do
-        if TimesheetHistory.where(timesheet_id: t.id).count > 0
-          link_to t.id, admin_timesheet_histories_path(timesheet_id: t.id)
-        else
-          t.id
-        end
-      end
-    end
+    column :id
+    # column 'Id', sortable: :id do |t|
+    #   div(title: t('labels.timesheet_histories')) do
+    #     if TimesheetHistory.where(timesheet_id: t.id).count > 0
+    #       link_to t.id,
+    #     else
+    #       t.id
+    #     end
+    #   end
+    # end
     column :assignment do |a|
       div(title: a.assignment.name_for_assignment) do
         t('labels.hover_for_details')
       end
     end
-    column I18n.t('active_admin.as_on'), sortable: :as_on do |t|
-      div(title: t('labels.timesheet_clockings')) do
-        link_to t.as_on, admin_timesheet_clockings_path(associate_id: t.assignment.associate.id, as_on: t.as_on)
-      end
-    end
+    column :as_on
+    # column I18n.t('active_admin.as_on'), sortable: :as_on do |t|
+    #   div(title: t('labels.timesheet_clockings')) do
+    #     link_to t.as_on, admin_timesheet_clockings_path(associate_id: t.assignment.associate.id, as_on: t.as_on)
+    #   end
+    # end
     column t('labels.hours'), :hours, :sortable => 'hours' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.hours, precision: 2, delimiter: ','
       end
     end
     column :comments
-    actions dropdown: :true
+    actions dropdown: :true do |t|
+      item I18n.t('active_admin.timesheet_history').pluralize, admin_timesheet_histories_path(timesheet_id: t.id)
+      item I18n.t('active_admin.timesheet_clocking').pluralize\
+        , admin_timesheet_clockings_path(associate_id: t.assignment.associate.id, as_on: t.as_on)
+    end
   end
 
   form do |f|

@@ -61,6 +61,7 @@ en:
     as_on: "As On"
     timesheet: "Timesheet"
     timesheet_history: "Timesheet History"
+    timesheet_clocking: "Timesheet Clocking"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"
@@ -103,8 +104,6 @@ en:
     assignment_histories: "View assignment history."
     hours: "Hours"
     timesheet_clocking_index_page: "Timesheet Clockings [Associate Id = %{associate_title}]"
-    timesheet_clockings: "View timesheet clockings."
-    timesheet_histories: "View timesheet history."
     timesheet_history_index_page: "Timesheet Histories [Timesheet Id = %{timesheet_title}]"
 
 
