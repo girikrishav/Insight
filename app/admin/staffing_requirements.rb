@@ -1,6 +1,6 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register StaffingRequirement, as: "Staffing Requirement" do
+ActiveAdmin.register StaffingRequirement, as: I18n.t('active_admin.staffing_requirement') do
   menu false
 
   config.sort_order = 'start_date_desc'
@@ -10,7 +10,7 @@ ActiveAdmin.register StaffingRequirement, as: "Staffing Requirement" do
   end
 
   action_item only: [:show] do
-    link_to "Cancel", admin_staffing_requirements_path(project_id: params[:project_id])
+    link_to I18n.t('button_labels.cancel'), admin_staffing_requirements_path(project_id: params[:project_id])
   end
 
   controller do
@@ -53,7 +53,8 @@ ActiveAdmin.register StaffingRequirement, as: "Staffing Requirement" do
   end
 
   show do |sr|
-    panel 'Staffing Requirement Details' do
+    panel I18n.t('active_admin.staffing_requirement').pluralize + ' ' \
+      + I18n.t('active_admin.detail').pluralize do
       attributes_table_for sr do
         row :id
         row :project do |p|
@@ -111,7 +112,8 @@ ActiveAdmin.register StaffingRequirement, as: "Staffing Requirement" do
   end
 
   form do |f|
-    f.inputs "Staffing Requirement Details" do
+    f.inputs I18n.t('active_admin.staffing_requirement').pluralize + ' '\
+      + I18n.t('active_admin.detail').pluralize do
       f.input :project, as: :select, collection: Project.all.map { |p| [p.name, p.id] }\
           , input_html: {:disabled => true, selected: Project.find(session[:project_id]).id}
       if params[:action] == "new" || params[:action] == "create"
