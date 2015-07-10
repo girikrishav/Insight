@@ -1,6 +1,6 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register TimesheetClocking, as: "Timesheet Clocking" do
+ActiveAdmin.register TimesheetClocking, as: I18n.t('active_admin.timesheet_clocking') do
   menu false
 
   config.sort_order = 'id_desc'
@@ -8,11 +8,11 @@ ActiveAdmin.register TimesheetClocking, as: "Timesheet Clocking" do
   config.clear_action_items!
 
   action_item only: [:index] do
-    link_to "Cancel", admin_timesheets_path
+    link_to I18n.t('button_labels.cancel'), admin_timesheets_path
   end
 
   action_item only: [:show] do
-    link_to "Cancel", admin_timesheet_clockings_path(associate_id: params[:associate_id]\
+    link_to I18n.t('button_labels.cancel'), admin_timesheet_clockings_path(associate_id: params[:associate_id]\
         , as_on: params[:as_on])
   end
 
@@ -62,7 +62,7 @@ ActiveAdmin.register TimesheetClocking, as: "Timesheet Clocking" do
   end
 
   show do |sr|
-    panel 'Timesheet Clocking Details' do
+    panel I18n.t('active_admin.timesheet_clocking') + ' ' + I18n.t('active_admin.detail').pluralize do
       attributes_table_for sr do
         row :id
         row :timesheet do |p|
