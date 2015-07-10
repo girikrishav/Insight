@@ -97,6 +97,7 @@ en:
     project_history: "Project History"
     at: "At"
     pipeline_status: "Pipeline Status"
+    pipeline_history: "Pipeline History"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"

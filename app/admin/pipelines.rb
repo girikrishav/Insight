@@ -2,7 +2,7 @@ include ActiveAdminHelper
 
 ActiveAdmin.register Pipeline, as: I18n.t('active_admin.pipeline') do
   menu :if => proc { menu_accessible?(50) }, :label => I18n.t('active_admin.pipeline').pluralize\
-  , :parent => I18n.t('active_admin.operation'), :priority => 40
+  , :parent => I18n.t('active_admin.operation').pluralize, :priority => 40
 
   config.sort_order = 'expected_start_desc'
 

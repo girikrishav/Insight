@@ -1,6 +1,6 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register PipelineHistory, as: "Pipeline History" do
+ActiveAdmin.register PipelineHistory, as: I18n.t('active_admin.pipeline_history') do
   menu false
 
   config.sort_order = 'created_at_desc'
@@ -10,11 +10,11 @@ ActiveAdmin.register PipelineHistory, as: "Pipeline History" do
   # config.batch_actions = false
 
   action_item only: [:index] do
-    link_to "Cancel", admin_pipelines_path
+    link_to I18n.t('button_labels.cancel'), admin_pipelines_path
   end
 
   action_item only: [:show] do
-    link_to "Cancel", admin_pipeline_histories_path(pipeline_id: params[:pipeline_id])
+    link_to I18n.t('button_labels.cancel'), admin_pipeline_histories_path(pipeline_id: params[:pipeline_id])
   end
 
   controller do
@@ -39,14 +39,14 @@ ActiveAdmin.register PipelineHistory, as: "Pipeline History" do
   end
 
   show do |p|
-    panel 'Pipeline History Details' do
+    panel I18n.t('active_admin.pipeline_history') + ' ' + I18n.t('active_admin.detail').pluralize do
       attributes_table_for p do
         row :id
         row :as_on
         row :project_name
         row :expected_start
         row :expected_end
-        row "In" do |ph|
+        row I18n.t('active_admin.in') do |ph|
           ph.bu_currency
         end
         row :expected_value do
@@ -56,7 +56,7 @@ ActiveAdmin.register PipelineHistory, as: "Pipeline History" do
         row :client
         row :project_type
         row :pipeline_status
-        row "BU" do
+        row I18n.t('active_admin.bu') do
           p.business_unit
         end
         row :sales_associate
@@ -97,20 +97,20 @@ ActiveAdmin.register PipelineHistory, as: "Pipeline History" do
       selectable_column
     end
     column :id
-    column 'At', :created_at
-    column 'BU', :business_unit
+    column I18n.t('active_admin.at'), :created_at
+    column I18n.t('active_admin.bu'), :business_unit
     column :client
-    column 'Project', :project_name
-    column 'Start', :expected_start
-    column 'End', :expected_end
-    column 'Type', :project_type, :sortable => 'project_type.name'
-    column 'In', :bu_currency
-    column 'Value', :expected_value, :sortable => 'expected_value' do |element|
+    column I18n.t('active_admin.project'), :project_name
+    column I18n.t('active_admin.start'), :expected_start
+    column I18n.t('active_admin.end'), :expected_end
+    column I18n.t('active_admin.type'), :project_type, :sortable => 'project_type.name'
+    column I18n.t('active_admin.in'), :bu_currency
+    column I18n.t('active_admin.value'), :expected_value, :sortable => 'expected_value' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.expected_value, precision: 0, delimiter: ','
       end
     end
-    column 'Status', :pipeline_status, :sortable => 'pipeline_status.name' do |s|
+    column I18n.t('active_admin.status'), :pipeline_status, :sortable => 'pipeline_status.name' do |s|
       PipelineStatus.find(s.pipeline_status_id).name
     end
     # column :comments
