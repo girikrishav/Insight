@@ -1,12 +1,13 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register PaymentHeader, as: "Payment" do
-  menu :if => proc { menu_accessible?(25) }, :label => "Payments", :parent => "Operations", :priority => 80
+ActiveAdmin.register PaymentHeader, as: I18n.t('active_admin.payment') do
+  menu :if => proc { menu_accessible?(25) }, :label => I18n.t('active_admin.payment').pluralize\
+  , :parent => I18n.t('active_admin.operation').pluralize, :priority => 80
 
   config.sort_order = 'payment_date_desc'
 
   action_item only: [:show] do
-    link_to "Cancel", admin_payments_path
+    link_to I18n.t('button_labels.cancel'), admin_payments_path
   end
 
   controller do
@@ -34,12 +35,12 @@ ActiveAdmin.register PaymentHeader, as: "Payment" do
   end
 
   show do |ph|
-    panel 'Payment Header Details' do
+    panel I18n.t('active_admin.payment') + ' ' + I18n.t('active_admin.detail').pluralize do
       attributes_table_for ph do
         row :id
         row :description
         row :payment_date
-        row "In" do |ph|
+        row I18n.t('active_admin.in') do |ph|
           ph.currency
         end
         row :amount do |ph|
@@ -69,25 +70,25 @@ ActiveAdmin.register PaymentHeader, as: "Payment" do
     column :id
     column :description
     column :payment_date
-    column 'In', :currency
-    column 'Amount', :amount, :sortable => 'amount' do |element|
+    column I18n.t('active_admin.in'), :currency
+    column I18n.t('active_admin.amount'), :amount, :sortable => 'amount' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.amount, precision: 2, delimiter: ','
       end
     end
-    column 'Unapplied', :unapplied, :sortable => 'unapplied' do |element|
+    column I18n.t('active_admin.unapplied'), :unapplied, :sortable => 'unapplied' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.unapplied, precision: 2, delimiter: ','
       end
     end
     column :payment_status
     actions dropdown: :true do |ph|
-      item 'Payment Lines', admin_payment_lines_path(payment_header_id: ph.id)
+      item I18n.t('active_admin.payment_line'), admin_payment_lines_path(payment_header_id: ph.id)
     end
   end
 
   form do |f|
-    f.inputs "Payment Header Details" do
+    f.inputs I18n.t('active_admin.payment') + ' ' + I18n.t('active_admin.detail').pluralize do
       if params[:action] == "new" or params[:action] == "create"
         f.input :description
         f.input :payment_date, as: :datepicker, input_html: {value: Date.today}

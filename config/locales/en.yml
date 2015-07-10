@@ -101,6 +101,8 @@ en:
     periodicity: "Periodicity"
     payment_status: "Payment Status"
     payment_line: "Payment Line"
+    payment: "Payment"
+    unapplied: "Unapplied"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"
