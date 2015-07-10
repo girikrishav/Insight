@@ -66,6 +66,7 @@ en:
     timesheet_clocking: "Timesheet Clocking"
     term: "Term"
     staffing_requirement: "Staffing Requirement"
+    skill: "Skill"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"

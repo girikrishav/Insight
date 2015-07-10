@@ -1,12 +1,13 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register Skill, as: "Skill" do
-  menu :if => proc { menu_accessible?(50) }, :label => "Skills", :parent => "Masters", :priority => 40
+ActiveAdmin.register Skill, as: I18n.t('active_admin.skill') do
+  menu :if => proc { menu_accessible?(50) }, :label => I18n.t('active_admin.skill').pluralize\
+    , :parent => I18n.t('active_admin.master').pluralize, :priority => 40
 
   config.sort_order = 'rank_asc'
 
   action_item only: [:show] do
-    link_to "Cancel", admin_skills_path
+    link_to I18n.t('button_labels.cancel'), admin_skills_path
   end
 
   controller do
