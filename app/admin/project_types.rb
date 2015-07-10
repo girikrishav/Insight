@@ -1,12 +1,13 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register ProjectType, as: "Project Type" do
-  menu :if => proc { menu_accessible?(100) }, :label => "Project Types", :parent => "Lookups", :priority => 60
+ActiveAdmin.register ProjectType, as: I18n.t('active_admin.project_type') do
+  menu :if => proc { menu_accessible?(100) }, :label => I18n.t('active_admin.project_type').pluralize\
+  , :parent => I18n.t('active_admin.lookup').pluralize, :priority => 60
 
   config.sort_order = 'rank_asc'
 
   action_item only: [:show] do
-    link_to "Cancel", admin_project_types_path
+    link_to I18n.t('button_labels.cancel'), admin_project_types_path
   end
 
   controller do
@@ -56,7 +57,7 @@ ActiveAdmin.register ProjectType, as: "Project Type" do
   filter :updated_at
 
   form do |f|
-    f.inputs "Project Type Details" do
+    f.inputs I18n.t('active_admin.project_type') + ' ' + I18n.t('active_admin.detail').pluralize do
       if params[:action] == "new" || params[:action] == "create"
         f.input :name
       else

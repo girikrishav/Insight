@@ -87,6 +87,8 @@ en:
     invoicing_milestone: "Invoicing Milestone"
     project_invoice: "Project Invoice"
     pipeline: "Pipeline"
+    project_type: "Project Type"
+    lookup: "Lookup"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"
