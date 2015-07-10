@@ -2,7 +2,7 @@ include ActiveAdminHelper
 
 ActiveAdmin.register Timesheet, as: I18n.t('active_admin.timesheet') do
   menu :if => proc { menu_accessible?(1) }, :label => I18n.t('active_admin.timesheet').pluralize\
-    , :parent => "Operations", :priority => 60
+    , :parent => I18n.t('active_admin.operation').pluralize, :priority => 60
 
   config.sort_order = 'as_on_desc'
 

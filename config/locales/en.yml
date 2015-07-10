@@ -55,6 +55,8 @@ en:
     dashboard: "Home"
     vacation_reason: "Vacation Reason"
     master: "Master"
+    security: "Security"
+    operation: "Operation"
     detail: "Detail"
     days_allowed: "Days Allowed"
     user_status: "Status"
@@ -62,6 +64,7 @@ en:
     timesheet: "Timesheet"
     timesheet_history: "Timesheet History"
     timesheet_clocking: "Timesheet Clocking"
+    term: "Term"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"

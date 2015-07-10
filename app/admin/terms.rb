@@ -1,12 +1,13 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register Term, as: "Term" do
-  menu :if => proc { menu_accessible?(50) }, :label => "Terms", :parent => "Masters", :priority => 110
+ActiveAdmin.register Term, as: I18n.t('active_admin.term') do
+  menu :if => proc { menu_accessible?(50) }, :label => I18n.t('active_admin.term').pluralize\
+    , :parent => I18n.t('active_admin.master').pluralize, :priority => 110
 
   config.sort_order = 'rank_asc'
 
   action_item only: [:show] do
-    link_to "Cancel", admin_terms_path
+    link_to I18n.t('button_labels.cancel'), admin_terms_path
   end
 
   controller do
@@ -52,7 +53,7 @@ ActiveAdmin.register Term, as: "Term" do
   end
 
   form do |f|
-    f.inputs "Terms Details" do
+    f.inputs I18n.t('active_admin.term') + ' ' + I18n.t('active_admin.detail').pluralize do
       if params[:action] == "new" || params[:action] == "create"
         f.input :name
         f.input :description
