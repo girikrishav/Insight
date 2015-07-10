@@ -1,7 +1,8 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register Project, as: "Project" do
-  menu :if => proc { menu_accessible?(25) }, :label => "Projects", :parent => "Operations", :priority => 50
+ActiveAdmin.register Project, as: I18n.t('active_admin.project') do
+  menu :if => proc { menu_accessible?(25) }, :label => I18n.t('active_admin.project').pluralize\
+    , :parent => I18n.t('active_admin.operation').pluralize, :priority => 50
 
   config.sort_order = 'start_date_desc'
 
@@ -10,7 +11,7 @@ ActiveAdmin.register Project, as: "Project" do
   end
 
   action_item only: [:show] do
-    link_to "Cancel", admin_projects_path
+    link_to I18n.t('button_labels.cancel'), admin_projects_path
   end
 
   controller do
@@ -46,14 +47,14 @@ ActiveAdmin.register Project, as: "Project" do
   end
 
   show do |p|
-    panel 'Project Details' do
+    panel I18n.t('active_admin.project') + ' ' + I18n.t('active_admin.detail').pluralize do
       attributes_table_for p do
         row :id
         row :as_on
         row :project_name
         row :start_date
         row :end_date
-        row "In" do |p|
+        row I18n.t('active_admin.in') do |p|
           p.bu_currency
         end
         row :booking_amount do
@@ -63,7 +64,7 @@ ActiveAdmin.register Project, as: "Project" do
         row :client
         row :project_type
         row :project_status
-        row "BU" do
+        row I18n.t('active_admin.bu') do
           p.business_unit
         end
         row :sales_associate
@@ -110,7 +111,7 @@ ActiveAdmin.register Project, as: "Project" do
 
   index do
     selectable_column
-    column 'Id', sortable: :id do |t|
+    column I18n.t('active_admin.id'), sortable: :id do |t|
       # div(title: t('labels.project_histories')) do
       #   if ProjectHistory.where(project_id: t.id).count > 0
       #     link_to t.id, admin_project_histories_path(project_id: t.id)
@@ -120,80 +121,82 @@ ActiveAdmin.register Project, as: "Project" do
       # end
       t.id
     end
-    column 'BU', :business_unit do |t|
+    column I18n.t('active_admin.bu'), :business_unit do |t|
       # div(title: t('labels.staffing_requirements')) do
       #   link_to t.business_unit.name, admin_staffing_requirements_path(project_id: t.id)
       # end
       t.business_unit.name
     end
-    column 'Client', :client do |t|
+    column I18n.t('active_admin.client'), :client do |t|
       # div(title: t('labels.assignments')) do
       #   link_to t.client.name, admin_assignments_path(project_id: t.id)
       # end
       t.client_name
     end
-    column 'Project', :project_name
-    column 'Start', :start_date
-    column 'End', :end_date
-    column 'Type', :project_type
-    column 'In', :bu_currency
-    column 'Value', :booking_amount, :sortable => 'booking_amount' do |element|
+    column I18n.t('active_admin.project'), :project_name
+    column I18n.t('active_admin.start'), :start_date
+    column I18n.t('active_admin.end'), :end_date
+    column I18n.t('active_admin.type'), :project_type
+    column I18n.t('active_admin.in'), :bu_currency
+    column I18n.t('active_admin.value'), :booking_amount, :sortable => 'booking_amount' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.booking_amount, precision: 0, delimiter: ','
       end
     end
-    column 'Status', :project_status do |s|
+    column I18n.t('active_admin.status'), :project_status do |s|
       ProjectStatus.find(s.project_status_id).name
     end
     actions dropdown: :true do |p|
-      item 'History', admin_project_histories_path(project_id: p.id)
-      item 'Staffing', admin_staffing_requirements_path(project_id: p.id)
-      item 'Assignments', admin_assignments_path(project_id: p.id)
-      item 'Delivery Milestones', admin_delivery_milestones_path(project_id: p.id)
-      item 'Invoicing Milestones', admin_invoicing_milestones_path(project_id: p.id)
-      item 'Project Invoices', admin_project_invoices_path(project_id: p.id)
+      item I18n.t('active_admin.history'), admin_project_histories_path(project_id: p.id)
+      item I18n.t('active_admin.staffing'), admin_staffing_requirements_path(project_id: p.id)
+      item I18n.t('active_admin.assignment').pluralize, admin_assignments_path(project_id: p.id)
+      item I18n.t('active_admin.delivery_milestone').pluralize, admin_delivery_milestones_path(project_id: p.id)
+      item I18n.t('active_admin.invoicing_milestone').pluralize, admin_invoicing_milestones_path(project_id: p.id)
+      item I18n.t('active_admin.project_invoice').pluralize, admin_project_invoices_path(project_id: p.id)
     end
   end
 
   form do |f|
-    f.inputs "Project Details" do
+    f.inputs I18n.t('active_admin.project') + ' ' + I18n.t('active_admin.detail').pluralize do
       if params[:action] == "new" || params[:action] == "create"
         f.input :business_unit, :as => :select, :collection => BusinessUnit.all \
             .map { |bu| ["#{bu.name}" + " [In = #{bu.bu_currency}]", bu.id] }
         f.input :client
-        f.input :project_name, :label => 'Project'
+        f.input :project_name, :label => I18n.t('active_admin.project')
         f.input :as_on, as: :datepicker, :input_html => {:value => Date.today}
-        f.input :start_date, :label => 'Start', as: :datepicker
-        f.input :end_date, :label => 'End', as: :datepicker
-        f.input :project_type, :label => 'Type'
-        f.input :project_status, :label => 'Status'
+        f.input :start_date, :label => I18n.t('active_admin.start'), as: :datepicker
+        f.input :end_date, :label => I18n.t('active_admin.end'), as: :datepicker
+        f.input :project_type, :label => I18n.t('active_admin.type')
+        f.input :project_status, :label => I18n.t('active_admin.status')
       else
         f.input :business_unit, :as => :select, :collection => BusinessUnit.all \
             .map { |bu| ["#{bu.name}" + " [In = #{bu.bu_currency}]", bu.id] }
         f.input :client, :input_html => {:disabled => true}
-        f.input :project_name, :label => 'Project'
+        f.input :project_name, :label => I18n.t('active_admin.project')
         f.input :as_on, as: :datepicker
-        f.input :start_date, :label => 'Start', as: :datepicker
-        f.input :end_date, :label => 'End', as: :datepicker
-        f.input :project_type, :label => 'Type'
-        f.input :project_status, :label => 'Status'
+        f.input :start_date, :label => I18n.t('active_admin.start'), as: :datepicker
+        f.input :end_date, :label => I18n.t('active_admin.end'), as: :datepicker
+        f.input :project_type, :label => I18n.t('active_admin.type')
+        f.input :project_status, :label => I18n.t('active_admin.status')
       end
       if params[:action] != "new" && params[:action] != "create"
         f.input :bu_currency, :label => 'In', :input_html => {:disabled => true}
       end
-      f.input :booking_amount, :label => 'Value'
+      f.input :booking_amount, :label => I18n.t('active_admin.value')
       f.input :sales_associate
       f.input :project_description
       f.input :estimator_associate
       f.input :account_manager_associate
       f.input :delivery_manager_associate
-      f.input :pipeline, :label => 'Pipeline'\
+      f.input :pipeline, :label => I18n.t('active_admin.pipeline')\
           , :as => :select, :collection => \
           Pipeline.allowed(self.current_user_rank, self.highest_rank, self.current_user_id)\
           # .map { |p| ["BU = #{p.bu_name}" + ", Client = #{p.client_name}"\
-      .map { |p| ["BU = #{p.bu_name}" + ", Client = #{p.client_name}"\
-          + ", Project = #{p.project_name}" + ", As on = " + p.as_on.to_s\
-          + " [In = #{p.bu_currency}]", p.id] }
+          .map { |p| [I18n.t('active_admin.bu') + " = #{p.bu_name}" + ", " \
+          + I18n.t('active_admin.client') + " = #{p.client_name}"\
+          + ", " + I18n.t('active_admin.project') + " = #{p.project_name}"\
+          + ", " + I18n.t('active_admin.as_on') + " = " + p.as_on.to_s\
+          + " [" + I18n.t('active_admin.in') + " = #{p.bu_currency}]", p.id] }
       f.input :comments
     end
     f.actions
