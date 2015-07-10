@@ -103,6 +103,7 @@ en:
     payment_line: "Payment Line"
     payment: "Payment"
     unapplied: "Unapplied"
+    overhead: "Overhead"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"

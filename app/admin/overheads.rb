@@ -1,12 +1,13 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register Overhead, as: "Overhead" do
-  menu :if => proc { menu_accessible?(65) }, :label => "Overheads", :parent => "Operations", :priority => 20
+ActiveAdmin.register Overhead, as: I18n.t('active_admin.overhead') do
+  menu :if => proc { menu_accessible?(65) }, :label => I18n.t('active_admin.overhead').pluralize\
+  , :parent => I18n.t('active_admin.operation').pluralize, :priority => 20
 
   config.sort_order = 'from_date_desc'
 
   action_item only: [:show] do
-    link_to "Cancel", admin_overheads_path
+    link_to I18n.t('button_labels.cancel'), admin_overheads_path
   end
 
   controller do
@@ -77,7 +78,7 @@ ActiveAdmin.register Overhead, as: "Overhead" do
   end
 
   show do |o|
-    panel 'Overhead Details' do
+    panel I18n.t('active_admin.overhead') + ' ' + I18n.t('active_admin.detail').pluralize do
       attributes_table_for o do
         row :id
         row :business_unit
@@ -85,7 +86,7 @@ ActiveAdmin.register Overhead, as: "Overhead" do
         row :from_date
         row :periodicity
         row :to_date
-        row "In" do |o|
+        row I18n.t('active_admin.in') do |o|
           o.bu_currency
         end
         row :amount do
@@ -116,8 +117,8 @@ ActiveAdmin.register Overhead, as: "Overhead" do
     column :from_date
     column :periodicity
     column :to_date
-    column "In", :bu_currency, sortable: false
-    column "Amount", :amount, :sortable => 'amount' do |element|
+    column I18n.t('active_admin.in'), :bu_currency, sortable: false
+    column I18n.t('active_admin.amount'), :amount, :sortable => 'amount' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.amount, :precision => 2, delimiter: ','
       end
@@ -126,7 +127,7 @@ ActiveAdmin.register Overhead, as: "Overhead" do
   end
 
   form do |f|
-    f.inputs "Overhead Details" do
+    f.inputs I18n.t('active_admin.overhead') + ' ' + I18n.t('active_admin.detail').pluralize do
       if params[:action] == "new" || params[:action] == "create"
         f.input :business_unit, as: :select, collection: BusinessUnit.all\
           .map { |fs| [fs.name_with_currency, fs.id] }
@@ -143,7 +144,7 @@ ActiveAdmin.register Overhead, as: "Overhead" do
         f.input :to_date, :input_html => {:disabled => true}
       end
       if params[:action] != "new" && params[:action] != "create"
-        f.input :bu_currency, :label => 'In', :input_html => {:disabled => true}
+        f.input :bu_currency, :label => I18n.t('active_admin.in'), :input_html => {:disabled => true}
       end
       f.input :amount
       f.input :comments
