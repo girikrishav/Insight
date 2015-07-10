@@ -1,12 +1,13 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register  PipelineStatus, as: "Pipeline Status" do
-  menu :if => proc { menu_accessible?(100) }, :label => "Pipeline Statuses", :parent => "Lookups", :priority => 40
+ActiveAdmin.register  PipelineStatus, as: I18n.t('active_admin.pipeline_status') do
+  menu :if => proc { menu_accessible?(100) }, :label => I18n.t('active_admin.pipeline_status').pluralize\
+    , :parent => I18n.t('active_admin.lookup').pluralize, :priority => 40
 
   config.sort_order = 'rank_asc'
 
   action_item only: [:show] do
-    link_to "Cancel", admin_pipeline_statuses_path
+    link_to I18n.t('button_labels.cancel'), admin_pipeline_statuses_path
   end
 
   controller do

@@ -96,6 +96,7 @@ en:
     project_invoice_adder: "Project Invoice Adder"
     project_history: "Project History"
     at: "At"
+    pipeline_status: "Pipeline Status"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"
