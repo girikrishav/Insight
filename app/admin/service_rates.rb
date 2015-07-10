@@ -94,7 +94,7 @@ ActiveAdmin.register ServiceRate, as: "Service Rate" do
       if params[:action] == "new" || params[:action] == "create"
         f.input :business_unit, :label => 'BU'\
           , :as => :select, :collection => BusinessUnit.all \
-          .map { |bu| ["#{bu.name}" + " [Currency = #{bu.bu_currency}]", bu.id] }
+          .map { |bu| ["#{bu.name}" + " [In = #{bu.bu_currency}]", bu.id] }
         f.input :skill
         f.input :designation
         f.input :as_on, as: :datepicker, :input_html => {:value => Date.today}
@@ -105,7 +105,7 @@ ActiveAdmin.register ServiceRate, as: "Service Rate" do
         f.input :as_on, :input_html => {:disabled => true}
       end
       if params[:action] != "new" && params[:action] != "create"
-        f.input :bu_currency, :label => 'Currency', :input_html => {:disabled => true}
+        f.input :bu_currency, :label => 'In', :input_html => {:disabled => true}
       end
       f.input :billing_rate, :label => 'Billing'
       f.input :cost_rate, :label => 'Cost'

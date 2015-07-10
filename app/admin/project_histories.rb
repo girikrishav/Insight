@@ -45,7 +45,9 @@ ActiveAdmin.register ProjectHistory, as: "Project History" do
         row :project_name
         row :start_date
         row :end_date
-        row :bu_currency
+        row "In" do |sr|
+          p.bu_currency
+        end
         row :booking_amount do
           number_with_precision p.booking_amount, precision: 0, delimiter: ','
         end
@@ -114,7 +116,7 @@ ActiveAdmin.register ProjectHistory, as: "Project History" do
     column 'Start', :start_date
     column 'End', :end_date
     column 'Type', :project_type, :sortable => 'project_types.name'
-    column 'Currency', :bu_currency
+    column 'In', :bu_currency
     column 'Value', :booking_amount, :sortable => 'booking_amount' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.booking_amount, precision: 0, delimiter: ','

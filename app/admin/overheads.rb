@@ -143,7 +143,7 @@ ActiveAdmin.register Overhead, as: "Overhead" do
         f.input :to_date, :input_html => {:disabled => true}
       end
       if params[:action] != "new" && params[:action] != "create"
-        f.input :bu_currency, :label => 'Currency', :input_html => {:disabled => true}
+        f.input :bu_currency, :label => 'In', :input_html => {:disabled => true}
       end
       f.input :amount
       f.input :comments

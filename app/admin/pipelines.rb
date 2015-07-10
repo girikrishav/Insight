@@ -191,7 +191,7 @@ ActiveAdmin.register Pipeline, as: "Pipeline" do
         f.input :pipeline_status, :label => 'Status'
       end
       if params[:action] != "new" && params[:action] != "create"
-        f.input :bu_currency, :label => 'Currency', :input_html => {:disabled => true}
+        f.input :bu_currency, :label => 'In', :input_html => {:disabled => true}
       end
       f.input :expected_value, :label => 'Value'
       f.input :project_description

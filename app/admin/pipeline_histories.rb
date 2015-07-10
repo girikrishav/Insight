@@ -46,7 +46,9 @@ ActiveAdmin.register PipelineHistory, as: "Pipeline History" do
         row :project_name
         row :expected_start
         row :expected_end
-        row :bu_currency
+        row "In" do |ph|
+          ph.bu_currency
+        end
         row :expected_value do
           number_with_precision p.expected_value, precision: 0, delimiter: ','
         end
@@ -102,7 +104,7 @@ ActiveAdmin.register PipelineHistory, as: "Pipeline History" do
     column 'Start', :expected_start
     column 'End', :expected_end
     column 'Type', :project_type, :sortable => 'project_type.name'
-    column 'Currency', :bu_currency
+    column 'In', :bu_currency
     column 'Value', :expected_value, :sortable => 'expected_value' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.expected_value, precision: 0, delimiter: ','

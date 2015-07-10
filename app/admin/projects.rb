@@ -159,7 +159,7 @@ ActiveAdmin.register Project, as: "Project" do
     f.inputs "Project Details" do
       if params[:action] == "new" || params[:action] == "create"
         f.input :business_unit, :as => :select, :collection => BusinessUnit.all \
-            .map { |bu| ["#{bu.name}" + " [Currency = #{bu.bu_currency}]", bu.id] }
+            .map { |bu| ["#{bu.name}" + " [In = #{bu.bu_currency}]", bu.id] }
         f.input :client
         f.input :project_name, :label => 'Project'
         f.input :as_on, as: :datepicker, :input_html => {:value => Date.today}
@@ -169,7 +169,7 @@ ActiveAdmin.register Project, as: "Project" do
         f.input :project_status, :label => 'Status'
       else
         f.input :business_unit, :as => :select, :collection => BusinessUnit.all \
-            .map { |bu| ["#{bu.name}" + " [Currency = #{bu.bu_currency}]", bu.id] }
+            .map { |bu| ["#{bu.name}" + " [In = #{bu.bu_currency}]", bu.id] }
         f.input :client, :input_html => {:disabled => true}
         f.input :project_name, :label => 'Project'
         f.input :as_on, as: :datepicker
@@ -179,7 +179,7 @@ ActiveAdmin.register Project, as: "Project" do
         f.input :project_status, :label => 'Status'
       end
       if params[:action] != "new" && params[:action] != "create"
-        f.input :bu_currency, :label => 'Currency', :input_html => {:disabled => true}
+        f.input :bu_currency, :label => 'In', :input_html => {:disabled => true}
       end
       f.input :booking_amount, :label => 'Value'
       f.input :sales_associate
@@ -193,7 +193,7 @@ ActiveAdmin.register Project, as: "Project" do
           # .map { |p| ["BU = #{p.bu_name}" + ", Client = #{p.client_name}"\
       .map { |p| ["BU = #{p.bu_name}" + ", Client = #{p.client_name}"\
           + ", Project = #{p.project_name}" + ", As on = " + p.as_on.to_s\
-          + " [Currency = #{p.bu_currency}]", p.id] }
+          + " [In = #{p.bu_currency}]", p.id] }
       f.input :comments
     end
     f.actions

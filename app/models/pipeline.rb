@@ -101,7 +101,7 @@ class Pipeline < ActiveRecord::Base
 
   def name
     "Project name = " + self.project_name + ", Client = " + self.client_name\
-        + ", BU = " + self.bu_name+ " [Currency = " + self.bu_currency + "]"\
+        + ", BU = " + self.bu_name+ " [In = " + self.bu_currency + "]"\
         + ", As on = " + self.as_on.to_s
   end
 

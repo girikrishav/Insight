@@ -6,7 +6,7 @@ class BusinessUnit < ActiveRecord::Base
   end
 
   def name_with_currency
-    self.name + ' [Currency = ' + self.bu_currency + ']'
+    self.name + ' [In = ' + self.bu_currency + ']'
   end
 
   validates :name, presence: :true, uniqueness: :true
