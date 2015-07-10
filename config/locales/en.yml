@@ -91,6 +91,9 @@ en:
     lookup: "Lookup"
     project_status: "Project Status"
     project_invoice_line: "Project Invoice Line"
+    amount: "Amount"
+    unpaid: "Unpaid"
+    project_invoice_adder: "Project Invoice Adder"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"

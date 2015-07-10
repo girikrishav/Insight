@@ -1,16 +1,16 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register InvoiceHeader, as: "Project Invoice" do
+ActiveAdmin.register InvoiceHeader, as: I18n.t('active_admin.project_invoice') do
   menu false
 
   config.sort_order = 'invoice_date_desc_and_id_desc'
 
   action_item only: [:index] do
-    link_to "Cancel", admin_projects_path
+    link_to I18n.t('button_labels.cancel'), admin_projects_path
   end
 
   action_item only: [:show] do
-    link_to "Cancel", admin_project_invoices_path(project_id: params[:project_id])
+    link_to I18n.t('button_labels.cancel'), admin_project_invoices_path(project_id: params[:project_id])
   end
 
   controller do
@@ -52,7 +52,7 @@ ActiveAdmin.register InvoiceHeader, as: "Project Invoice" do
   end
 
   show do |ih|
-    panel 'Invoice Header Details' do
+    panel I18n.t('active_admin.project_invoice') + ' ' + I18n.t('active_admin.detail').pluralize do
       attributes_table_for ih do
         row :id
         row :project do |p|
@@ -60,7 +60,7 @@ ActiveAdmin.register InvoiceHeader, as: "Project Invoice" do
         end
         row :description
         row :invoice_date
-        row "In" do |ih|
+        row I18n.t('active_admin.in') do |ih|
           ih.bu_currency
         end
         row :amount do |ih|
@@ -70,7 +70,7 @@ ActiveAdmin.register InvoiceHeader, as: "Project Invoice" do
           number_with_precision ih.unpaid, precision: 2, delimiter: ','
         end
         row :invoice_status
-        row ('Terms') { |r| r.term}
+        row (I18n.t('active_admin.term').pluralize) { |r| r.term}
         row :due_date
         row :comments
       end
@@ -98,13 +98,13 @@ ActiveAdmin.register InvoiceHeader, as: "Project Invoice" do
     end
     column :description
     column :invoice_date
-    column 'In', :bu_currency
-    column 'Amount', :amount, :sortable => 'amount' do |element|
+    column I18n.t('active_admin.in'), :bu_currency
+    column I18n.t('active_admin.amount'), :amount, :sortable => 'amount' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.amount, precision: 2, delimiter: ','
       end
     end
-    column 'Unpaid', :amount, :sortable => 'unpaid' do |element|
+    column I18n.t('active_admin.unpaid'), :amount, :sortable => 'unpaid' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.unpaid, precision: 2, delimiter: ','
       end
@@ -113,15 +113,17 @@ ActiveAdmin.register InvoiceHeader, as: "Project Invoice" do
     # column 'Terms', :term
     column :due_date
     actions dropdown: :true do |ih|
-      item 'Invoice Lines', admin_project_invoice_lines_path(project_id: ih.project.id\
+      item I18n.t('active_admin.project_invoice_line').pluralize\
+        , admin_project_invoice_lines_path(project_id: ih.project.id\
         , invoice_header_id: ih.id)
-      item 'Invoice Adders', admin_project_invoice_adders_path(project_id: ih.project.id\
+      item I18n.t('active_admin.project_invoice_adder').pluralize\
+        , admin_project_invoice_adders_path(project_id: ih.project.id\
         , invoice_header_id: ih.id)
     end
   end
 
   form do |f|
-    f.inputs "Invoice Header Details" do
+    f.inputs I18n.t('active_admin.project_invoice') + ' ' + I18n.t('active_admin.detail').pluralize do
       f.input :project, as: :select, collection: Project.all.map { |p| [p.name, p.id] }\
           , input_html: {:disabled => true, selected: Project.find(session[:project_id]).id}
       if params[:action] == "new" or params[:action] == "create"
