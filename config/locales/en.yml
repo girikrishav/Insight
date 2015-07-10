@@ -67,6 +67,11 @@ en:
     term: "Term"
     staffing_requirement: "Staffing Requirement"
     skill: "Skill"
+    bu: "BU"
+    in: "In"
+    service_rate: "Service Rate"
+    billing: "Billing"
+    cost: "Cost"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"

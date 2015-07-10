@@ -1,12 +1,13 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register ServiceRate, as: "Service Rate" do
-  menu :if => proc { menu_accessible?(50) }, :label => "Service Rates", :parent => "Masters", :priority => 100
+ActiveAdmin.register ServiceRate, as: I18n.t('active_admin.service_rate') do
+  menu :if => proc { menu_accessible?(50) }, :label => I18n.t('active_admin.service_rate').pluralize\
+  , :parent => I18n.t('active_admin.master').pluralize, :priority => 100
 
   config.sort_order = 'as_on_desc'
 
   action_item only: [:show] do
-    link_to "Cancel", admin_service_rates_path
+    link_to I18n.t('button_labels.cancel'), admin_service_rates_path
   end
 
   controller do
@@ -35,7 +36,7 @@ ActiveAdmin.register ServiceRate, as: "Service Rate" do
   end
 
   show do |sr|
-    panel 'Service Rate Details' do
+    panel I18n.t('active_admin.service_rate') + ' ' + I18n.t('active_admin.detail').pluralize do
       attributes_table_for sr do
         row :id
         row :business_unit
@@ -71,17 +72,17 @@ ActiveAdmin.register ServiceRate, as: "Service Rate" do
   index do
     selectable_column
     column :id
-    column 'BU', :business_unit
+    column I18n.t('active_admin.bu'), :business_unit
     column :skill
     column :designation
     column :as_on
-    column "In", :bu_currency, sortable: false
-    column "Billing", :billing_rate, :sortable => 'billing_rate' do |element|
+    column I18n.t('active_admin.in'), :bu_currency, sortable: false
+    column I18n.t('active_admin.billing'), :billing_rate, :sortable => 'billing_rate' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.billing_rate, :precision => 2, delimiter: ','
       end
     end
-    column "Cost", :cost_rate, :sortable => 'cost_rate' do |element|
+    column I18n.t('active_admin.cost'), :cost_rate, :sortable => 'cost_rate' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.cost_rate, :precision => 2, delimiter: ','
       end
@@ -90,25 +91,25 @@ ActiveAdmin.register ServiceRate, as: "Service Rate" do
   end
 
   form do |f|
-    f.inputs "Service Rate Details" do
+    f.inputs I18n.t('active_admin.service_rate') + ' ' + I18n.t('active_admin.detail').pluralize do
       if params[:action] == "new" || params[:action] == "create"
-        f.input :business_unit, :label => 'BU'\
+        f.input :business_unit, :label => I18n.t('active_admin.bu')\
           , :as => :select, :collection => BusinessUnit.all \
           .map { |bu| ["#{bu.name}" + " [In = #{bu.bu_currency}]", bu.id] }
         f.input :skill
         f.input :designation
         f.input :as_on, as: :datepicker, :input_html => {:value => Date.today}
       else
-        f.input :business_unit, :label => 'BU', :input_html => {:disabled => true}
+        f.input :business_unit, :label => I18n.t('active_admin.bu'), :input_html => {:disabled => true}
         f.input :skill, :input_html => {:disabled => true}
         f.input :designation, :input_html => {:disabled => true}
         f.input :as_on, :input_html => {:disabled => true}
       end
       if params[:action] != "new" && params[:action] != "create"
-        f.input :bu_currency, :label => 'In', :input_html => {:disabled => true}
+        f.input :bu_currency, :label => I18n.t('active_admin.in'), :input_html => {:disabled => true}
       end
-      f.input :billing_rate, :label => 'Billing'
-      f.input :cost_rate, :label => 'Cost'
+      f.input :billing_rate, :label => I18n.t('active_admin.billing')
+      f.input :cost_rate, :label => I18n.t('active_admin.cost')
       f.input :comments
     end
     f.actions

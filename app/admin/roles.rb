@@ -1,12 +1,12 @@
 include ActiveAdminHelper
 
 ActiveAdmin.register Role do
-  menu :if => proc { menu_accessible?(100) }, :parent => "Security", :priority => 30
+  menu :if => proc { menu_accessible?(100) }, :parent => I18n.t('active_admin.security'), :priority => 30
 
   config.sort_order = 'rank_desc'
 
   action_item only: [:show] do
-    link_to "Cancel", admin_roles_path
+    link_to I18n.t('button_labels.cancel'), admin_roles_path
   end
 
   controller do
