@@ -1,7 +1,8 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register Pipeline, as: "Pipeline" do
-  menu :if => proc { menu_accessible?(50) }, :label => "Pipeline", :parent => "Operations", :priority => 40
+ActiveAdmin.register Pipeline, as: I18n.t('active_admin.pipeline') do
+  menu :if => proc { menu_accessible?(50) }, :label => I18n.t('active_admin.pipeline').pluralize\
+  , :parent => I18n.t('active_admin.operation'), :priority => 40
 
   config.sort_order = 'expected_start_desc'
 
@@ -10,7 +11,7 @@ ActiveAdmin.register Pipeline, as: "Pipeline" do
   end
 
   action_item only: [:show] do
-    link_to "Cancel", admin_pipelines_path
+    link_to I18n.t('button_labels.cancel'), admin_pipelines_path
   end
 
   batch_action :convert do |ids|
@@ -80,14 +81,14 @@ ActiveAdmin.register Pipeline, as: "Pipeline" do
   end
 
   show do |p|
-    panel 'Pipeline Details' do
+    panel I18n.t('active_admin.pipeline') + ' ' + I18n.t('active_admin.detail').pluralize do
       attributes_table_for p do
         row :id
         row :as_on
         row :project_name
         row :expected_start
         row :expected_end
-        row "In" do |p|
+        row I18n.t('active_admin.in') do |p|
           p.bu_currency
         end
         row :expected_value do
@@ -97,7 +98,7 @@ ActiveAdmin.register Pipeline, as: "Pipeline" do
         row :client
         row :project_type
         row :pipeline_status
-        row "BU" do
+        row I18n.t('active_admin.bu') do
           p.business_unit
         end
         row :sales_associate
@@ -136,7 +137,7 @@ ActiveAdmin.register Pipeline, as: "Pipeline" do
 
   index do
     selectable_column
-    column 'Id', sortable: :id do |t|
+    column I18n.t('active_admin.id'), sortable: :id do |t|
       # div(title: t('labels.pipeline_histories')) do
       #   if PipelineHistory.where(pipeline_id: t.id).count > 0
       #     link_to t.id, admin_pipeline_histories_path(pipeline_id: t.id)
@@ -146,20 +147,20 @@ ActiveAdmin.register Pipeline, as: "Pipeline" do
       # end
       t.id
     end
-    column 'BU', :business_unit
+    column I18n.t('active_admin.bu'), :business_unit
     column :client
-    column 'Project', :project_name
+    column I18n.t('active_admin.project'), :project_name
     # column :as_on
-    column 'Start', :expected_start
-    column 'End', :expected_end
-    column 'Type', :project_type
-    column 'In', :bu_currency, sortable: false
-    column 'Value', :expected_value, :sortable => 'expected_value' do |element|
+    column I18n.t('active_admin.start'), :expected_start
+    column I18n.t('active_admin.end'), :expected_end
+    column I18n.t('active_admin.type'), :project_type
+    column I18n.t('active_admin.in'), :bu_currency, sortable: false
+    column I18n.t('active_admin.value'), :expected_value, :sortable => 'expected_value' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.expected_value, precision: 0, delimiter: ','
       end
     end
-    column 'Status', :pipeline_status do |s|
+    column I18n.t('active_admin.status'), :pipeline_status do |s|
       PipelineStatus.find(s.pipeline_status_id).name
     end
     actions dropdown: :true do |p|
@@ -168,32 +169,32 @@ ActiveAdmin.register Pipeline, as: "Pipeline" do
   end
 
   form do |f|
-    f.inputs "Pipeline Details" do
+    f.inputs I18n.t('active_admin.pipeline') + ' ' + I18n.t('active_admin.detail').pluralize do
       if params[:action] == "new" || params[:action] == "create"
         f.input :business_unit, :as => :select, :collection => BusinessUnit.all \
             .map { |bu| ["#{bu.name_with_currency}", bu.id] }
         f.input :client
-        f.input :project_name, :label => 'Project'
+        f.input :project_name, :label => I18n.t('active_admin.project')
         f.input :as_on, as: :datepicker, :input_html => {:value => Date.today}
-        f.input :expected_start, :label => 'Start', as: :datepicker
-        f.input :expected_end, :label => 'End', as: :datepicker
-        f.input :project_type, :label => 'Type'
-        f.input :pipeline_status, :label => 'Status'
+        f.input :expected_start, :label => I18n.t('active_admin.start'), as: :datepicker
+        f.input :expected_end, :label => I18n.t('active_admin.end'), as: :datepicker
+        f.input :project_type, :label => I18n.t('active_admin.type')
+        f.input :pipeline_status, :label => I18n.t('active_admin.status')
       else
         f.input :business_unit, :as => :select, :collection => BusinessUnit.all \
             .map { |bu| ["#{bu.name_with_currency}", bu.id] }
         f.input :client, :input_html => {:disabled => true}
-        f.input :project_name, :label => 'Project'
+        f.input :project_name, :label => I18n.t('active_admin.project')
         f.input :as_on, as: :datepicker
-        f.input :expected_start, :label => 'Start', as: :datepicker
-        f.input :expected_end, :label => 'End', as: :datepicker
-        f.input :project_type, :label => 'Type'
-        f.input :pipeline_status, :label => 'Status'
+        f.input :expected_start, :label => I18n.t('active_admin.start'), as: :datepicker
+        f.input :expected_end, :label => I18n.t('active_admin.end'), as: :datepicker
+        f.input :project_type, :label => I18n.t('active_admin.type')
+        f.input :pipeline_status, :label => I18n.t('active_admin.status')
       end
       if params[:action] != "new" && params[:action] != "create"
-        f.input :bu_currency, :label => 'In', :input_html => {:disabled => true}
+        f.input :bu_currency, :label => I18n.t('active_admin.in'), :input_html => {:disabled => true}
       end
-      f.input :expected_value, :label => 'Value'
+      f.input :expected_value, :label => I18n.t('active_admin.value')
       f.input :project_description
       f.input :sales_associate
       f.input :estimator_associate
