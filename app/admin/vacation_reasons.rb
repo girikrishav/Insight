@@ -1,7 +1,8 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register VacationReason, as: "Vacation Reason" do
-  menu :if => proc { menu_accessible?(75) }, :label => "Vacation Reasons", :parent => "Masters", :priority => 50
+ActiveAdmin.register VacationReason, as: I18n.t('active_admin.vacation_reason') do
+  menu :if => proc { menu_accessible?(75) }, :label => I18n.t('active_admin.vacation_reason').pluralize\
+    , :parent => I18n.t('active_admin.master').pluralize, :priority => 50
 
   config.sort_order = 'name_asc'
 
@@ -34,7 +35,7 @@ ActiveAdmin.register VacationReason, as: "Vacation Reason" do
   end
 
   show do |vr|
-    panel 'Vacation Reason Details' do
+    panel I18n.t('active_admin.vacation_reason') + ' ' + I18n.t('active_admin.detail').pluralize do
       attributes_table_for vr do
         row :id
         row :business_unit
@@ -64,7 +65,7 @@ ActiveAdmin.register VacationReason, as: "Vacation Reason" do
     column :name
     column :description
     column :paid
-    column "Days Allowed", :days_allowed, :sortable => 'days_allowed' do |element|
+    column I18n.t('active_admin.days_allowed'), :days_allowed, :sortable => 'days_allowed' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.days_allowed, :precision => 1, delimiter: ','
       end
@@ -73,7 +74,7 @@ ActiveAdmin.register VacationReason, as: "Vacation Reason" do
   end
 
   form do |f|
-    f.inputs "Vacation Reason Details" do
+    f.inputs I18n.t('active_admin.vacation_reason') + ' ' + I18n.t('active_admin.detail').pluralize do
       if params[:action] == "new" || params[:action] == "create"
         f.input :business_unit
         f.input :name
