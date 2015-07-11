@@ -1,12 +1,13 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register AssociateType, as: "Associate Type" do
-  menu :if => proc { menu_accessible?(100) }, :label => "Associate Types", :parent => "Lookups", :priority => 80
+ActiveAdmin.register AssociateType, as: I18n.t('active_admin.associate_type') do
+  menu :if => proc { menu_accessible?(100) }, :label => I18n.t('active_admin.associate_type').pluralize\
+  , :parent => I18n.t('active_admin.lookup').pluralize, :priority => 80
 
   config.sort_order = 'rank_asc'
 
   action_item only: [:show] do
-    link_to "Cancel", admin_associate_types_path
+    link_to I18n.t('button_labels.cancel'), admin_associate_types_path
   end
 
   controller do

@@ -123,6 +123,7 @@ en:
     user: "User"
     date_of_joining: "Date of Joining"
     date_of_leaving: "Date of Leaving"
+    associate_type: "Associate Type"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"

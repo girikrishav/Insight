@@ -2,7 +2,7 @@ include ActiveAdminHelper
 
 ActiveAdmin.register Associate, as: I18n.t('active_admin.associate') do
   menu :if => proc { menu_accessible?(50) }, :label => I18n.t('active_admin.associate').pluralize\
-  , :parent => I18n.t('active_admin.associate').pluralize, :priority => 10
+  , :parent => I18n.t('active_admin.operation').pluralize, :priority => 10
 
   config.sort_order = 'name_asc'
 
