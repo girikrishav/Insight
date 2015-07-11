@@ -1,12 +1,13 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register Client, as: "Client" do
-  menu :if => proc { menu_accessible?(50) }, :label => "Clients", :parent => "Operations", :priority => 30
+ActiveAdmin.register Client, as: I18n.t('active_admin.client') do
+  menu :if => proc { menu_accessible?(50) }, :label => I18n.t('active_admin.client').pluralize\
+  , :parent => I18n.t('active_admin.operation').pluralize, :priority => 30
 
   config.sort_order = 'name_asc'
 
   action_item only: [:show] do
-    link_to "Cancel", admin_clients_path
+    link_to I18n.t('button_labels.cancel'), admin_clients_path
   end
 
   controller do
@@ -69,7 +70,7 @@ ActiveAdmin.register Client, as: "Client" do
   end
 
   form do |f|
-    f.inputs "Client Details" do
+    f.inputs I18n.t('active_admin.client') + ' ' + I18n.t('active_admin.detail').pluralize do
       if params[:action] == "new" || params[:action] == "create"
         f.input :name
       else
