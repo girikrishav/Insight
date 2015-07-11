@@ -1,12 +1,13 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register Department, as: "Department" do
-  menu :if => proc { menu_accessible?(75) }, :label => "Departments", :parent => "Masters", :priority => 20
+ActiveAdmin.register Department, as: I18n.t('active_admin.department') do
+  menu :if => proc { menu_accessible?(75) }, :label => I18n.t('active_admin.department').pluralize\
+  , :parent => I18n.t('active_admin.master').pluralize, :priority => 20
 
   config.sort_order = 'rank_asc'
 
   action_item only: [:show] do
-    link_to "Cancel", admin_departments_path
+    link_to I18n.t('button_labels.cancel'), admin_departments_path
   end
 
   controller do

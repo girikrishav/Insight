@@ -113,6 +113,7 @@ en:
     flag_status: "Flag Status"
     edit_profile: "Edit Profile"
     designation: "Designation"
+    department: "Department"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"
