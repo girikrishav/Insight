@@ -1,7 +1,7 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register_page "Profile" do
-  menu :if => proc {menu_accessible?(1)}, :parent => "Security", :priority => 20
+ActiveAdmin.register_page I18n.t('active_admin.edit_profile') do
+  menu :if => proc {menu_accessible?(1)}, :parent => I18n.t('active_admin.security'), :priority => 20
 
   controller do
     before_filter do |c|

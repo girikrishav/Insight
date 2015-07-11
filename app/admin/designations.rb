@@ -1,12 +1,13 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register Designation, as: "Designation" do
-  menu :if => proc { menu_accessible?(100) }, :label => "Designations", :parent => "Masters", :priority => 30
+ActiveAdmin.register Designation, as: I18n.t('active_admin.designation') do
+  menu :if => proc { menu_accessible?(100) }, :label => I18n.t('active_admin.designation').pluralize\
+  , :parent => I18n.t('active_admin.master').pluralize, :priority => 30
 
   config.sort_order = 'rank_asc'
 
   action_item only: [:show] do
-    link_to "Cancel", admin_designations_path
+    link_to I18n.t('button_labels.cancel'), admin_designations_path
   end
 
   controller do

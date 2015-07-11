@@ -111,6 +111,8 @@ en:
     rate_applicable_percent: "Rate Applicable (%)"
     holiday: "Holiday"
     flag_status: "Flag Status"
+    edit_profile: "Edit Profile"
+    designation: "Designation"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"
