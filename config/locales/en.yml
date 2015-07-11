@@ -106,6 +106,7 @@ en:
     overhead: "Overhead"
     new_user: "New User"
     unbilled: "Unbilled"
+    invoice_status: "Invoice Status"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"
