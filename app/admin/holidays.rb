@@ -1,12 +1,13 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register Holiday, as: "Holiday" do
-  menu :if => proc { menu_accessible?(50) }, :label => "Holidays", :parent => "Masters", :priority => 60
+ActiveAdmin.register Holiday, as: I18n.t('active_admin.holiday') do
+  menu :if => proc { menu_accessible?(50) }, :label => I18n.t('active_admin.holiday').pluralize\
+  , :parent => I18n.t('active_admin.master').pluralize, :priority => 60
 
   config.sort_order = 'as_on_desc'
 
   action_item only: [:show] do
-    link_to "Cancel", admin_holidays_path
+    link_to I18n.t('button_labels.cancel'), admin_holidays_path
   end
 
   controller do
@@ -68,7 +69,7 @@ ActiveAdmin.register Holiday, as: "Holiday" do
   end
 
   form do |f|
-    f.inputs "Holiday Details" do
+    f.inputs I18n.t('active_admin.holiday') + ' ' + I18n.t('active_admin.detail').pluralize do
     if params[:action] == "new" || params[:action] == "create"
       f.input :business_unit
       f.input :name
