@@ -1,6 +1,6 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register_page "Add User" do
+ActiveAdmin.register_page I18n.t('active_admin.new_user') do
   # menu :if => proc {menu_accessible?(60)}, :parent => "Security", :priority => 60
   menu false
 

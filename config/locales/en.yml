@@ -104,6 +104,7 @@ en:
     payment: "Payment"
     unapplied: "Unapplied"
     overhead: "Overhead"
+    new_user: "New User"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"
