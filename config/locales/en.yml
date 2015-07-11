@@ -110,6 +110,7 @@ en:
     invoice_adder_type: "Invoice Adder Type"
     rate_applicable_percent: "Rate Applicable (%)"
     holiday: "Holiday"
+    flag_status: "Flag Status"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"

@@ -1,12 +1,13 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register FlagStatus, as: "Flag Status" do
-  menu :if => proc { menu_accessible?(100) }, :label => "Flag Statuses", :parent => "Lookups", :priority => 10
+ActiveAdmin.register FlagStatus, as: I18n.t('active_admin.flag_status') do
+  menu :if => proc { menu_accessible?(100) }, :label => I18n.t('active_admin.flag_status').pluralize\
+  , :parent => I18n.t('active_admin.lookup').pluralize, :priority => 10
 
   config.sort_order = 'rank_asc'
 
   action_item only: [:show] do
-    link_to "Cancel", admin_flag_statuses_path
+    link_to I18n.t('button_labels.cancel'), admin_flag_statuses_path
   end
 
   controller do
