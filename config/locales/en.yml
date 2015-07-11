@@ -117,6 +117,7 @@ en:
     currency_rate: "Currency Rate"
     currency: "Currency"
     cost_adder_type: "Cost Adder Type"
+    business_unit: "Business Unit"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"

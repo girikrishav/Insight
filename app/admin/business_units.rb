@@ -1,12 +1,13 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register BusinessUnit, as: "Business Unit" do
-  menu :if => proc { menu_accessible?(75) }, :label => "Business Units", :parent => "Masters", :priority => 10
+ActiveAdmin.register BusinessUnit, as: I18n.t('active_admin.business_unit') do
+  menu :if => proc { menu_accessible?(75) }, :label => I18n.t('active_admin.business_unit').pluralize\
+  , :parent => I18n.t('active_admin.master').pluralize, :priority => 10
 
   config.sort_order = 'rank_asc'
 
   action_item only: [:show] do
-    link_to "Cancel", admin_business_units_path
+    link_to I18n.t('button_labels.cancel'), admin_business_units_path
   end
 
   controller do
@@ -57,7 +58,7 @@ ActiveAdmin.register BusinessUnit, as: "Business Unit" do
   end
 
   form do |f|
-    f.inputs "Business Unit Details" do
+    f.inputs I18n.t('active_admin.business_unit') + ' ' + I18n.t('active_admin.detail').pluralize do
       if params[:action] == "new" || params[:action] == "create"
         f.input :name
       else
