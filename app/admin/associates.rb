@@ -1,7 +1,8 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register Associate, as: "Associate" do
-  menu :if => proc { menu_accessible?(50) }, :label => "Associates", :parent => "Operations", :priority => 10
+ActiveAdmin.register Associate, as: I18n.t('active_admin.associate') do
+  menu :if => proc { menu_accessible?(50) }, :label => I18n.t('active_admin.associate').pluralize\
+  , :parent => I18n.t('active_admin.associate').pluralize, :priority => 10
 
   config.sort_order = 'name_asc'
 
@@ -12,7 +13,7 @@ ActiveAdmin.register Associate, as: "Associate" do
   end
 
   action_item only: [:show] do
-    link_to "Cancel", admin_associates_path
+    link_to I18n.t('button_labels.cancel'), admin_associates_path
   end
 
   controller do
@@ -53,7 +54,7 @@ ActiveAdmin.register Associate, as: "Associate" do
   end
 
   show do |a|
-    panel 'Associate Details' do
+    panel I18n.t('active_admin.associate') + ' ' + I18n.t('active_admin.detail').pluralize do
       attributes_table_for a do
         row :id
         row :name
@@ -94,7 +95,7 @@ ActiveAdmin.register Associate, as: "Associate" do
 
   index do
     selectable_column
-    column 'Id', sortable: :id do |t|
+    column I18n.t('active_admin.id'), sortable: :id do |t|
       div(title: t('labels.associate_histories')) do
         if AssociateHistory.where(associate_id: t.id).count > 0
           link_to t.id, admin_associate_histories_path(associate_id: t.id)
@@ -103,17 +104,17 @@ ActiveAdmin.register Associate, as: "Associate" do
         end
       end
     end
-    column "BU", sortable: :business_unit do |t|
+    column I18n.t('active_admin.bu'), sortable: :business_unit do |t|
       div(title: t('labels.associate_service_rates')) do
         link_to t.business_unit.name, admin_associate_service_rates_path(associate_id: t.id)
       end
     end
-    column "Name", sortable: :name do |t|
+    column I18n.t('active_admin.name'), sortable: :name do |t|
       div(title: t('labels.assignment_allocations')) do
         link_to t.name, admin_assignment_allocations_path(associate_id: t.id)
       end
     end
-    column "User", :user do |t|
+    column I18n.t('active_admin.user'), :user do |t|
       t.user.email
     end
     column :id_no
@@ -127,10 +128,10 @@ ActiveAdmin.register Associate, as: "Associate" do
   end
 
   form do |f|
-    f.inputs "Associate Details" do
-      f.input :business_unit, :label => 'BU'
+    f.inputs I18n.t('active_admin.associate') + ' ' + I18n.t('active_admin.detail').pluralize do
+      f.input :business_unit, :label => I18n.t('active_admin.bu')
       f.input :name
-      f.input :user, :label => 'User' \
+      f.input :user, :label => I18n.t('active_admin.user') \
         , :as => :select, :collection => AdminUser.allowed(self.current_user_rank \
         , self.current_user_id).map { |au| ["#{au.email}", au.id] }
       if params[:action] == "new" or params[:action] == "create"
@@ -139,14 +140,14 @@ ActiveAdmin.register Associate, as: "Associate" do
         f.input :as_on, as: :datepicker
       end
       f.input :id_no
-      f.input :associate_type, :label => 'Type', as: :select, collection: AssociateType.all.map \
+      f.input :associate_type, :label => I18n.t('active_admin.type'), as: :select, collection: AssociateType.all.map \
         { |r| ["#{r.name}", r.id] }, include_blank: false
       if params[:action] == "new" or params[:action] == "create"
-        f.input :doj, :label => 'Date of joining', as: :datepicker, :input_html => {:value => Date.today}
+        f.input :doj, :label => I18n.t('active_admin.date_of_joining'), as: :datepicker, :input_html => {:value => Date.today}
       else
-        f.input :doj, :label => 'Date of joining', as: :datepicker
+        f.input :doj, :label => I18n.t('active_admin.date_of_joining'), as: :datepicker
       end
-      f.input :dol, :label => 'Date of leaving', as: :datepicker
+      f.input :dol, :label => I18n.t('active_admin.date_of_leaving'), as: :datepicker
       f.input :active, as: :select, collection: FlagStatus.all.map \
         { |r| ["#{r.name}", r.id] }, include_blank: false
       f.input :manager

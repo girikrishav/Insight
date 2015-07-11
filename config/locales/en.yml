@@ -118,6 +118,11 @@ en:
     currency: "Currency"
     cost_adder_type: "Cost Adder Type"
     business_unit: "Business Unit"
+    associate: "Associate"
+    name: "Name"
+    user: "User"
+    date_of_joining: "Date of Joining"
+    date_of_leaving: "Date of Leaving"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"
