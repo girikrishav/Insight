@@ -1,6 +1,6 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register AssociateHistory, as: "Associate History" do
+ActiveAdmin.register AssociateHistory, as: I18n.t('active_admin.associate_history') do
   menu false
 
   config.sort_order = 'created_at_desc'
@@ -10,11 +10,11 @@ ActiveAdmin.register AssociateHistory, as: "Associate History" do
   # config.batch_actions = false
 
   action_item only: [:index] do
-    link_to "Cancel", admin_associates_path
+    link_to I18n.t('button_labels.cancel'), admin_associates_path
   end
 
   action_item only: [:show] do
-    link_to "Cancel", admin_associate_histories_path(associate_id: params[:associate_id])
+    link_to I18n.t('button_labels.cancel'), admin_associate_histories_path(associate_id: params[:associate_id])
   end
 
   controller do
@@ -38,7 +38,7 @@ ActiveAdmin.register AssociateHistory, as: "Associate History" do
   end
 
   show do |p|
-    panel 'Associate History Details' do
+    panel I18n.t('active_admin.associate_history') + ' ' + I18n.t('active_admin.detail').pluralize do
       attributes_table_for p do
         row :id
         row :name
@@ -82,7 +82,7 @@ ActiveAdmin.register AssociateHistory, as: "Associate History" do
       selectable_column
     end
     column :id
-    column "BU", :business_unit
+    column I18n.t('active_admin.bu'), :business_unit
     column :name
     column :id_no
     column :manager do |m|
