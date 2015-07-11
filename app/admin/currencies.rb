@@ -1,12 +1,13 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register Currency, as: "Currency" do
-  menu :if => proc { menu_accessible?(100) }, :label => "Currencies", :parent => "Lookups", :priority => 70
+ActiveAdmin.register Currency, as: I18n.t('active_admin.currency') do
+  menu :if => proc { menu_accessible?(100) }, :label => I18n.t('active_admin.currency').pluralize\
+  , :parent => I18n.t('active_admin.lookup').pluralize, :priority => 70
 
   config.sort_order = 'name_asc'
 
   action_item only: [:show] do
-    link_to "Cancel", admin_currencies_path
+    link_to I18n.t('button_labels.cancel'), admin_currencies_path
   end
 
   controller do

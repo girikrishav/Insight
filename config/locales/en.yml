@@ -115,6 +115,7 @@ en:
     designation: "Designation"
     department: "Department"
     currency_rate: "Currency Rate"
+    currency: "Currency"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"
