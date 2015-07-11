@@ -1,16 +1,16 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register InvoiceAdder, as: "Invoice Adder" do
+ActiveAdmin.register InvoiceAdder, as: I18n.t('active_admin.invoice_adder') do
   menu false
 
   config.sort_order = 'id_asc'
 
   action_item only: [:index] do
-    link_to "Cancel", admin_invoices_path
+    link_to I18n.t('button_labels.cancel'), admin_invoices_path
   end
 
   action_item only: [:show] do
-    link_to "Cancel", admin_invoice_adders_path(invoice_header_id: params[:invoice_header_id])
+    link_to I18n.t('button_labels.cancel'), admin_invoice_adders_path(invoice_header_id: params[:invoice_header_id])
   end
 
   controller do
@@ -60,7 +60,7 @@ ActiveAdmin.register InvoiceAdder, as: "Invoice Adder" do
   end
 
   show do |ia|
-    panel 'Invoice Adder Details' do
+    panel I18n.t('active_admin.invoice_adder') + ' ' + I18n.t('active_admin.detail').pluralize do
       attributes_table_for ia do
         row :id
         row :invoice_header do |ih|
@@ -68,7 +68,7 @@ ActiveAdmin.register InvoiceAdder, as: "Invoice Adder" do
         end
         row :description
         row :invoice_adder_type
-        row "In", :bu_currency do |ia|
+        row I18n.t('active_admin.in'), :bu_currency do |ia|
           ia.bu_currency
         end
         row :amount do |ia|
@@ -96,8 +96,8 @@ ActiveAdmin.register InvoiceAdder, as: "Invoice Adder" do
     end
     column :description
     column :invoice_adder_type
-    column 'In', :bu_currency
-    column 'Amount', :amount, :sortable => 'amount' do |element|
+    column I18n.t('active_admin.in'), :bu_currency
+    column I18n.t('active_admin.amount'), :amount, :sortable => 'amount' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.amount, precision: 2, delimiter: ','
       end
@@ -106,7 +106,7 @@ ActiveAdmin.register InvoiceAdder, as: "Invoice Adder" do
   end
 
   form do |f|
-    f.inputs "Invoice Adder Details" do
+    f.inputs I18n.t('active_admin.invoice_adder') + ' ' + I18n.t('active_admin.detail').pluralize do
       f.input :invoice_header, as: :select, collection: InvoiceHeader.all.map { |ih| [ih.name, ih.id] }\
           , input_html: {:disabled => true, selected: InvoiceHeader.find(session[:invoice_header_id]).id}
       f.input :description

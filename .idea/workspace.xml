@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="adf352fa-d643-4c4b-b9c0-def541ece40b" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/all_invoice_adders.rb" afterPath="$PROJECT_DIR$/app/admin/all_invoice_adders.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/all_invoice_headers.rb" afterPath="$PROJECT_DIR$/app/admin/all_invoice_headers.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/locales/en.yml" afterPath="$PROJECT_DIR$/config/locales/en.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Insight.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,8 +53,8 @@
       <file leaf-file-name="all_invoice_headers.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/admin/all_invoice_headers.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.51861703" vertical-offset="1725" max-vertical-offset="2130">
-              <caret line="128" column="80" selection-start-line="128" selection-start-column="80" selection-end-line="128" selection-end-column="80" />
+            <state vertical-scroll-proportion="0.7180851" vertical-offset="1260" max-vertical-offset="2130">
+              <caret line="102" column="32" selection-start-line="102" selection-start-column="32" selection-end-line="102" selection-end-column="32" />
               <folding>
                 <element signature="e#67#97#0" expanded="true" />
                 <element signature="e#156#186#0" expanded="true" />
@@ -67,11 +67,29 @@
                 <element signature="e#2560#2589#0" expanded="true" />
                 <element signature="e#2783#2812#0" expanded="true" />
                 <element signature="e#3118#3153#0" expanded="true" />
-                <element signature="e#3227#3271#0" expanded="true" />
-                <element signature="e#3377#3407#0" expanded="true" />
-                <element signature="e#3416#3445#0" expanded="true" />
-                <element signature="e#3984#4011#0" expanded="true" />
-                <element signature="e#4599#4626#0" expanded="true" />
+                <element signature="e#3369#3399#0" expanded="true" />
+                <element signature="e#3408#3437#0" expanded="true" />
+                <element signature="e#3976#4003#0" expanded="true" />
+                <element signature="e#4591#4618#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="all_invoice_adders.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/admin/all_invoice_adders.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1499" max-vertical-offset="1875">
+              <caret line="108" column="97" selection-start-line="108" selection-start-column="97" selection-end-line="108" selection-end-column="97" />
+              <folding>
+                <element signature="e#66#102#0" expanded="true" />
+                <element signature="e#196#226#0" expanded="true" />
+                <element signature="e#298#328#0" expanded="true" />
+                <element signature="e#1943#1979#0" expanded="true" />
+                <element signature="e#1988#2017#0" expanded="true" />
+                <element signature="e#2230#2255#0" expanded="true" />
+                <element signature="e#2889#2914#0" expanded="true" />
+                <element signature="e#2940#2969#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -80,8 +98,8 @@
       <file leaf-file-name="en.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/locales/en.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1875" max-vertical-offset="2805">
-              <caret line="134" column="22" selection-start-line="134" selection-start-column="22" selection-end-line="134" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1875" max-vertical-offset="2820">
+              <caret line="135" column="34" selection-start-line="135" selection-start-column="34" selection-end-line="135" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -129,7 +147,6 @@
         <option value="$PROJECT_DIR$/app/admin/invoice_adders.rb" />
         <option value="$PROJECT_DIR$/app/admin/invoices.rb" />
         <option value="$PROJECT_DIR$/app/models/payment_line.rb" />
-        <option value="$PROJECT_DIR$/app/admin/all_invoice_adders.rb" />
         <option value="$PROJECT_DIR$/app/models/project.rb" />
         <option value="$PROJECT_DIR$/app/admin/all_invoice_lines.rb" />
         <option value="$PROJECT_DIR$/app/admin/assignment_allocations.rb" />
@@ -156,6 +173,7 @@
         <option value="$PROJECT_DIR$/app/models/business_unit.rb" />
         <option value="$PROJECT_DIR$/app/models/pipeline.rb" />
         <option value="$PROJECT_DIR$/config/locales/en.yml" />
+        <option value="$PROJECT_DIR$/app/admin/all_invoice_adders.rb" />
         <option value="$PROJECT_DIR$/app/admin/all_invoice_headers.rb" />
       </list>
     </option>
@@ -844,13 +862,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/admin/all_invoice_adders.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1442" max-vertical-offset="1875">
-          <caret line="109" column="93" selection-start-line="109" selection-start-column="93" selection-end-line="109" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/project.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="2145">
@@ -1028,16 +1039,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/locales/en.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1875" max-vertical-offset="2805">
-          <caret line="134" column="22" selection-start-line="134" selection-start-column="22" selection-end-line="134" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1875" max-vertical-offset="2820">
+          <caret line="135" column="34" selection-start-line="135" selection-start-column="34" selection-end-line="135" selection-end-column="34" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/admin/all_invoice_adders.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1499" max-vertical-offset="1875">
+          <caret line="108" column="97" selection-start-line="108" selection-start-column="97" selection-end-line="108" selection-end-column="97" />
+          <folding>
+            <element signature="e#66#102#0" expanded="true" />
+            <element signature="e#196#226#0" expanded="true" />
+            <element signature="e#298#328#0" expanded="true" />
+            <element signature="e#1943#1979#0" expanded="true" />
+            <element signature="e#1988#2017#0" expanded="true" />
+            <element signature="e#2230#2255#0" expanded="true" />
+            <element signature="e#2889#2914#0" expanded="true" />
+            <element signature="e#2940#2969#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/admin/all_invoice_headers.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51861703" vertical-offset="1725" max-vertical-offset="2130">
-          <caret line="128" column="80" selection-start-line="128" selection-start-column="80" selection-end-line="128" selection-end-column="80" />
+        <state vertical-scroll-proportion="0.7180851" vertical-offset="1260" max-vertical-offset="2130">
+          <caret line="102" column="32" selection-start-line="102" selection-start-column="32" selection-end-line="102" selection-end-column="32" />
           <folding>
             <element signature="e#67#97#0" expanded="true" />
             <element signature="e#156#186#0" expanded="true" />
@@ -1050,11 +1078,10 @@
             <element signature="e#2560#2589#0" expanded="true" />
             <element signature="e#2783#2812#0" expanded="true" />
             <element signature="e#3118#3153#0" expanded="true" />
-            <element signature="e#3227#3271#0" expanded="true" />
-            <element signature="e#3377#3407#0" expanded="true" />
-            <element signature="e#3416#3445#0" expanded="true" />
-            <element signature="e#3984#4011#0" expanded="true" />
-            <element signature="e#4599#4626#0" expanded="true" />
+            <element signature="e#3369#3399#0" expanded="true" />
+            <element signature="e#3408#3437#0" expanded="true" />
+            <element signature="e#3976#4003#0" expanded="true" />
+            <element signature="e#4591#4618#0" expanded="true" />
           </folding>
         </state>
       </provider>

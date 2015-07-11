@@ -100,7 +100,7 @@ ActiveAdmin.register InvoiceHeader, as: I18n.t('active_admin.invoice') do
     column :due_date
     actions dropdown: :true do |ih|
       item I18n.t('active_admin.invoice_line').pluralize, admin_invoice_lines_path(invoice_header_id: ih.id)
-      item I18n.t('active_admin.project_invoice_adder').pluralize, admin_invoice_adders_path(invoice_header_id: ih.id)
+      item I18n.t('active_admin.invoice_adder').pluralize, admin_invoice_adders_path(invoice_header_id: ih.id)
     end
   end
 
