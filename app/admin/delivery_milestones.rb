@@ -1,16 +1,16 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register DeliveryMilestone, as: "Delivery Milestone" do
+ActiveAdmin.register DeliveryMilestone, as: I18n.t('active_admin.delivery_milestone') do
   menu false
 
   config.sort_order = 'due_date_desc'
 
   action_item only: [:index] do
-    link_to "Cancel", admin_projects_path
+    link_to I18n.t('button_labels.cancel'), admin_projects_path
   end
 
   action_item only: [:show] do
-    link_to "Cancel", admin_delivery_milestones_path(project_id: params[:project_id])
+    link_to I18n.t('button_labels.cancel'), admin_delivery_milestones_path(project_id: params[:project_id])
   end
 
   controller do
@@ -50,7 +50,7 @@ ActiveAdmin.register DeliveryMilestone, as: "Delivery Milestone" do
   end
 
   show do |sr|
-    panel 'Delivery Milestone Details' do
+    panel I18n.t('active_admin.delivery_milestone') + ' ' + I18n.t('active_admin.detail').pluralize do
       attributes_table_for sr do
         row :id
         row :project do |p|
@@ -92,7 +92,7 @@ ActiveAdmin.register DeliveryMilestone, as: "Delivery Milestone" do
   end
 
   form do |f|
-    f.inputs "Delivery Milestone Details" do
+    f.inputs I18n.t('active_admin.delivery_milestone') + ' ' + I18n.t('active_admin.detail').pluralize do
       f.input :project, as: :select, collection: Project.all.map { |p| [p.name, p.id] }\
           , input_html: {:disabled => true, selected: Project.find(session[:project_id]).id}
       if params[:action] == "new" or params[:action] == "create"
