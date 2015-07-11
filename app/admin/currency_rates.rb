@@ -1,14 +1,15 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register CurrencyRate, as: "Currency Rate" do
-  menu :if => proc { menu_accessible?(50) }, :label => "Currency Rates", :parent => "Masters", :priority => 90
+ActiveAdmin.register CurrencyRate, as: I18n.t('active_admin.currency_rate') do
+  menu :if => proc { menu_accessible?(50) }, :label => I18n.t('active_admin.currency_rate').pluralize\
+  , :parent => I18n.t('active_admin.master').pluralize, :priority => 90
 
   config.sort_order = 'as_on_desc'
 
   config.paginate = false
 
   action_item only: [:show] do
-    link_to "Cancel", admin_currency_rates_path
+    link_to I18n.t('button_labels.cancel'), admin_currency_rates_path
   end
 
   batch_action :reciprocal do |ids|
@@ -74,7 +75,7 @@ ActiveAdmin.register CurrencyRate, as: "Currency Rate" do
   end
 
   show do |cr|
-    panel 'Currency Rate Details' do
+    panel I18n.t('active_admin.currency_rate') + ' ' + I18n.t('active_admin.detail').pluralize do
       attributes_table_for cr do
         row :id
         row :from_currency
@@ -125,7 +126,7 @@ ActiveAdmin.register CurrencyRate, as: "Currency Rate" do
   end
 
   form do |f|
-    f.inputs "Currency Rate Details" do
+    f.inputs I18n.t('active_admin.currency_rate') + ' ' + I18n.t('active_admin.detail').pluralize do
       if params[:action] == "new" || params[:action] == "create"
         f.input :from_currency
         f.input :to_currency
