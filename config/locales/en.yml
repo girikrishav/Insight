@@ -116,6 +116,7 @@ en:
     department: "Department"
     currency_rate: "Currency Rate"
     currency: "Currency"
+    cost_adder_type: "Cost Adder Type"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"

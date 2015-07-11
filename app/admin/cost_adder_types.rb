@@ -1,12 +1,13 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register CostAdderType, as: "Cost Adder Type" do
-  menu :if => proc { menu_accessible?(50) }, :label => "Cost Adder Types", :parent => "Masters", :priority => 80
+ActiveAdmin.register CostAdderType, as: I18n.t('active_admin.cost_adder_type') do
+  menu :if => proc { menu_accessible?(50) }, :label => I18n.t('active_admin.cost_adder_type').pluralize\
+  , :parent => I18n.t('active_admin.master').pluralize, :priority => 80
 
   config.sort_order = 'rank_asc'
 
   action_item only: [:show] do
-    link_to "Cancel", admin_cost_adder_types_path
+    link_to I18n.t('button_labels.cancel'), admin_cost_adder_types_path
   end
 
   controller do
