@@ -107,6 +107,8 @@ en:
     new_user: "New User"
     unbilled: "Unbilled"
     invoice_status: "Invoice Status"
+    invoice_adder_type: "Invoice Adder Type"
+    rate_applicable_percent: "Rate Applicable (%)"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"

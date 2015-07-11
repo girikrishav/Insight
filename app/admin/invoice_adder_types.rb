@@ -1,12 +1,13 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register InvoiceAdderType, as: "Invoice Adder Type" do
-  menu :if => proc { menu_accessible?(50) }, :label => "Invoice Adder Types", :parent => "Masters", :priority => 70
+ActiveAdmin.register InvoiceAdderType, as: I18n.t('active_admin.invoice_adder_type') do
+  menu :if => proc { menu_accessible?(50) }, :label => I18n.t('active_admin.invoice_adder_type').pluralize\
+  , :parent => I18n.t('active_admin.master').pluralize, :priority => 70
 
   config.sort_order = 'rank_asc'
 
   action_item only: [:show] do
-    link_to "Cancel", admin_invoice_adder_types_path
+    link_to I18n.t('button_labels.cancel'), admin_invoice_adder_types_path
   end
 
   controller do
@@ -29,14 +30,14 @@ ActiveAdmin.register InvoiceAdderType, as: "Invoice Adder Type" do
   end
 
   show do |iat|
-    panel 'Invoice Adder Type Details' do
+    panel I18n.t('active_admin.invoice_adder_type') + ' ' + I18n.t('active_admin.detail').pluralize do
       attributes_table_for iat do
         row :id
         row :name
         row :description
         row :rank
         row :applicable_date
-        row 'Rate applicable (%)' do
+        row I18n.t('active_admin.rate_applicable_percent') do
           iat.rate_applicable
         end
         row :created_at
@@ -62,12 +63,12 @@ ActiveAdmin.register InvoiceAdderType, as: "Invoice Adder Type" do
     column :description
     column :rank
     column :applicable_date
-    column "Rate Applicable (%)", :rate_applicable
+    column I18n.t('active_admin.rate_applicable_percent'), :rate_applicable
     actions dropdown: :true
   end
 
   form do |f|
-    f.inputs "Invoice Adder Type Details" do
+    f.inputs I18n.t('active_admin.invoice_adder_type') + ' ' + I18n.t('active_admin.detail').pluralize do
       if params[:action] == "new" || params[:action] == "create"
         f.input :name
       else
@@ -76,7 +77,7 @@ ActiveAdmin.register InvoiceAdderType, as: "Invoice Adder Type" do
       f.input :description
       f.input :rank
       f.input :applicable_date, as: :datepicker
-      f.input :rate_applicable, :label => "Rate Applicable (%)"
+      f.input :rate_applicable, :label => I18n.t('active_admin.rate_applicable_percent')
       f.input :comments
     end
     f.actions
