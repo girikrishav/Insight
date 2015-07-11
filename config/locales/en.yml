@@ -129,6 +129,7 @@ en:
     cost_rate: "Cost Rate"
     skill_designation: "Skill Designation"
     associate_history: "Associate History"
+    assignment_history: "Assignment History"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"

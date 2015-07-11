@@ -1,6 +1,6 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register AssignmentHistory, as: "Assignment History" do
+ActiveAdmin.register AssignmentHistory, as: I18n.t('active_admin.assignment_history') do
   menu false
 
   config.sort_order = 'created_at_desc'
@@ -10,11 +10,11 @@ ActiveAdmin.register AssignmentHistory, as: "Assignment History" do
   # config.batch_actions = false
 
   action_item only: [:index] do
-    link_to "Cancel", admin_assignments_path
+    link_to I18n.t('button_labels.cancel'), admin_assignments_path
   end
 
   action_item only: [:show] do
-    link_to "Cancel", admin_assignment_histories_path(assignment_id: params[:assignment_id])
+    link_to I18n.t('button_labels.cancel'), admin_assignment_histories_path(assignment_id: params[:assignment_id])
   end
 
   controller do
@@ -39,7 +39,7 @@ ActiveAdmin.register AssignmentHistory, as: "Assignment History" do
   end
 
   show do |ah|
-    panel 'Assignment History Details' do
+    panel I18n.t('active_admin.assignment_history') + ' ' + I18n.t('active_admin.detail').pluralize do
       attributes_table_for ah do
         row :id
         row :assignment do
@@ -72,7 +72,7 @@ ActiveAdmin.register AssignmentHistory, as: "Assignment History" do
       selectable_column
     end
     column :id
-    column 'At', :created_at
+    column I18n.t('active_admin.at'), :created_at
     column :project do |p|
       div(title: p.project.name) do
         t('labels.hover_for_details')
