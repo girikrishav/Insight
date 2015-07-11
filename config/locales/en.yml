@@ -132,6 +132,7 @@ en:
     assignment_history: "Assignment History"
     assignment_allocation: "Assignment Allocation"
     invoice_line: "Invoice Line"
+    invoice: "Invoice"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"

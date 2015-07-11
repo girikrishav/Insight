@@ -1,12 +1,13 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register InvoiceHeader, as: "Invoice" do
-  menu :if => proc { menu_accessible?(25) }, :label => "Invoices", :parent => "Operations", :priority => 70
+ActiveAdmin.register InvoiceHeader, as: I18n.t('active_admin.invoice') do
+  menu :if => proc { menu_accessible?(25) }, :label => I18n.t('active_admin.invoice').pluralize\
+    , :parent => I18n.t('active_admin.operation').pluralize, :priority => 70
 
   config.sort_order = 'invoice_date_desc_and_id_desc'
 
   action_item only: [:show] do
-    link_to "Cancel", admin_invoices_path
+    link_to I18n.t('button_labels.cancel'), admin_invoices_path
   end
 
   controller do
@@ -35,7 +36,7 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice" do
   end
 
   show do |ih|
-    panel 'Invoice Header Details' do
+    panel I18n.t('active_admin.invoice') + ' ' + I18n.t('active_admin.detail').pluralize do
       attributes_table_for ih do
         row :id
         row :project do |p|
@@ -43,7 +44,7 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice" do
         end
         row :description
         row :invoice_date
-        row "In" do |ih|
+        row I18n.t('active_admin.in') do |ih|
           ih.bu_currency
         end
         row :amount do |ih|
@@ -83,13 +84,13 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice" do
     end
     column :description
     column :invoice_date
-    column 'In', :bu_currency
-    column 'Amount', :amount, :sortable => 'amount' do |element|
+    column I18n.t('active_admin.in'), :bu_currency
+    column I18n.t('active_admin.amount'), :amount, :sortable => 'amount' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.amount, precision: 2, delimiter: ','
       end
     end
-    column 'Unpaid', :unpaid, :sortable => 'unpaid' do |element|
+    column I18n.t('active_admin.unpaid'), :unpaid, :sortable => 'unpaid' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.unpaid, precision: 2, delimiter: ','
       end
@@ -98,13 +99,13 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice" do
     # column 'Terms', :term
     column :due_date
     actions dropdown: :true do |ih|
-      item 'Invoice Lines', admin_invoice_lines_path(invoice_header_id: ih.id)
-      item 'Invoice Adders', admin_invoice_adders_path(invoice_header_id: ih.id)
+      item I18n.t('active_admin.invoice_line').pluralize, admin_invoice_lines_path(invoice_header_id: ih.id)
+      item I18n.t('active_admin.project_invoice_adder').pluralize, admin_invoice_adders_path(invoice_header_id: ih.id)
     end
   end
 
   form do |f|
-    f.inputs "Invoice Header Details" do
+    f.inputs I18n.t('active_admin.invoice') + ' ' + I18n.t('active_admin.detail').pluralize do
       if params[:action] == "new" or params[:action] == "create"
         f.input :project, as: :select, collection: Project.all.map { |p| [p.name, p.id] }
         f.input :description
@@ -113,7 +114,7 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice" do
            InvoiceStatus.all.map { |is| [is.name, is.id] } \
            , selected: InvoiceStatus.find_by_name('New').id \
            , include_blank: :false
-        f.input :term, as: :select, label: 'Terms', collection: \
+        f.input :term, as: :select, label: I18n.t('active_admin.term').pluralize, collection: \
            Term.all.map { |t| [t.name, t.id] } \
            , include_blank: false
         f.input :comments
@@ -125,7 +126,7 @@ ActiveAdmin.register InvoiceHeader, as: "Invoice" do
         f.input :invoice_status, as: :select, collection: \
            InvoiceStatus.all.map { |is| [is.name, is.id] } \
            , include_blank: :false
-        f.input :term, as: :select, label: 'Terms', collection: \
+        f.input :term, as: :select, label: I18n.t('active_admin.term').pluralize, collection: \
            Term.all.map { |t| [t.name, t.id] }
         f.input :comments
       end
