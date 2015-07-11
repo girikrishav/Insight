@@ -1,16 +1,16 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register Assignment, as: "Assignment" do
+ActiveAdmin.register Assignment, as: I18n.t('active_admin.assignment') do
   menu false
 
   config.sort_order = 'start_date_desc'
 
   action_item only: [:index] do
-    link_to "Cancel", admin_projects_path
+    link_to I18n.t('button_labels.cancel'), admin_projects_path
   end
 
   action_item only: [:show] do
-    link_to "Cancel", admin_assignments_path(project_id: params[:project_id])
+    link_to I18n.t('button_labels.cancel'), admin_assignments_path(project_id: params[:project_id])
   end
 
   controller do
@@ -56,7 +56,7 @@ ActiveAdmin.register Assignment, as: "Assignment" do
   end
 
   show do |sr|
-    panel 'Assignment Details' do
+    panel I18n.t('active_admin.assignment') + ' ' + I18n.t('active_admin.detail').pluralize do
       attributes_table_for sr do
         row :id
         row :project do |p|
@@ -96,7 +96,7 @@ ActiveAdmin.register Assignment, as: "Assignment" do
 
   index title: proc { |p| @project_title } do
     selectable_column
-    column 'Id', sortable: :id do |t|
+    column I18n.t('active_admin.id'), sortable: :id do |t|
       div(title: t('labels.assignment_histories')) do
         if AssignmentHistory.where(assignment_id: t.id).count > 0
           link_to t.id, admin_assignment_histories_path(assignment_id: t.id)
@@ -125,7 +125,7 @@ ActiveAdmin.register Assignment, as: "Assignment" do
   end
 
   form do |f|
-    f.inputs "Assignment Details" do
+    f.inputs I18n.t('active_admin.assignment') + ' ' + I18n.t('active_admin.detail').pluralize do
       f.input :project, as: :select, collection: Project.all.map { |p| [p.name, p.id] }\
           , input_html: {:disabled => true, selected: Project.find(session[:project_id]).id}
       if params[:action] == "new" or params[:action] == "create"
