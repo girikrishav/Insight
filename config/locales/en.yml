@@ -124,6 +124,10 @@ en:
     date_of_joining: "Date of Joining"
     date_of_leaving: "Date of Leaving"
     associate_type: "Associate Type"
+    associate_service_rate: "Associate Service Rate"
+    billing_rate: "Billing Rate"
+    cost_rate: "Cost Rate"
+    skill_designation: "Skill Designation"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"

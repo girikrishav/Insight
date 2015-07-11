@@ -1,16 +1,16 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register AssociateServiceRate, as: "Associate Service Rate" do
+ActiveAdmin.register AssociateServiceRate, as: I18n.t('active_admin.associate_service_rate') do
   menu false
 
   config.sort_order = 'as_on_desc'
 
   action_item only: [:index] do
-    link_to "Cancel", admin_associates_path
+    link_to I18n.t('button_labels.cancel'), admin_associates_path
   end
 
   action_item only: [:show] do
-    link_to "Cancel", admin_associate_service_rates_path(associate_id: params[:associate_id])
+    link_to I18n.t('button_labels.cancel'), admin_associate_service_rates_path(associate_id: params[:associate_id])
   end
 
   controller do
@@ -51,7 +51,7 @@ ActiveAdmin.register AssociateServiceRate, as: "Associate Service Rate" do
   end
 
   show do |sr|
-    panel 'Associate Service Rate Details' do
+    panel I18n.t('active_admin.associate_service_rate') + ' ' + I18n.t('active_admin.detail').pluralize do
       attributes_table_for sr do
         row :id
         row :associate
@@ -59,7 +59,7 @@ ActiveAdmin.register AssociateServiceRate, as: "Associate Service Rate" do
           sr.service_rate.skill_designation
         end
         row :as_on
-        row "In" do |asr|
+        row I18n.t('active_admin.in') do |asr|
           asr.bu_currency
         end
         row :billing_rate do
@@ -88,16 +88,16 @@ ActiveAdmin.register AssociateServiceRate, as: "Associate Service Rate" do
     selectable_column
     column :id
     column :associate
-    column "Skill", :skill_name
-    column "Designation", :designation_name
+    column I18n.t('active_admin.skill'), :skill_name
+    column I18n.t('active_admin.designation'), :designation_name
     column :as_on
-    column "In", :bu_currency
-    column t('labels.billing_rate'), :billing_rate, :sortable => 'billing_rate' do |element|
+    column I18n.t('active_admin.in'), :bu_currency
+    column I18n.t('active_admin.billing_rate'), :billing_rate, :sortable => 'billing_rate' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.billing_rate, precision: 2, delimiter: ','
       end
     end
-    column t('labels.cost_rate'), :cost_rate, :sortable => 'cost_rate' do |element|
+    column I18n.t('active_admin.cost_rate'), :cost_rate, :sortable => 'cost_rate' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.cost_rate, precision: 2, delimiter: ','
       end
@@ -106,15 +106,15 @@ ActiveAdmin.register AssociateServiceRate, as: "Associate Service Rate" do
   end
 
   form do |f|
-    f.inputs "Associate Service Rate Details" do
+    f.inputs I18n.t('active_admin.associate_service_rate') + ' ' + I18n.t('active_admin.detail').pluralize do
       f.input :associate, input_html: {:disabled => true}
 
       if params[:action] == "new" || params[:action] == "create"
-        f.input :service_rate, label: 'Skill Designation', as: :select, collection: ServiceRate.all\
+        f.input :service_rate, label: I18n.t('active_admin.skill_designation'), as: :select, collection: ServiceRate.all\
           .map { |p| [p.skill_designation, p.id] }
         f.input :as_on, as: :datepicker, input_html: {value: Date.today}
       else
-        f.input :service_rate, label: 'Skill Designation', as: :select, collection: ServiceRate.all\
+        f.input :service_rate, label: I18n.t('active_admin.skill_designation'), as: :select, collection: ServiceRate.all\
           .map { |p| [p.skill_designation, p.id] }, input_html: {:disabled => true}
         f.input :as_on, as: :datepicker
         f.input :bu_currency, input_html: {:disabled => true}
