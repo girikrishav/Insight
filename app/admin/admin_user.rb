@@ -1,6 +1,6 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register AdminUser, :as => "User" do
+ActiveAdmin.register AdminUser, :as => I18n.t('active_admin.user') do
   menu :if => proc { menu_accessible?(60) }, :parent => "Security", :priority => 40
 
   config.sort_order = 'email_asc'
@@ -91,8 +91,8 @@ ActiveAdmin.register AdminUser, :as => "User" do
     selectable_column
     column :id
     column :email
-    column "Current Sign-In", :current_sign_in_at
-    column "Logins", :sign_in_count
+    column I18n.t('active_admin.current_sign_in'), :current_sign_in_at
+    column I18n.t('active_admin.logins'), :sign_in_count
     column :role
     column :active
     actions dropdown: :true
@@ -105,7 +105,7 @@ ActiveAdmin.register AdminUser, :as => "User" do
 
   # Form begins.
   form do |f|
-    f.inputs "User Details" do
+    f.inputs I18n.t('active_admin.user') + ' ' + I18n.t('active_admin.detail').pluralize do
       if params[:action] == "new" || params[:action] == "create"
         f.input :email
       else

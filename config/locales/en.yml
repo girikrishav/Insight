@@ -134,6 +134,8 @@ en:
     invoice_line: "Invoice Line"
     invoice: "Invoice"
     invoice_adder: "Invoice Adder"
+    current_sign_in: "Current Sign-In"
+    logins: "Logins"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"
