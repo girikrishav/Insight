@@ -1,6 +1,6 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register AssignmentAllocation, as: "Assignment Allocation" do
+ActiveAdmin.register AssignmentAllocation, as: I18n.t('active_admin.assignment_allocation') do
   menu false
 
   config.sort_order = 'start_date_desc'
@@ -9,11 +9,11 @@ ActiveAdmin.register AssignmentAllocation, as: "Assignment Allocation" do
   actions  :index, :show 
 
   action_item only: [:index] do
-    link_to "Cancel", admin_associates_path
+    link_to I18n.t('button_labels.cancel'), admin_associates_path
   end
 
   action_item only: [:show] do
-    link_to "Cancel", admin_assignment_allocations_path(associate_id: params[:associate_id])
+    link_to I18n.t('button_labels.cancel'), admin_assignment_allocations_path(associate_id: params[:associate_id])
   end
 
   controller do
@@ -58,7 +58,7 @@ ActiveAdmin.register AssignmentAllocation, as: "Assignment Allocation" do
   end
 
   show do |sr|
-    panel 'Assignment Allocation Details' do
+    panel I18n.t('active_admin.assignment_allocation') + ' ' + I18n.t('active_admin.detail').pluralize do
       attributes_table_for sr do
         row :id
         row :project do |p|

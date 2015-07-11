@@ -130,6 +130,7 @@ en:
     skill_designation: "Skill Designation"
     associate_history: "Associate History"
     assignment_history: "Assignment History"
+    assignment_allocation: "Assignment Allocation"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"
