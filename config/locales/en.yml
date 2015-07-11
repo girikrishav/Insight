@@ -105,6 +105,7 @@ en:
     unapplied: "Unapplied"
     overhead: "Overhead"
     new_user: "New User"
+    unbilled: "Unbilled"
     batch_actions:
       labels:
         convert_to_project: "Convert into Project"

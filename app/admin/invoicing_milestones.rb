@@ -1,16 +1,16 @@
 include ActiveAdminHelper
 
-ActiveAdmin.register InvoicingMilestone, as: "Invoicing Milestone" do
+ActiveAdmin.register InvoicingMilestone, as: I18n.t('active_admin.invoicing_milestone') do
   menu false
 
   config.sort_order = 'due_date_desc'
 
   action_item only: [:index] do
-    link_to "Cancel", admin_projects_path
+    link_to I18n.t('button_labels.cancel'), admin_projects_path
   end
 
   action_item only: [:show] do
-    link_to "Cancel", admin_invoicing_milestones_path(project_id: params[:project_id])
+    link_to I18n.t('button_labels.cancel'), admin_invoicing_milestones_path(project_id: params[:project_id])
   end
 
   controller do
@@ -58,7 +58,7 @@ ActiveAdmin.register InvoicingMilestone, as: "Invoicing Milestone" do
   end
 
   show do |sr|
-    panel 'Invoicing Milestone Details' do
+    panel I18n.t('active_admin.invoicing_milestone') + ' ' + I18n.t('active_admin.detail').pluralize do
       attributes_table_for sr do
         row :id
         row :project do |p|
@@ -66,7 +66,7 @@ ActiveAdmin.register InvoicingMilestone, as: "Invoicing Milestone" do
         end
         row :name
         row :description
-        row "In" do |im|
+        row I18n.t('active_admin.in') do |im|
           im.currency
         end
         row :amount do |p|
@@ -103,13 +103,13 @@ ActiveAdmin.register InvoicingMilestone, as: "Invoicing Milestone" do
     end
     column :name
     column :description
-    column "In", :currency
-    column 'Amount', :amount, :sortable => 'amount' do |element|
+    column I18n.t('active_admin.in'), :currency
+    column I18n.t('active_admin.amount'), :amount, :sortable => 'amount' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.amount, precision: 2, delimiter: ','
       end
     end
-    column 'Unbilled', :amount, :sortable => 'unbilled' do |element|
+    column I18n.t('active_admin.unbilled'), :amount, :sortable => 'unbilled' do |element|
       div :style => "text-align: right;" do
         number_with_precision element.unbilled, precision: 2, delimiter: ','
       end
@@ -121,7 +121,7 @@ ActiveAdmin.register InvoicingMilestone, as: "Invoicing Milestone" do
   end
 
   form do |f|
-    f.inputs "Invoicing Milestone Details" do
+    f.inputs I18n.t('active_admin.invoicing_milestone') + ' ' + I18n.t('active_admin.detail').pluralize do
       f.input :project, as: :select, collection: Project.all.map { |p| [p.name, p.id] }\
           , input_html: {:disabled => true, selected: Project.find(session[:project_id]).id}
       if params[:action] == "new" or params[:action] == "create"
