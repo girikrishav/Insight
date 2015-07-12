@@ -100,9 +100,11 @@ class Pipeline < ActiveRecord::Base
   end
 
   def name
-    "Project name = " + self.project_name + ", Client = " + self.client_name\
-        + ", BU = " + self.bu_name+ " [In = " + self.bu_currency + "]"\
-        + ", As on = " + self.as_on.to_s
+    self.project_name + ' [' + self.client_name + '] [' + self.bu_name + '] ['\
+      + self.bu_currency + ']'
+    # "Project name = " + self.project_name + ", Client = " + self.client_name\
+    #     + ", BU = " + self.bu_name+ " [In = " + self.bu_currency + "]"\
+    #     + ", As on = " + self.as_on.to_s
   end
 
   after_save :create_history_record
