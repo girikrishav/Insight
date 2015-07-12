@@ -85,7 +85,7 @@ ActiveAdmin.register Client, as: I18n.t('active_admin.client') do
     end
     f.actions do
       f.action(:submit)
-      f.cancel_link(root_path)
+      f.cancel_link(admin_clients_path)
     end
   end
 end

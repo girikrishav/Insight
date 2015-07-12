@@ -130,7 +130,7 @@ ActiveAdmin.register AdminUser, :as => I18n.t('active_admin.user') do
     end
     f.actions do
       f.action(:submit)
-      f.cancel_link(root_path)
+      f.cancel_link(admin_users_path)
     end
   end
 end                                   
