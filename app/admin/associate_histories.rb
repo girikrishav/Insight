@@ -22,6 +22,15 @@ ActiveAdmin.register AssociateHistory, as: I18n.t('active_admin.associate_histor
       c.send(:is_user_authorized?, 50, url_for)
     end
 
+    def index
+      if !params[:associate_id].nil?
+        session[:associate_id] = params[:associate_id]
+      end
+      @associate_history_title = t('labels.associate_history_index_page'\
+          , associate_title: Associate.find(session[:associate_id]).id)
+      index!
+    end
+
     def scoped_collection
       end_of_association_chain.includes(:associate)
       end_of_association_chain.includes(:associate_type)
@@ -77,7 +86,7 @@ ActiveAdmin.register AssociateHistory, as: I18n.t('active_admin.associate_histor
   filter :created_at
   filter :updated_at
 
-  index do |p|
+  index title: proc { |p| @associate_history_title } do |p|
     if self.current_user_rank == self.highest_rank
       selectable_column
     end

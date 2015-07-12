@@ -171,6 +171,7 @@ en:
     associate_histories: "View associate history."
     associate_service_rates: "Manage associate service rates."
     associate_service_rate_index_page: "Associate Service Rates [Associate Id = %{associate_title}]"
+    associate_history_index_page: "Associate Histories [Associate Id = %{associate_title}]"
     billing_rate: "Billing Rate"
     cost_rate: "Cost Rate"
     assignment_allocations: "View assignment allocations."
