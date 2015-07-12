@@ -18,9 +18,11 @@ class Project < ActiveRecord::Base
   end
 
   def name
-    "Project = " + self.project_name + " ["  + self.start_date.to_s + ", " + self.end_date.to_s + "]"\
-        ", Client = " + self.client_name + ", BU = " + self.bu_name+ " [" + self.bu_currency + "]"\
-        + ", As on = " + self.as_on.to_s
+    self.project_name.slice(0, 12) + '... [' + self.client_name.slice(0, 12) + '...] [' + self.bu_name + '] ['\
+      + self.bu_currency + ']'
+    # "Project = " + self.project_name + " ["  + self.start_date.to_s + ", " + self.end_date.to_s + "]"\
+    #     ", Client = " + self.client_name + ", BU = " + self.bu_name+ " [" + self.bu_currency + "]"\
+    #     + ", As on = " + self.as_on.to_s
   end
 
   def self.allowed_ids(current_user_rank, highest_rank, current_user_id)

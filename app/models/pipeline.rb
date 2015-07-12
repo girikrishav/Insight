@@ -100,7 +100,7 @@ class Pipeline < ActiveRecord::Base
   end
 
   def name
-    self.project_name + ' [' + self.client_name + '] [' + self.bu_name + '] ['\
+    self.project_name.slice(0, 12) + '... [' + self.client_name.slice(0, 12) + '...] [' + self.bu_name + '] ['\
       + self.bu_currency + ']'
     # "Project name = " + self.project_name + ", Client = " + self.client_name\
     #     + ", BU = " + self.bu_name+ " [In = " + self.bu_currency + "]"\
