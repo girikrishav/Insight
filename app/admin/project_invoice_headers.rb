@@ -51,7 +51,7 @@ ActiveAdmin.register InvoiceHeader, as: I18n.t('active_admin.project_invoice') d
     end
   end
 
-  show do |ih|
+  show title: "" do |ih|
     panel I18n.t('active_admin.project_invoice') + ' ' + I18n.t('active_admin.detail').pluralize do
       attributes_table_for ih do
         row :id

@@ -4,9 +4,11 @@ class InvoiceHeader < ActiveRecord::Base
   end
 
   def name
-    'Invoice = ' + self.id.to_s + ' [' + self.invoice_date.to_s + \
-      '] [' + self.project.bu_currency + '] [' + sprintf('%.2f', self.amount) \
+    self.id.to_s + ' [' + self.invoice_date.to_s + '] [' + sprintf('%.2f', self.amount) \
       + '], ' + self.project.name
+    # 'Invoice = ' + self.id.to_s + ' [' + self.invoice_date.to_s + \
+    #   '] [' + self.project.bu_currency + '] [' + sprintf('%.2f', self.amount) \
+    #   + '], ' + self.project.name
   end
 
   def amount
