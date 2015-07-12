@@ -95,25 +95,28 @@ ActiveAdmin.register Associate, as: I18n.t('active_admin.associate') do
 
   index do
     selectable_column
-    column I18n.t('active_admin.id'), sortable: :id do |t|
-      div(title: t('labels.associate_histories')) do
-        if AssociateHistory.where(associate_id: t.id).count > 0
-          link_to t.id, admin_associate_histories_path(associate_id: t.id)
-        else
-          t.id
-        end
-      end
-    end
-    column I18n.t('active_admin.bu'), sortable: :business_unit do |t|
-      div(title: t('labels.associate_service_rates')) do
-        link_to t.business_unit.name, admin_associate_service_rates_path(associate_id: t.id)
-      end
-    end
-    column I18n.t('active_admin.name'), sortable: :name do |t|
-      div(title: t('labels.assignment_allocations')) do
-        link_to t.name, admin_assignment_allocations_path(associate_id: t.id)
-      end
-    end
+    column :id
+    # column I18n.t('active_admin.id'), sortable: :id do |t|
+    #   div(title: t('labels.associate_histories')) do
+    #     if AssociateHistory.where(associate_id: t.id).count > 0
+    #       link_to t.id, admin_associate_histories_path(associate_id: t.id)
+    #     else
+    #       t.id
+    #     end
+    #   end
+    # end
+    column I18n.t('active_admin.bu'), :business_unit
+    # column I18n.t('active_admin.bu'), sortable: :business_unit do |t|
+    #   div(title: t('labels.associate_service_rates')) do
+    #     link_to t.business_unit.name, admin_associate_service_rates_path(associate_id: t.id)
+    #   end
+    # end
+    column :name
+    # column I18n.t('active_admin.name'), sortable: :name do |t|
+    #   div(title: t('labels.assignment_allocations')) do
+    #     link_to t.name, admin_assignment_allocations_path(associate_id: t.id)
+    #   end
+    # end
     column I18n.t('active_admin.user'), :user do |t|
       t.user.email
     end
@@ -124,7 +127,11 @@ ActiveAdmin.register Associate, as: I18n.t('active_admin.associate') do
       end
     end
     column :active
-    actions dropdown: :true
+    actions dropdown: :true do |p|
+      item I18n.t('active_admin.associate_history').pluralize, admin_associate_histories_path(associate_id: p.id)
+      item I18n.t('active_admin.associate_service_rate').pluralize, admin_associate_service_rates_path(associate_id: p.id)
+      item I18n.t('active_admin.assignment_allocation').pluralize, admin_assignment_allocations_path(associate_id: p.id)
+    end
   end
 
   form do |f|
