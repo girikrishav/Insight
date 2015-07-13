@@ -88,7 +88,9 @@ ActiveAdmin.register InvoiceLine, as: I18n.t('active_admin.invoice_line') do
       end
     end
     column :description
-    column :invoicing_milestone
+    column :invoicing_milestone, as: :select, collection: \
+        InvoicingMilestone.project_invoicing_milestones(session[:invoice_header_id])\
+        .all.map { |im| [im.name, im.id] }
     column I18n.t('active_admin.in'), :bu_currency
     column I18n.t('active_admin.amount'), :amount, :sortable => 'amount' do |element|
       div :style => "text-align: right;" do
@@ -104,7 +106,9 @@ ActiveAdmin.register InvoiceLine, as: I18n.t('active_admin.invoice_line') do
       f.input :invoice_header, as: :select, collection: InvoiceHeader.all.map { |ih| [ih.name, ih.id] }\
           , input_html: {:disabled => true, selected: InvoiceHeader.find(session[:invoice_header_id]).id}
       f.input :description
-      f.input :invoicing_milestone
+      f.input :invoicing_milestone, as: :select, collection: \
+        InvoicingMilestone.project_invoicing_milestones(session[:invoice_header_id])\
+        .all.map { |im| [im.name, im.id] }
       f.input :amount
       f.input :taxable, as: :select, include_blank: false
       f.input :comments
