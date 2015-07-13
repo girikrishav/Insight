@@ -8,6 +8,10 @@ class InvoicingMilestone < ActiveRecord::Base
     self.project.bu_currency
   end
 
+  def self.project_invoicing_milestones(invoice_header_id)
+    InvoicingMilestone.where("project_id = ?", InvoiceHeader.find(invoice_header_id).project_id)
+  end
+
   validates :name, presence: :true
   validates :amount, presence: :true
   validates :due_date, presence: :true
