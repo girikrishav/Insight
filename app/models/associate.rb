@@ -84,8 +84,6 @@ class Associate < ActiveRecord::Base
   validates :associate_type, presence: :true
 
   validates_uniqueness_of :name, scope: [:name, :as_on, :business_unit_id]
-  validates_uniqueness_of :as_on, scope: [:name, :as_on, :business_unit_id]
-  validates_uniqueness_of :business_unit_id, scope: [:name, :as_on, :business_unit_id]
 
   validate :doj_dol_check
   validate :manager_check

@@ -119,9 +119,6 @@ class Project < ActiveRecord::Base
   validates :start_date, presence: :true
 
   validates_uniqueness_of :client_id, scope: [:client_id, :project_name, :owner_business_unit_id, :as_on]
-  validates_uniqueness_of :project_name, scope: [:client_id, :project_name, :owner_business_unit_id, :as_on]
-  validates_uniqueness_of :owner_business_unit_id, scope: [:client_id, :project_name, :owner_business_unit_id, :as_on]
-  validates_uniqueness_of :as_on, scope: [:client_id, :project_name, :owner_business_unit_id, :as_on]
 
   validate :start_end_date_check
   validate :project_pipeline_bu_check

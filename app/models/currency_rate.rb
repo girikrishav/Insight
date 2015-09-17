@@ -12,8 +12,6 @@ class CurrencyRate < ActiveRecord::Base
   validates :conversion_rate, presence: :true
 
   validates_uniqueness_of :from_currency_id, scope: [:from_currency_id, :to_currency_id, :as_on]
-  validates_uniqueness_of :to_currency_id, scope: [:from_currency_id, :to_currency_id, :as_on]
-  validates_uniqueness_of :as_on, scope: [:from_currency_id, :to_currency_id, :as_on]
 
   validate :validate_from_to_currencies
 
