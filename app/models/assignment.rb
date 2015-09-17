@@ -110,17 +110,6 @@ class Assignment < ActiveRecord::Base
 
   validates_uniqueness_of :project_id, scope: [:project_id, :skill_id, :designation_id\
       , :associate_id, :start_date, :end_date]
-  validates_uniqueness_of :skill_id, scope: [:project_id, :skill_id, :designation_id\
-      , :associate_id, :start_date, :end_date]
-  validates_uniqueness_of :designation_id, scope: [:project_id, :skill_id, :designation_id\
-      , :associate_id, :start_date, :end_date]
-  validates_uniqueness_of :associate_id, scope: [:project_id, :skill_id, :designation_id\
-      , :associate_id, :start_date, :end_date]
-  validates_uniqueness_of :start_date, scope: [:project_id, :skill_id, :designation_id\
-      , :associate_id, :start_date, :end_date]
-  validates_uniqueness_of :end_date, scope: [:project_id, :skill_id, :designation_id\
-      , :associate_id, :start_date, :end_date]
-
   belongs_to :payment_due_alert, :class_name => 'FlagStatus', :foreign_key => :payment_due_alert_id
   belongs_to :invoicing_due_alert, :class_name => 'FlagStatus', :foreign_key => :invoicing_due_alert_id
   belongs_to :delivery_due_alert, :class_name => 'FlagStatus', :foreign_key => :delivery_due_alert_id

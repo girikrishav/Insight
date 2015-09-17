@@ -53,9 +53,6 @@ class ServiceRate < ActiveRecord::Base
   validates :cost_rate, presence: :true
 
   validates_uniqueness_of :business_unit_id, scope: [:business_unit_id, :skill_id, :designation_id, :as_on]
-  validates_uniqueness_of :skill_id, scope: [:business_unit_id, :skill_id, :designation_id, :as_on]
-  validates_uniqueness_of :designation_id, scope: [:business_unit_id, :skill_id, :designation_id, :as_on]
-  validates_uniqueness_of :as_on, scope: [:business_unit_id, :skill_id, :designation_id, :as_on]
 
   belongs_to :business_unit, :class_name => 'BusinessUnit', :foreign_key => :business_unit_id
   belongs_to :skill, :class_name => 'Skill', :foreign_key => :skill_id

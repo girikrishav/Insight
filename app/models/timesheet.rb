@@ -52,7 +52,6 @@ class Timesheet < ActiveRecord::Base
   validates :hours, presence: :true
 
   validates_uniqueness_of :assignment_id, scope: [:assignment_id, :as_on]
-  validates_uniqueness_of :as_on, scope: [:assignment_id, :as_on]
 
   validate :hours_check
   validate :clocked_hours_check

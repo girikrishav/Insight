@@ -27,8 +27,6 @@ class AssociateServiceRate < ActiveRecord::Base
   validates :as_on, presence: true
 
   validates_uniqueness_of :associate_id, scope: [:associate_id, :service_rate_id, :as_on]
-  validates_uniqueness_of :service_rate_id, scope: [:associate_id, :service_rate_id, :as_on]
-  validates_uniqueness_of :as_on, scope: [:associate_id, :service_rate_id, :as_on]
 
   belongs_to :associate, :class_name => 'Associate', :foreign_key => :associate_id
   belongs_to :service_rate, :class_name => 'ServiceRate', :foreign_key => :service_rate_id
